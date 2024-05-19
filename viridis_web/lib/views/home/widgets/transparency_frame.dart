@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../utilities/responsive.dart';
+
 class TransparencyFrame extends StatefulWidget {
   const TransparencyFrame({super.key});
 
@@ -10,89 +12,105 @@ class TransparencyFrame extends StatefulWidget {
 }
 
 class _TransparencyFrameState extends State<TransparencyFrame> {
+  _getContainerPadding() {
+    if (Responsive.isDesktop(context)) {
+      return const EdgeInsets.all(45);
+    } else {
+      return const EdgeInsets.all(15);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: _getContainerPadding(),
       color: Colors.black,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
-      height: 927.h,
-      width: 1.sw,
-      child:
-          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 600),
-          child: Column(children: [
-            Text(
-              "Bringing Transparency to the Carbon Market",
-              textAlign: TextAlign.center,
-              style: GoogleFonts.inter(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Text(
-              "Seamlessly, eliminating greenwashing concerns through robust data infrastructure",
-              textAlign: TextAlign.center,
-              style: GoogleFonts.inter(
-                  fontSize: 21,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white),
-            ),
-            SizedBox(
-              height: 35.h,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+      child: Column(children: [
+        Container(
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(
+                    "images/bg_transparency_frame.png",
+                  ),
+                  fit: BoxFit.cover),
+              color: Colors.black,
+              borderRadius: BorderRadius.all(Radius.circular(15))),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
+          height: 1.sh,
+          width: 1.sw,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _ctaButton(
-                    filled: true,
-                    child: Row(
+                ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 600),
+                  child: Column(children: [
+                    Text(
+                      "Bringing Transparency to the Carbon Market",
+                      textAlign: TextAlign.center,
+                      style: Responsive.getTextStyle(context,
+                          mSize: 30, dSize: 40, weight: FontWeight.w700),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Text(
+                      "Seamlessly, eliminating greenwashing concerns through robust data infrastructure",
+                      textAlign: TextAlign.center,
+                      style: Responsive.getTextStyle(context),
+                    ),
+                    SizedBox(
+                      height: 35.h,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          "Explore",
-                          style: GoogleFonts.inter(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black),
-                        ),
-                        const Icon(
-                          Icons.chevron_right,
-                          color: Colors.black,
-                        )
+                        _ctaButton(
+                            filled: true,
+                            child: Row(
+                              children: [
+                                Text(
+                                  "Explore",
+                                  style: GoogleFonts.inter(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black),
+                                ),
+                                const Icon(
+                                  Icons.chevron_right,
+                                  color: Colors.black,
+                                )
+                              ],
+                            )),
+                        // SizedBox(
+                        //   width: 40.w,
+                        // ),
+                        // _learnMore()
                       ],
-                    )),
-                SizedBox(
-                  width: 40.w,
+                    )
+                  ]),
                 ),
-                _learnMore()
-              ],
-            )
-          ]),
+              ]),
+        ),
+        SizedBox(
+          height: 45.h,
         ),
         ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 600),
+          constraints: const BoxConstraints(maxWidth: 600),
           child: Column(children: [
-            Text(
-              "Viridis utilizes network of decentralized VVBs to continuously authenticate carbon, allowing users to trace their lifecycle with immutable records, fostering trust and reliability.",
-              textAlign: TextAlign.center,
-              style: GoogleFonts.inter(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white),
-            ),
-            SizedBox(
-              height: 60.h,
-            ),
+            // Text(
+            //   "Viridis utilizes network of decentralized VVBs to continuously authenticate carbon, allowing users to trace their lifecycle with immutable records, fostering trust and reliability.",
+            //   textAlign: TextAlign.center,
+            //   style: Responsive.getTextStyle(context,
+            //       mSize: 15, dSize: 18, weight: FontWeight.w400),
+            // ),
+            // SizedBox(
+            //   height: 60.h,
+            // ),
             Text(
               "Stay tuned as we navigate this continuous line of positive environmental impact, one breakthrough at a time!",
               textAlign: TextAlign.center,
-              style: GoogleFonts.inter(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white),
+              style: Responsive.getTextStyle(context,
+                  mSize: 14, dSize: 14, weight: FontWeight.w400),
             ),
             SizedBox(
               height: 10.h,
@@ -100,13 +118,11 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
             Text(
               "Our sustainability journey is hitting new milestones!",
               textAlign: TextAlign.center,
-              style: GoogleFonts.inter(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white),
+              style: Responsive.getTextStyle(context,
+                  mSize: 14, dSize: 14, weight: FontWeight.w400),
             ),
           ]),
-        ),
+        )
       ]),
     );
   }

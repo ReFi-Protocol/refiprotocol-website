@@ -12,6 +12,8 @@ dependencies:
   flutter_screenutil: ^5.9.0
   google_fonts: 6.1.0
   get:
+  scrollable_positioned_list: ^0.3.8
+  url_launcher: 
 
 dev_dependencies:
   flutter_test:
@@ -22,3 +24,33 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/images/about_detail.png
+    - assets/images/about_explore.jpeg
+    - assets/images/about_frame_d.png
+    - assets/images/about_frame_m.png
+    - assets/images/blogs_intro-1.png
+    - assets/images/blogs_intro-2.png
+    - assets/images/blogs_intro-3.png
+    - assets/images/blogs_intro-4.png
+    - assets/images/bytebison.png
+    - assets/images/tim.jpeg
+    - assets/images/falcon.jpeg
+    - assets/images/bg_landing_frame.png
+    - assets/images/bg_contact_frame.png
+    - assets/images/detail_1.png
+    - assets/images/detail_2.png
+    - assets/images/detail_3.png
+    - assets/images/detail_4.png
+    - assets/images/tab_1.png
+    - assets/images/tab_2.png
+    - assets/images/tab_3.png
+    - assets/images/tab_4.png
+    - assets/images/bg_transparency_frame.png
+    - assets/images/mission_frame_d.png
+    - assets/images/mission_frame_m.png
+    - assets/images/roadmap_mobile.png
+    - assets/images/roadmap.png
+    - assets/images/vision_frame_d.png
+    - assets/images/vision_frame_m.png
+    - assets/images/logo.png
+    - assets/images/wave_line.png

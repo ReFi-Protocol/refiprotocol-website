@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:viridis_web/utilities/responsive.dart';
+import 'package:viridis_web/widgets/page_widget.dart';
+
+import '../../../widgets/page_indicator.dart';
 
 class InnovationFrame extends StatefulWidget {
   const InnovationFrame({super.key});
@@ -9,14 +13,49 @@ class InnovationFrame extends StatefulWidget {
   State<InnovationFrame> createState() => _InnovationFrameState();
 }
 
-class _InnovationFrameState extends State<InnovationFrame> {
+class _InnovationFrameState extends State<InnovationFrame>
+    with TickerProviderStateMixin {
+  late PageController _pageViewController;
+  late TabController _tabController;
+  int _currentPageIndex = 0;
+  List<Widget> detailCards = [
+    PageWidget(
+        image_path: "images/detail_1.png",
+        title: "Decentralized Edge Computing for Project Developers",
+        detail:
+            "IoT devices enable trustless data capture for carbon offsetting projects. These Decentralized Physical Infrastructure (DePIN) devices will collect environmental data, such as temperature, humidity, and CO2 levels, for project developers and transmit it securely to our blockchain platform."),
+    PageWidget(
+        image_path: "images/detail_2.png",
+        title: "AI Integration for VVBs",
+        detail:
+            "Once this data is on the chain, the validation and verification process will be automated through the implementation of our AI tool. This will ensure that the remote data transmitted continuously verifies the credibility of our carbon credits before and after retirement."),
+    PageWidget(
+        image_path: "images/detail_3.png",
+        title: "Tokenization of Carbon Credits into Wrapped Carbon NFTs",
+        detail:
+            "Upon successful validation and verification conducted by globally recognized organisations designated by the UNFCCC, our carbon credits are tokenized into Wrapped Carbon (wCRBN) NFTs, which store the environmental data as metadata."),
+    PageWidget(
+        image_path: "images/detail_4.png",
+        title: "Organization Carbon Emission Reduction (CER)",
+        detail:
+            "Through the burning of Viridis Network’s wCRBN NFTs (digitized carbon credits), any user or organization may mint bCRBN NFTs, representing the retirement of the carbon credits. In return, users or organizations will receive a quantity specific certificate showcasing their CER.")
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _pageViewController = PageController();
+    _tabController = TabController(length: detailCards.length, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),
+        color: Colors.black,
+      ),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
-      height: 952.h,
-      width: 1.sw,
       child: Column(children: [
         Text(
           "Our Innovation",
@@ -36,70 +75,43 @@ class _InnovationFrameState extends State<InnovationFrame> {
         SizedBox(
           height: 70.h,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            _detailCard(
-                "Sustainable Project Selection",
-                "Reforestation and renewable energy initiatives are the foundation of our carbon offsetting supply chain",
-                "images/detail_1.png",
-                Color(0xff047840)),
-            _detailCard(
-                "WCRN Issuance",
-                "We issue tokenized carbon credits in the form of our fraction-able wCRBN NFTs",
-                "images/detail_2.png",
-                Color(0xff1C1C1C)),
-            _detailCard(
-                "Blockchain Technology",
-                "The tamper-resistant nature ensures that your digital asset is verifiable, unique, and safeguarded against any risk of double spending.",
-                "images/detail_3.png",
-                Color(0xffF5F5F5),
-                darkFont: true),
-          ],
-        )
+        ConstrainedBox(
+          constraints: BoxConstraints(maxHeight: 0.8.sh),
+          child: PageView(
+            controller: _pageViewController,
+            onPageChanged: _handlePageViewChanged,
+            children: detailCards,
+          ),
+        ),
+        PageIndicator(
+          tabController: _tabController,
+          currentPageIndex: _currentPageIndex,
+          onUpdateCurrentPageIndex: _updateCurrentPageIndex,
+        ),
       ]),
     );
   }
 
-  _detailCard(String title, String details, String path, Color bgColor,
-      {bool darkFont = false}) {
-    return Container(
-      width: 350.w,
-      height: 616.h,
-      padding: EdgeInsets.symmetric(vertical: 35.h, horizontal: 25.w),
-      decoration: BoxDecoration(
-          color: bgColor, borderRadius: BorderRadius.circular(30)),
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              textAlign: TextAlign.left,
-              style: GoogleFonts.inter(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w600,
-                  color: darkFont ? Colors.black : Colors.white),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Text(
-              details,
-              textAlign: TextAlign.left,
-              style: GoogleFonts.inter(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w400,
-                  color: darkFont ? Colors.black : Colors.white),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Expanded(
-                child: Center(
-              child: Image.asset(path),
-            ))
-          ]),
+  void _handlePageViewChanged(int currentPageIndex) {
+    _tabController.index = currentPageIndex;
+    setState(() {
+      _currentPageIndex = currentPageIndex;
+    });
+  }
+
+  void _updateCurrentPageIndex(int index) {
+    _tabController.index = index;
+    _pageViewController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeInOut,
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pageViewController.dispose();
+    _tabController.dispose();
   }
 }

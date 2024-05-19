@@ -13,7 +13,14 @@ class _ContactFrameState extends State<ContactFrame> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage(
+              "images/bg_contact_frame.png",
+            ),
+            fit: BoxFit.cover),
+        color: Colors.black,
+      ),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
       height: 816.h,
       width: 1.sw,

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../utilities/responsive.dart';
+
 class LandingFrame extends StatefulWidget {
   const LandingFrame({super.key});
 
@@ -13,32 +15,25 @@ class _LandingFrameState extends State<LandingFrame> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
-      height: 832.h,
-      width: 1.sw,
-      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      height: 1.sh,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
+      child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 600),
+          constraints: BoxConstraints(maxWidth: 620),
           child: Column(children: [
             Text(
-              "Making carbon neutral a reality for DeFi",
+              "Making 'Carbon Neutral' a Reality",
               textAlign: TextAlign.center,
-              style: GoogleFonts.inter(
-                  fontSize: 50,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.white),
+              style: Responsive.getTextStyle(context,
+                  mSize: 35, dSize: 50, weight: FontWeight.w900),
             ),
             SizedBox(
               height: 20.h,
             ),
             Text(
-              "Seamlessly integrating DeFI with the Voluntary Carbon Market",
+              "Seemlessly integrating Real World Assets (RWA) to support Regenerative Finance (ReFi)",
               textAlign: TextAlign.center,
-              style: GoogleFonts.inter(
-                  fontSize: 21,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white),
+              style: Responsive.getTextStyle(context),
             ),
             SizedBox(
               height: 60.h,
