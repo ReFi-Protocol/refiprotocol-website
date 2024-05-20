@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:viridis_web/utilities/constants.dart';
 import 'package:viridis_web/utilities/responsive.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
@@ -66,22 +69,8 @@ class _CustomFooterState extends State<CustomFooter> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _footerColumn("Links",
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        _link("Viridis", () {}),
-                        _link("About", () {}),
-                      ],
-                    )),
-                _footerColumn("Socials",
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        _link("Twitter", () {}),
-                        _link("Telegram", () {})
-                      ],
-                    ))
+                _linksColumn(),
+                _socialsColumn(),
               ],
             ),
           ],
@@ -93,19 +82,8 @@ class _CustomFooterState extends State<CustomFooter> {
       children: [
         _body1(),
         Spacer(),
-        _footerColumn("Links",
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                _link("Viridis", () {}),
-                _link("About", () {}),
-              ],
-            )),
-        _footerColumn("Socials",
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [_link("Twitter", () {}), _link("Telegram", () {})],
-            )),
+        _linksColumn(),
+        _socialsColumn(),
         Spacer(),
       ],
     );
@@ -136,6 +114,44 @@ class _CustomFooterState extends State<CustomFooter> {
                     color: Colors.black),
               ),
             )
+          ],
+        ));
+  }
+
+  _linksColumn() {
+    return _footerColumn("Links",
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            for (int i = 1; i < 3; i++)
+              _link(MenuItems.keys.elementAt(i), () {
+                Get.toNamed(MenuItems.values.elementAt(i));
+              }),
+          ],
+        ));
+  }
+
+  _socialsColumn() {
+    return _footerColumn("Socials",
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            _link("Twitter", () async {
+              Uri url = Uri.parse('https://twitter.com/ViridisNetwork');
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url);
+              } else {
+                throw 'Could not launch $url';
+              }
+            }),
+            _link("Telegram", () async {
+              Uri url = Uri.parse('https://t.me/ViridisNetwork');
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url);
+              } else {
+                throw 'Could not launch $url';
+              }
+            })
           ],
         ));
   }

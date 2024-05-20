@@ -15,6 +15,7 @@ import 'package:viridis_web/views/vision/widgets/mission_frame.dart';
 import 'package:viridis_web/widgets/custom_footer.dart';
 import '../../routes/app_pages.dart';
 import '../../widgets/custom_appbar.dart';
+import '../../widgets/custom_drawer.dart';
 
 class VisionView extends StatefulWidget {
   VisionView({super.key, this.roadmap = false});
@@ -62,17 +63,19 @@ class _VisionViewState extends State<VisionView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: Colors.black,
-          body: SizedBox(
-            width: double.infinity,
-            child: ScrollablePositionedList.builder(
-              itemCount: widgetList.length,
-              itemScrollController: _itemScrollController,
-              itemBuilder: (context, index) {
-                return widgetList[index];
-              },
-            ),
-          )),
+        backgroundColor: Colors.black,
+        body: SizedBox(
+          width: double.infinity,
+          child: ScrollablePositionedList.builder(
+            itemCount: widgetList.length,
+            itemScrollController: _itemScrollController,
+            itemBuilder: (context, index) {
+              return widgetList[index];
+            },
+          ),
+        ),
+        drawer: CustomDrawer(),
+      ),
     );
   }
 }

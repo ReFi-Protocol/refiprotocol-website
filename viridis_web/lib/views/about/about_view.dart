@@ -16,6 +16,7 @@ import 'package:viridis_web/views/vision/widgets/mission_frame.dart';
 import 'package:viridis_web/widgets/custom_footer.dart';
 import '../../routes/app_pages.dart';
 import '../../widgets/custom_appbar.dart';
+import '../../widgets/custom_drawer.dart';
 
 class AboutView extends StatelessWidget {
   const AboutView({Key? key}) : super(key: key);
@@ -47,6 +48,7 @@ class AboutView extends StatelessWidget {
             ),
           ),
         ),
+        drawer: CustomDrawer(),
       ),
     );
   }

@@ -9,21 +9,26 @@ part 'app_routes.dart';
 class AppPages {
   static final routes = [
     GetPage(
+        title: "Home",
         name: Routes.HOME,
         page: () => const HomeView(),
         middlewares: [LoadingMiddleware()]),
     GetPage(
+        title: "Vision",
         name: Routes.VISION,
         page: () => VisionView(),
         middlewares: [LoadingMiddleware()]),
     GetPage(
+        title: "About",
         name: Routes.ABOUT,
         page: () => const AboutView(),
         middlewares: [LoadingMiddleware()]),
     GetPage(
+        title: "Roadmap",
         name: Routes.ROADMAPS,
         page: () => VisionView(
               roadmap: true,
-            )),
+            ),
+        middlewares: [LoadingMiddleware()]),
   ];
 }

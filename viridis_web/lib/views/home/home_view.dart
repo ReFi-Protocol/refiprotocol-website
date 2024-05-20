@@ -4,6 +4,7 @@ import 'package:viridis_web/views/home/widgets/innovation_frame.dart';
 import 'package:viridis_web/views/home/widgets/landing_frame.dart';
 import 'package:viridis_web/views/home/widgets/tab_frame.dart';
 import 'package:viridis_web/views/home/widgets/transparency_frame.dart';
+import 'package:viridis_web/widgets/custom_drawer.dart';
 import 'package:viridis_web/widgets/custom_footer.dart';
 import '../../routes/app_pages.dart';
 import '../../widgets/custom_appbar.dart';
@@ -16,6 +17,12 @@ class HomeView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
+        // appBar: PreferredSize(
+        //   preferredSize: Size.fromHeight(80),
+        //   child: CustomAppBar(
+        //     page: Routes.HOME,
+        //   ),
+        // ),
         body: SingleChildScrollView(
           child: SizedBox(
             width: double.infinity,
@@ -51,6 +58,7 @@ class HomeView extends StatelessWidget {
             ),
           ),
         ),
+        drawer: CustomDrawer(),
       ),
     );
   }

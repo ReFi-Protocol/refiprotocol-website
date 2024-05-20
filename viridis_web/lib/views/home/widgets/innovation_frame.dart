@@ -73,10 +73,11 @@ class _InnovationFrameState extends State<InnovationFrame>
               fontSize: 21, fontWeight: FontWeight.w400, color: Colors.white),
         ),
         SizedBox(
-          height: 70.h,
+          height: 40.h,
         ),
         ConstrainedBox(
-          constraints: BoxConstraints(maxHeight: 0.8.sh),
+          constraints: BoxConstraints(
+              maxHeight: Responsive.isDesktop(context) ? 0.7.sh : 0.8.sh),
           child: PageView(
             controller: _pageViewController,
             onPageChanged: _handlePageViewChanged,

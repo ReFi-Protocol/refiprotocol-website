@@ -17,6 +17,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
   late TabController _tabController;
   late AnimationController _animationController;
   late List<String> tabs;
+  late List<Widget> tabData;
 
   _getContainerPadding() {
     if (Responsive.isDesktop(context)) {
@@ -64,6 +65,25 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
       "Carbon Offset Metadata Certificate"
     ];
 
+    tabData = [
+      _tabData(
+          "Purchase wCRBN",
+          "Using the on-chain native gas token \$VRD, you will be able to trade the divisible (by each token type) wCRBN NFTs attributed with on-chain metadata.",
+          "images/tab_1.png"),
+      _tabData(
+          "Mint bCRBN",
+          "With your wCRBN NFTs, you can then mint a quantity-specific bCRBN NFT. The bCRBN acts as a public certificate representing your ultimate ownership of digitized carbon credits.",
+          "images/tab_2.png"),
+      _tabData(
+          "Carbon neutrality",
+          "Since you have retired the carbon credits in wCRBN NFT by minting a bCRBN, you have reduced your carbon footprint!",
+          "images/tab_3.png"),
+      _tabData(
+          "Carbon Offset Metadata Certificate",
+          "Together, they synergize their roles to bring forth your EcoToken-WnCRBN certificate—a collective effort in creating a testament to a sustainable future",
+          "images/tab_4.png"),
+    ];
+
     return Container(
       height: Responsive.isDesktop(context) ? 1.1.sh : 0.9.sh,
       padding: _getContainerPadding(),
@@ -83,24 +103,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
               padding: EdgeInsets.all(15),
               child: TabBarView(
                 controller: _tabController,
-                children: [
-                  _tabData(
-                      "Purchase wCRBN",
-                      "Using the on-chain native gas token \$VRD, you will be able to trade the divisible (by each token type) wCRBN NFTs attributed with on-chain metadata.",
-                      "images/tab_1.png"),
-                  _tabData(
-                      "Mint bCRBN",
-                      "With your wCRBN NFTs, you can then mint a quantity-specific bCRBN NFT. The bCRBN acts as a public certificate representing your ultimate ownership of digitized carbon credits.",
-                      "images/tab_2.png"),
-                  _tabData(
-                      "Carbon neutrality",
-                      "Since you have retired the carbon credits in wCRBN NFT by minting a bCRBN, you have reduced your carbon footprint!",
-                      "images/tab_3.png"),
-                  _tabData(
-                      "Carbon Offset Metadata Certificate",
-                      "Together, they synergize their roles to bring forth your EcoToken-WnCRBN certificate—a collective effort in creating a testament to a sustainable future",
-                      "images/tab_4.png"),
-                ],
+                children: tabData,
               )),
         ),
         SizedBox(
@@ -135,24 +138,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
               padding: EdgeInsets.all(15),
               child: TabBarView(
                 controller: _tabController,
-                children: [
-                  _tabData(
-                      "Purchase wCRBN",
-                      "Using the on-chain native gas token \$VRD, you will be able to trade the divisible (by each token type) wCRBN NFTs attributed with on-chain metadata.",
-                      "images/tab_1.png"),
-                  _tabData(
-                      "Mint bCRBN",
-                      "With your wCRBN NFTs, you can then mint a quantity-specific bCRBN NFT. The bCRBN acts as a public certificate representing your ultimate ownership of digitized carbon credits.",
-                      "images/tab_2.png"),
-                  _tabData(
-                      "Carbon neutrality",
-                      "Since you have retired the carbon credits in wCRBN NFT by minting a bCRBN, you have reduced your carbon footprint!",
-                      "images/tab_3.png"),
-                  _tabData(
-                      "Carbon Offset Metadata Certificate",
-                      "Together, they synergize their roles to bring forth your EcoToken-WnCRBN certificate—a collective effort in creating a testament to a sustainable future",
-                      "images/tab_4.png"),
-                ],
+                children: tabData,
               )),
         ),
       ],
@@ -191,11 +177,17 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
                             )
                           ],
                         )
-                      : Container(
-                          height: 2,
-                          width: 0.13.sw,
-                          color: Colors.grey.withOpacity(0.2),
-                        )
+                      : InkWell(
+                          onTap: () {
+                            setState(() {
+                              _tabController.animateTo(i);
+                            });
+                          },
+                          child: Container(
+                            height: 2,
+                            width: 0.13.sw,
+                            color: Colors.grey.withOpacity(0.2),
+                          ))
               ],
             ),
             SizedBox(

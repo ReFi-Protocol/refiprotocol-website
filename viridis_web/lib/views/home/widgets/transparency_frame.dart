@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../utilities/responsive.dart';
 
@@ -66,6 +67,15 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
                       children: [
                         _ctaButton(
                             filled: true,
+                            onTap: () async {
+                              Uri url = Uri.parse(
+                                  'https://docs.viridis.network/overview/carbon-credit-architecture');
+                              if (await canLaunchUrl(url)) {
+                                await launchUrl(url);
+                              } else {
+                                throw 'Could not launch $url';
+                              }
+                            },
                             child: Row(
                               children: [
                                 Text(
@@ -127,11 +137,9 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
     );
   }
 
-  _ctaButton({Widget? child, bool filled = false}) {
+  _ctaButton({Widget? child, bool filled = false, Function()? onTap}) {
     return OutlinedButton(
-      onPressed: () {
-        debugPrint('Received click');
-      },
+      onPressed: onTap,
       style: ButtonStyle(
         padding: const MaterialStatePropertyAll(
             EdgeInsets.symmetric(horizontal: 25, vertical: 18)),

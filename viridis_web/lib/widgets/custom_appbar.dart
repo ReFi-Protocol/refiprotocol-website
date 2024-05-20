@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:viridis_web/routes/app_pages.dart';
 import 'package:viridis_web/utilities/responsive.dart';
 
+import '../utilities/constants.dart';
 import 'menu_item.dart';
 
 class CustomAppBar extends StatefulWidget {
@@ -36,11 +37,13 @@ class _CustomAppBarState extends State<CustomAppBar> {
 
   _mobileView() {
     return Stack(alignment: AlignmentDirectional.center, children: [
-      const Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-        Icon(
-          Icons.menu,
-          color: Colors.white,
-        )
+      Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+        IconButton(
+            onPressed: () => Scaffold.of(context).openDrawer(),
+            icon: const Icon(
+              Icons.menu,
+              color: Colors.white,
+            ))
       ]),
       Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -86,26 +89,18 @@ class _CustomAppBarState extends State<CustomAppBar> {
   _menuRow() {
     return Row(
       children: [
-        MenuItem(
-            title: "Home",
-            selected: widget.page == Routes.HOME,
-            onPress: () => Get.toNamed(Routes.HOME)),
-        MenuItem(
-            title: "Vision",
-            selected: widget.page == Routes.VISION,
-            onPress: () => Get.toNamed(Routes.VISION)),
-        MenuItem(
-            title: "About us",
-            selected: widget.page == Routes.ABOUT,
-            onPress: () => Get.toNamed(Routes.ABOUT)),
-        MenuItem(
-            title: "Whitepaper",
-            selected: widget.page == Routes.WHITEPAPER,
-            onPress: () => _launchWhitePaperURL()),
-        MenuItem(
-            title: "Roadmaps",
-            selected: widget.page == Routes.ROADMAPS,
-            onPress: () => Get.toNamed(Routes.ROADMAPS))
+        for (int i = 0; i < MenuItems.length; i++)
+          MenuItem(
+              title: MenuItems.keys.elementAt(i),
+              selected: widget.page == MenuItems.values.elementAt(i),
+              onPress: () {
+                String route = MenuItems.values.elementAt(i);
+                if (route == Routes.WHITEPAPER) {
+                  launchWhitePaperURL();
+                } else {
+                  Get.toNamed(route);
+                }
+              }),
       ],
     );
   }

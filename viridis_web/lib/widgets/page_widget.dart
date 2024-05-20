@@ -94,7 +94,7 @@ class _PageWidgetState extends State<PageWidget> {
           ],
         ),
         Container(
-          padding: const EdgeInsets.only(left: 20, top: 20),
+          padding: const EdgeInsets.only(left: 20, top: 40),
           child: Text(
             widget.detail,
             textAlign: TextAlign.justify,

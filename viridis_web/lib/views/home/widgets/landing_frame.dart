@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../utilities/responsive.dart';
 
@@ -42,21 +43,30 @@ class _LandingFrameState extends State<LandingFrame> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _ctaButton(
+                    onTap: () async {
+                      Uri url = Uri.parse(
+                          'https://docs.viridis.network/roadmap/roadmap');
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(url);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    },
                     child: Row(
-                  children: [
-                    Text(
-                      "Explore",
-                      style: GoogleFonts.inter(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                    const Icon(
-                      Icons.chevron_right,
-                      color: Colors.white,
-                    )
-                  ],
-                )),
+                      children: [
+                        Text(
+                          "Explore",
+                          style: GoogleFonts.inter(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        const Icon(
+                          Icons.chevron_right,
+                          color: Colors.white,
+                        )
+                      ],
+                    )),
                 SizedBox(
                   width: 40.w,
                 ),
@@ -77,11 +87,9 @@ class _LandingFrameState extends State<LandingFrame> {
     );
   }
 
-  _ctaButton({Widget? child, bool filled = false}) {
+  _ctaButton({Widget? child, bool filled = false, Function()? onTap}) {
     return OutlinedButton(
-      onPressed: () {
-        debugPrint('Received click');
-      },
+      onPressed: onTap,
       style: ButtonStyle(
         padding: const MaterialStatePropertyAll(
             EdgeInsets.symmetric(horizontal: 25, vertical: 18)),
