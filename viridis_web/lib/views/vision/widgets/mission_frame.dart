@@ -91,7 +91,7 @@ class _MissionFrameState extends State<MissionFrame> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Blockchain to build transparent, accessible, and fast infrastructure for environmental commodities.",
+                "Utilize blockchain technology to bring credibility to the Voluntary Carbon Market",
                 style: Responsive.getTextStyle(context,
                     weight: FontWeight.w500, mSize: 35, dSize: 40),
               ),
@@ -99,7 +99,7 @@ class _MissionFrameState extends State<MissionFrame> {
                 height: 20,
               ),
               Text(
-                "Viridis enables carbon offset suppliers to register credits to our protocol, creating NFT carbon credits. These can be traded like ERC20 tokens on our chain and used by projects to become carbon neutral.",
+                "Viridis Network’s mission is to improve the credibility of the Voluntary Carbon Market through anchoring carbon credits on our blockchain platform. With a robust and lucid workflow emphasizing transparency, Viridis Network aims to create the first decentralized network of Validation/Verification Bodies (VVBs) for the continuous verification of the environmental data supporting carbon credits.",
                 textAlign: TextAlign.justify,
                 style: Responsive.getTextStyle(context,
                     weight: FontWeight.w400, mSize: 16, dSize: 20),

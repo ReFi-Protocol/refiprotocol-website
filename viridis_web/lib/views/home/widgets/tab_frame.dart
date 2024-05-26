@@ -21,7 +21,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
 
   _getContainerPadding() {
     if (Responsive.isDesktop(context)) {
-      return const EdgeInsets.all(65);
+      return const EdgeInsets.symmetric(horizontal: 65, vertical: 30);
     } else {
       return const EdgeInsets.symmetric(horizontal: 20, vertical: 30);
     }
@@ -67,24 +67,26 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
 
     tabData = [
       _tabData(
-          "Purchase wCRBN",
-          "Using the on-chain native gas token \$VRD, you will be able to trade the divisible (by each token type) wCRBN NFTs attributed with on-chain metadata.",
+          "Purchase wCRBN(Wrapped Carbon NFTS)",
+          "Using our token \$VRD, you will be able to purchase and trade our Wrapped Carbon NFTs. Each wCRBN NFT is attributed to 1 carbon credit and represents 1 tonne of carbon emissions offset.",
           "images/tab_1.png"),
       _tabData(
-          "Mint bCRBN",
-          "With your wCRBN NFTs, you can then mint a quantity-specific bCRBN NFT. The bCRBN acts as a public certificate representing your ultimate ownership of digitized carbon credits.",
+          "Mint bCRBN(Burnt Carbon NFTS)",
+          "With your tradable wCRBN NFTs, you can mint an untradeable bCRBN NFT. This process represents the retirement of your carbon credits.",
           "images/tab_2.png"),
       _tabData(
-          "Carbon neutrality",
-          "Since you have retired the carbon credits in wCRBN NFT by minting a bCRBN, you have reduced your carbon footprint!",
+          "Carbon Offset Metadata Certificate",
+          "By minting bCRBN NFTs, you have successfully reduced your carbon footprint!",
           "images/tab_3.png"),
       _tabData(
-          "Carbon Offset Metadata Certificate",
-          "Together, they synergize their roles to bring forth your EcoToken-WnCRBN certificate—a collective effort in creating a testament to a sustainable future",
+          "Carbon neutrality",
+          "To showcase your Carbon Emission Reduction, an immutable quantity-specific carbon offset certificate is produced, publicly displaying the carbon you or your organization has offset.",
           "images/tab_4.png"),
     ];
-
+    print(Responsive.isDesktop(context) ? 1.1.sh : 0.9.sh);
     return Container(
+      constraints:
+          BoxConstraints(minHeight: Responsive.isDesktop(context) ? 650 : 850),
       height: Responsive.isDesktop(context) ? 1.1.sh : 0.9.sh,
       padding: _getContainerPadding(),
       decoration: BoxDecoration(
@@ -240,7 +242,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
 
   _tab(String index, String tabName, bool isSelected) {
     return SizedBox(
-      height: 0.2.sh,
+      height: 172.h,
       width: 0.2.sw,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -277,11 +279,14 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
     return Responsive(
         mobile: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.asset(
-              path,
-            ),
+            Center(
+                child: ConstrainedBox(
+              constraints: BoxConstraints(maxHeight: 500.h),
+              child: Image.asset(
+                path,
+              ),
+            )),
             SizedBox(
               height: 20.h,
             ),
@@ -291,6 +296,9 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
                     dSize: 24,
                     mSize: 18,
                     textColor: Colors.white)),
+            SizedBox(
+              height: 20.h,
+            ),
             InkWell(
               onTap: () {},
               child: Text(
@@ -349,7 +357,12 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            Image.asset(path),
+            SizedBox(
+              width: 15.w,
+            ),
+            Expanded(
+              child: Image.asset(path),
+            ),
           ],
         ));
   }

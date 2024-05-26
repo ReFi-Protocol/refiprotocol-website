@@ -45,7 +45,7 @@ class _AboutExploreFrameState extends State<AboutExploreFrame> {
             _ctaButton(
               filled: true,
               child: Text(
-                "Let's Explore",
+                "Find Out More",
                 style: GoogleFonts.inter(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:viridis_web/widgets/cta_button.dart';
 
 class ContactFrame extends StatefulWidget {
   const ContactFrame({super.key});
@@ -32,13 +33,13 @@ class _ContactFrameState extends State<ContactFrame> {
                 textAlign: TextAlign.center,
                 text: TextSpan(children: <TextSpan>[
                   TextSpan(
-                      text: "Building a ",
+                      text: "Reaching a ",
                       style: GoogleFonts.inter(
                           fontSize: 40,
                           fontWeight: FontWeight.w700,
                           color: Colors.white)),
                   TextSpan(
-                      text: "Carbon Neutral ",
+                      text: "Climate Positive ",
                       style: GoogleFonts.inter(
                           fontSize: 40,
                           fontWeight: FontWeight.w700,
@@ -54,7 +55,7 @@ class _ContactFrameState extends State<ContactFrame> {
               height: 20.h,
             ),
             Text(
-              "Track our process from project developer to certification with our partner TUV SUD. Empowering businesses Towards verifiable environmental impact.",
+              "Track our process from project developer to certification with our partner TUV SUD. Empowering businesses towards verifiable environmental impact.",
               textAlign: TextAlign.center,
               style: GoogleFonts.inter(
                   fontSize: 21,
@@ -64,36 +65,16 @@ class _ContactFrameState extends State<ContactFrame> {
             SizedBox(
               height: 40.h,
             ),
-            _ctaButton(
+            CTAButton(
               filled: true,
               child: Text(
                 "Contact us",
-                style: GoogleFonts.inter(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black),
               ),
+              onTap: () {},
             )
           ]),
         ),
       ]),
-    );
-  }
-
-  _ctaButton({Widget? child, bool filled = false}) {
-    return OutlinedButton(
-      onPressed: () {
-        debugPrint('Received click');
-      },
-      style: ButtonStyle(
-        padding: const MaterialStatePropertyAll(
-            EdgeInsets.symmetric(horizontal: 25, vertical: 18)),
-        overlayColor: MaterialStatePropertyAll(Colors.green.withOpacity(0.1)),
-        side: const MaterialStatePropertyAll(BorderSide(color: Colors.white)),
-        backgroundColor:
-            filled ? const MaterialStatePropertyAll(Colors.white) : null,
-      ),
-      child: child,
     );
   }
 }

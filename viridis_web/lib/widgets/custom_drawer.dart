@@ -68,16 +68,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
           SizedBox(
             height: 50.h,
           ),
-          for (int i = 0; i < MenuItems.length; i++)
-            _menuListItem(MenuItems.keys.elementAt(i),
-                MenuItems.values.elementAt(i) == Get.currentRoute, () {
-              String route = MenuItems.values.elementAt(i);
-              if (route == Routes.WHITEPAPER) {
-                launchWhitePaperURL();
-              } else {
-                Get.toNamed(route);
-              }
-            }),
+          for (int i = 0; i < menuConstants.length; i++)
+            _menuListItem(
+                menuConstants[i].name,
+                menuConstants[i].route == Get.currentRoute,
+                menuConstants[i].onTap),
         ],
       ),
     );

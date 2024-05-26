@@ -89,7 +89,7 @@ class _BlogsFrameState extends State<BlogsFrame> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text("Our blogs",
+        Text("Our Medium",
             style: Responsive.getTextStyle(context,
                 weight: FontWeight.w600,
                 dSize: 34,

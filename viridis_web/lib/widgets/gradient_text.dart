@@ -4,12 +4,10 @@ class GradientText extends StatelessWidget {
   final String text;
   final Gradient gradient;
   final TextStyle? style;
+  final TextAlign? alignment;
 
-  GradientText({
-    required this.text,
-    required this.gradient,
-    this.style,
-  });
+  GradientText(
+      {required this.text, required this.gradient, this.style, this.alignment});
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +19,7 @@ class GradientText extends StatelessWidget {
       child: Text(
         text,
         style: style,
+        textAlign: alignment,
       ),
     );
   }

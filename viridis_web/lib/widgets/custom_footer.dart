@@ -124,9 +124,7 @@ class _CustomFooterState extends State<CustomFooter> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             for (int i = 1; i < 3; i++)
-              _link(MenuItems.keys.elementAt(i), () {
-                Get.toNamed(MenuItems.values.elementAt(i));
-              }),
+              _link(menuConstants[i].name, menuConstants[i].onTap),
           ],
         ));
   }

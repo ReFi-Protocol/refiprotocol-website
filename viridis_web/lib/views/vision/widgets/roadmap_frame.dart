@@ -89,25 +89,25 @@ class _RoadmapFrameState extends State<RoadmapFrame> {
       child: Column(
         children: [
           _roadmapDetail("Viridis Network Launch", [
-            "ERC20 Token Release",
-            "Creation of Whitepaper and Documentation",
-            "Viridis Network at COP28",
+            "Q4 2023 - ERC20 Token Release",
+            "Q4 2023 - Creation of V1 Whitepaper and Documentation",
+            "Q4 2023 - Viridis Network at COP28",
           ]),
           _roadmapDetail(
             "Development of L1 Blockchain Platform",
             [
-              "Viridis L2 Testnet",
-              "Architecture Formulation of Wrapped Carbon (wCRBN) NFTs",
-              "Viridis EVM Testnet Staking and Airdrop",
-              "Partnership with Validation/Verification Body(VVB)"
+              "Q1 2024 - Viridis L2 Testnet",
+              "Q1 2024 - Architecture Formulation of Wrapped Carbon (wCRBN) NFTs",
+              "Q1 2024 - Viridis EVM Testnet Staking and Airdrop",
+              "Q2 2024 - Partnership with Validation/Verification Body (VVB)"
             ],
           ),
           _roadmapDetail(
               "Viridis Network L1 Blockchain Launch",
               [
-                "Mainnet Explorer, Bridging and Staking Platform",
-                "Carbon Ambassador Program",
-                "wCRBN Issuance",
+                "Q2 2024 - Mainnet Explorer, Bridging and Staking Platform",
+                "Q2 2024 - Carbon Ambassador Program",
+                "Q2 2024 - wCRBN Issuance",
               ],
               inProgress: true,
               completed: false,
@@ -117,11 +117,12 @@ class _RoadmapFrameState extends State<RoadmapFrame> {
                 color: Color(0xff393A3A),
               )),
           _roadmapDetail(
-              "Viridis Network L1 Blockchain Launch",
+              "DApp and NFT Marketplace",
               [
-                "Mainnet Explorer, Bridging and Staking Platform",
-                "Carbon Ambassador Program",
-                "wCRBN Issuance",
+                "Unified VRD DApp",
+                "Rebrand",
+                "Decentralization of Validation/Verification Bodies (VVBs)",
+                "Onboarding of Derivative Products",
               ],
               completed: false,
               textColor: Color(0xff444141),

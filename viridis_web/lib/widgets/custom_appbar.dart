@@ -10,7 +10,8 @@ import '../utilities/constants.dart';
 import 'menu_item.dart';
 
 class CustomAppBar extends StatefulWidget {
-  const CustomAppBar({super.key, this.page});
+  const CustomAppBar({super.key, this.bgColor = Colors.transparent, this.page});
+  final Color bgColor;
   final String? page;
 
   @override
@@ -28,11 +29,13 @@ class _CustomAppBarState extends State<CustomAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: getContainerPadding(),
-      color: Colors.transparent,
-      child: Responsive(mobile: _mobileView(), desktop: _desktopView()),
-    );
+    return PreferredSize(
+        preferredSize: Size.fromHeight(80.h),
+        child: Container(
+          padding: getContainerPadding(),
+          color: widget.bgColor,
+          child: Responsive(mobile: _mobileView(), desktop: _desktopView()),
+        ));
   }
 
   _mobileView() {
@@ -89,18 +92,11 @@ class _CustomAppBarState extends State<CustomAppBar> {
   _menuRow() {
     return Row(
       children: [
-        for (int i = 0; i < MenuItems.length; i++)
+        for (int i = 0; i < menuConstants.length; i++)
           MenuItem(
-              title: MenuItems.keys.elementAt(i),
-              selected: widget.page == MenuItems.values.elementAt(i),
-              onPress: () {
-                String route = MenuItems.values.elementAt(i);
-                if (route == Routes.WHITEPAPER) {
-                  launchWhitePaperURL();
-                } else {
-                  Get.toNamed(route);
-                }
-              }),
+              title: menuConstants[i].name,
+              selected: widget.page == menuConstants[i].route,
+              onPress: menuConstants[i].onTap),
       ],
     );
   }

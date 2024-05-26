@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:viridis_web/routes/app_pages.dart';
 import 'package:viridis_web/views/Home/home_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:viridis_web/views/test/test_view.dart';
 
 final List _allAsset = [
   "images/about_detail.png",
@@ -52,19 +53,18 @@ class MainApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (_, child) {
           return GetMaterialApp(
-            initialRoute: Routes.HOME,
+            initialRoute: Routes.SPLASH,
             getPages: AppPages.routes,
             theme: ThemeData(
               primaryColor: Colors.black,
               dividerColor: Color(0xff484848),
               useMaterial3: true,
             ),
-            initialBinding: BindingsBuilder(() async {
-              for (var asset in _allAsset) {
-                await precacheImage(AssetImage(asset), context);
-              }
-            }),
-            home: const HomeView(),
+            // initialBinding: BindingsBuilder(() async {
+            //   for (var asset in _allAsset) {
+            //     await precacheImage(AssetImage(asset), context);
+            //   }
+            // }),
           );
         });
   }

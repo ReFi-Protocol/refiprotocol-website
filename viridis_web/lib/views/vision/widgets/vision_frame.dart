@@ -91,7 +91,7 @@ class _VisionFrameState extends State<VisionFrame> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Unlocking widespread climate impact.",
+                "Unlocking widespread climate impact",
                 style: Responsive.getTextStyle(context,
                     weight: FontWeight.w500, mSize: 35, dSize: 40),
               ),
@@ -99,7 +99,7 @@ class _VisionFrameState extends State<VisionFrame> {
                 height: 20,
               ),
               Text(
-                "As time runs short to bridge the emissions gap, the carbon market is crucial. By building trust-enhancing infrastructure that boosts connections between supply and demand, and increases market transparency, we empower scalability. The technology is here—it's time to use it.",
+                "With time running out to bridge the emissions gap, the voluntary carbon market is crucial. By building trust-enhancing infrastructure that boosts connections between supply and demand, and increases market transparency, we empower scalability. The technology is here— it's time to leverage it!",
                 textAlign: TextAlign.justify,
                 style: Responsive.getTextStyle(context,
                     weight: FontWeight.w400, mSize: 16, dSize: 20),

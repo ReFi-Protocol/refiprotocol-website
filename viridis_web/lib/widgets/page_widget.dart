@@ -3,15 +3,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../utilities/responsive.dart';
+import 'gradient_text.dart';
 
 class PageWidget extends StatefulWidget {
   PageWidget(
       {super.key,
       required this.image_path,
+      required this.header,
       required this.title,
       required this.detail});
   String image_path;
   String title;
+  String header;
   String detail;
 
   @override
@@ -35,7 +38,34 @@ class _PageWidgetState extends State<PageWidget> {
           color: Colors.black,
         ),
         padding: getContainerPadding(),
-        child: Responsive(mobile: _mobileView(), desktop: _desktopView()));
+        child: Column(
+          children: [
+            ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: 600),
+              child: GradientText(
+                text: widget.header,
+                alignment: TextAlign.center,
+                gradient: const LinearGradient(
+                  colors: [
+                    Color(0xff07BA9A),
+                    Colors.white
+                  ], // define your gradient colors
+                ),
+                style: Responsive.getTextStyle(context,
+                    weight: FontWeight.w600,
+                    dSize: 40,
+                    mSize: 28,
+                    textColor: Colors.white),
+              ),
+            ),
+            SizedBox(
+              height: 50.h,
+            ),
+            Expanded(
+                child:
+                    Responsive(mobile: _mobileView(), desktop: _desktopView()))
+          ],
+        ));
   }
 
   _desktopView() {
@@ -59,13 +89,12 @@ class _PageWidgetState extends State<PageWidget> {
       children: [
         _textBody(),
         Expanded(
-          child: Container(
-              padding: const EdgeInsets.only(left: 20, top: 70),
-              // width: 1.sw,
-              child: Image.asset(
-                widget.image_path,
-              )),
-        )
+            child: Container(
+                padding: const EdgeInsets.only(left: 20, top: 20),
+                // width: 1.sw,
+                child: Image.asset(
+                  widget.image_path,
+                )))
       ],
     );
   }
@@ -89,7 +118,7 @@ class _PageWidgetState extends State<PageWidget> {
                 child: Text(
               widget.title,
               style: Responsive.getTextStyle(context,
-                  weight: FontWeight.w600, mSize: 22, dSize: 40),
+                  weight: FontWeight.w600, mSize: 20, dSize: 30),
             ))
           ],
         ),

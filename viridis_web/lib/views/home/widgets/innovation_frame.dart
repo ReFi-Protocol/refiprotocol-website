@@ -20,25 +20,29 @@ class _InnovationFrameState extends State<InnovationFrame>
   int _currentPageIndex = 0;
   List<Widget> detailCards = [
     PageWidget(
+        header: "DePIN (Decentralized Physical Infrastructure)",
         image_path: "images/detail_1.png",
         title: "Decentralized Edge Computing for Project Developers",
         detail:
             "IoT devices enable trustless data capture for carbon offsetting projects. These Decentralized Physical Infrastructure (DePIN) devices will collect environmental data, such as temperature, humidity, and CO2 levels, for project developers and transmit it securely to our blockchain platform."),
     PageWidget(
+        header: "AI (Artificial Intelligence)",
         image_path: "images/detail_2.png",
         title: "AI Integration for VVBs",
         detail:
-            "Once this data is on the chain, the validation and verification process will be automated through the implementation of our AI tool. This will ensure that the remote data transmitted continuously verifies the credibility of our carbon credits before and after retirement."),
+            "Once this data is on the chain, the validation and verification processes are automated through the implementation of our AI tool. This ensures that the remote data transmitted continuously verifies the credibility of the carbon credits, providing real-time updates throughout the offset's lifecycle."),
     PageWidget(
+        header: "RWA (Real World Asset)",
         image_path: "images/detail_3.png",
         title: "Tokenization of Carbon Credits into Wrapped Carbon NFTs",
         detail:
-            "Upon successful validation and verification conducted by globally recognized organisations designated by the UNFCCC, our carbon credits are tokenized into Wrapped Carbon (wCRBN) NFTs, which store the environmental data as metadata."),
+            "Upon successful validation and verification, conducted by a UNFCCC Certificate Authority, our carbon credits are tokenized into Wrapped Carbon (wCRBN) NFTs, storing the environmental data in the NFT’s metadata."),
     PageWidget(
+        header: "ReFi (Regenerative Finance)",
         image_path: "images/detail_4.png",
         title: "Organization Carbon Emission Reduction (CER)",
         detail:
-            "Through the burning of Viridis Network’s wCRBN NFTs (digitized carbon credits), any user or organization may mint bCRBN NFTs, representing the retirement of the carbon credits. In return, users or organizations will receive a quantity specific certificate showcasing their CER.")
+            "Through the burning of Viridis Network’s wCRBN NFTs (digitized carbon credits), any user or organization may mint bCRBN NFTs. This process represents the retirement of the carbon credits. In return, users or organizations will receive a quantity specific certificate showcasing their Carbon Emission Reduction.")
   ];
 
   @override
@@ -73,11 +77,12 @@ class _InnovationFrameState extends State<InnovationFrame>
               fontSize: 21, fontWeight: FontWeight.w400, color: Colors.white),
         ),
         SizedBox(
-          height: 40.h,
+          height: 10.h,
         ),
-        ConstrainedBox(
+        Container(
           constraints: BoxConstraints(
-              maxHeight: Responsive.isDesktop(context) ? 0.7.sh : 0.8.sh),
+              minHeight: Responsive.isDesktop(context) ? 550 : 850),
+          height: Responsive.isDesktop(context) ? 0.8.sh : 1.sh,
           child: PageView(
             controller: _pageViewController,
             onPageChanged: _handlePageViewChanged,
