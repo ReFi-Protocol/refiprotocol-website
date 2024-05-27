@@ -28,6 +28,7 @@ class VisionView extends StatefulWidget {
 class _VisionViewState extends State<VisionView> {
   List<Widget> widgetList = [];
   final ItemScrollController _itemScrollController = ItemScrollController();
+  ScrollController _controller = ScrollController();
 
   _scrollToIndex(int index) {
     _itemScrollController.scrollTo(
@@ -39,7 +40,8 @@ class _VisionViewState extends State<VisionView> {
   @override
   void initState() {
     super.initState();
-    widgetList = const [
+
+    widgetList = [
       PreferredSize(
         preferredSize: Size.fromHeight(80),
         child: CustomAppBar(
@@ -48,7 +50,9 @@ class _VisionViewState extends State<VisionView> {
       ),
       VisionFrame(),
       MissionFrame(),
-      RoadmapFrame(),
+      RoadmapFrame(
+        controller: _controller,
+      ),
       ExploreFrame(),
       CustomFooter(),
     ];
@@ -65,15 +69,24 @@ class _VisionViewState extends State<VisionView> {
       child: Scaffold(
         backgroundColor: Colors.black,
         body: SizedBox(
-          width: double.infinity,
-          child: ScrollablePositionedList.builder(
-            itemCount: widgetList.length,
-            itemScrollController: _itemScrollController,
-            itemBuilder: (context, index) {
-              return widgetList[index];
-            },
-          ),
-        ),
+            width: double.infinity,
+            child: ListView.builder(
+              controller:
+                  _controller, // Associate the ScrollController with the ListView
+              itemCount: widgetList.length,
+              itemBuilder: (context, index) {
+                return widgetList[index];
+              },
+            )
+            // ScrollablePositionedList.builder(
+
+            //   itemCount: widgetList.length,
+            //   itemScrollController: _itemScrollController,
+            //   itemBuilder: (context, index) {
+            //     return widgetList[index];
+            //   },
+            // ),
+            ),
         drawer: CustomDrawer(),
       ),
     );

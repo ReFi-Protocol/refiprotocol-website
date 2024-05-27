@@ -29,10 +29,11 @@ class AppPages {
         transition: Transition.fadeIn,
         transitionDuration: Duration(milliseconds: 400)),
     GetPage(
-      title: "About",
-      name: Routes.ABOUT,
-      page: () => const AboutView(),
-    ),
+        title: "About",
+        name: Routes.ABOUT,
+        page: () => const AboutView(),
+        transition: Transition.fadeIn,
+        transitionDuration: Duration(milliseconds: 400)),
     // GetPage(
     //   title: "TEST",
     //   name: Routes.TEST,

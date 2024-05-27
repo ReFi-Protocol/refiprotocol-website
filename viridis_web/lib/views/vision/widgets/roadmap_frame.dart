@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:viridis_web/views/vision/widgets/roadmap_widget.dart';
 
 import '../../../utilities/responsive.dart';
 import '../../../widgets/dotted_circle.dart';
 
 class RoadmapFrame extends StatefulWidget {
-  const RoadmapFrame({super.key});
-
+  const RoadmapFrame({super.key, required this.controller});
+  final ScrollController controller;
   @override
   State<RoadmapFrame> createState() => _RoadmapFrameState();
 }
 
-class _RoadmapFrameState extends State<RoadmapFrame> {
+class _RoadmapFrameState extends State<RoadmapFrame>
+    with TickerProviderStateMixin {
   final GlobalKey containerKey = GlobalKey();
 
   getContainerPadding() {
@@ -54,7 +56,9 @@ class _RoadmapFrameState extends State<RoadmapFrame> {
         SizedBox(
           height: 40.h,
         ),
-        _details()
+        RoadmapWidget(
+          controller: widget.controller,
+        )
       ],
     );
   }
@@ -77,7 +81,12 @@ class _RoadmapFrameState extends State<RoadmapFrame> {
           // SizedBox(
           //   width: 50.w,
           // ),
-          Expanded(flex: 4, child: _details()),
+          Expanded(
+            flex: 4,
+            child: RoadmapWidget(
+              controller: widget.controller,
+            ),
+          )
         ],
       )
     ]);
@@ -132,74 +141,111 @@ class _RoadmapFrameState extends State<RoadmapFrame> {
     );
   }
 
+  late AnimationController _controller;
+  late final Animation<double> _valueAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 5),
+      vsync: this,
+    );
+    _valueAnimation = Tween<double>(
+      begin: 0.0,
+      end: 70,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.linear,
+      ),
+    );
+    _controller.forward();
+  }
+
   _roadmapDetail(String title, List<String> details,
       {bool completed = true,
       bool inProgress = false,
       Widget? divider,
       Color textColor = Colors.white}) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            inProgress
-                ? DottedCircle(
-                    color: Color(0xff07BA9B),
-                    radius: 20,
-                    strokeWidth: 3,
-                    gap: 10,
-                  )
-                : Icon(
-                    Icons.check_circle,
-                    size: 40,
-                    color: completed ? Color(0xff07BA9B) : Color(0xff393A3A),
-                  ),
-            divider ??
-                Container(
-                  width: 2,
-                  height: getContainerHeight(containerKey),
-                  color: Color(0xff07BA9B),
-                ),
-          ],
-        ),
-        SizedBox(
-          width: 40.w,
-        ),
-        Container(
-          constraints: BoxConstraints(maxWidth: 0.7.sw),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+    return AnimatedBuilder(
+        animation: _valueAnimation,
+        builder: ((context, child) {
+          return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                title,
-                style: Responsive.getTextStyle(context,
-                    mSize: 20,
-                    dSize: 25,
-                    weight: FontWeight.w600,
-                    textColor: textColor),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  inProgress
+                      ? DottedCircle(
+                          color: Color(0xff07BA9B),
+                          radius: 20,
+                          strokeWidth: 3,
+                          gap: 10,
+                        )
+                      : Icon(
+                          Icons.check_circle,
+                          size: 40,
+                          color:
+                              completed ? Color(0xff07BA9B) : Color(0xff393A3A),
+                        ),
+                  divider ??
+                      Container(
+                        width: 2,
+                        height: getContainerHeight(containerKey),
+                        child: Stack(children: [
+                          Container(
+                            height: getContainerHeight(containerKey),
+                            color: Colors.grey,
+                          ),
+                          Container(
+                            height: (_valueAnimation.value / 100) *
+                                getContainerHeight(containerKey),
+                            color: Color(0xff07BA9B),
+                          ),
+                        ]),
+                      ),
+                ],
               ),
               SizedBox(
-                height: 20.h,
+                width: 40.w,
               ),
-              for (String detail in details)
-                Padding(
-                  padding: EdgeInsets.only(bottom: 10.h),
-                  child: Text(
-                    detail,
-                    style: GoogleFonts.inter(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: textColor),
-                  ),
-                )
+              Container(
+                constraints: BoxConstraints(maxWidth: 0.7.sw),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: Responsive.getTextStyle(context,
+                          mSize: 20,
+                          dSize: 25,
+                          weight: FontWeight.w600,
+                          textColor: textColor),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    for (String detail in details)
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 10.h),
+                        child: Text(
+                          detail,
+                          style: GoogleFonts.inter(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: textColor),
+                        ),
+                      )
+                  ],
+                ),
+              ),
             ],
-          ),
-        ),
-      ],
-    );
+          );
+        }));
   }
 
   double getContainerHeight(GlobalKey key) {

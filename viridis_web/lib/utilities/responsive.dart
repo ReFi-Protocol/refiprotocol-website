@@ -21,7 +21,7 @@ class Responsive extends StatelessWidget {
       MediaQuery.of(context).size.width >= 850;
 
   static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 1100;
+      MediaQuery.of(context).size.width >= 1250;
 
   static getContainerPadding(BuildContext context) {
     if (Responsive.isDesktop(context)) {

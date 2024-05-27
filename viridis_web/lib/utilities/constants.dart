@@ -8,7 +8,7 @@ final List<MenuConstant> menuConstants = [
   MenuConstant(
     "Home",
     Routes.HOME,
-    () => Get.toNamed(Routes.VISION),
+    () => Get.toNamed(Routes.HOME),
   ),
   MenuConstant(
     "Vision",

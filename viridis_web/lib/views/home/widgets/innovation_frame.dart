@@ -68,7 +68,7 @@ class _InnovationFrameState extends State<InnovationFrame>
               fontSize: 40, fontWeight: FontWeight.w900, color: Colors.white),
         ),
         SizedBox(
-          height: 20.h,
+          height: 10.h,
         ),
         Text(
           "Trust. Transparency. Transformation.",

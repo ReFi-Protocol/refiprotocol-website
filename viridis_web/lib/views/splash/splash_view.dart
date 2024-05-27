@@ -85,19 +85,19 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: ValueListenableBuilder(
-                      valueListenable: loadedAssetsPercentage,
-                      builder: (context, value, child) {
-                        return CircularProgressIndicator(
-                          value: value,
-                          backgroundColor: Colors.black,
-                          color: Colors.white,
-                        );
-                      },
-                    ),
-                  )
+                  // Align(
+                  //   alignment: Alignment.bottomRight,
+                  //   child: ValueListenableBuilder(
+                  //     valueListenable: loadedAssetsPercentage,
+                  //     builder: (context, value, child) {
+                  //       return CircularProgressIndicator(
+                  //         value: value,
+                  //         backgroundColor: Colors.black,
+                  //         color: Colors.white,
+                  //       );
+                  //     },
+                  //   ),
+                  // )
                 ],
               )),
             );
