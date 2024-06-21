@@ -15,8 +15,9 @@ dependencies:
   scrollable_positioned_list: ^0.3.8
   url_launcher: 
   video_player: 
+  web_video_player: 
   parallax: 
-
+  visibility_detector: 
 
 dev_dependencies:
   flutter_test:
@@ -35,6 +36,10 @@ flutter:
     - assets/images/blogs_intro-2.png
     - assets/images/blogs_intro-3.png
     - assets/images/blogs_intro-4.png
+    - assets/images/blogs_intro-5.png
+    - assets/images/blogs_intro-6.png
+    - assets/images/blogs_intro-7.png
+    - assets/images/blogs_intro-8.png
     - assets/images/bytebison.png
     - assets/images/tim.jpeg
     - assets/images/falcon.jpeg
@@ -57,4 +62,6 @@ flutter:
     - assets/images/vision_frame_m.png
     - assets/images/logo.png
     - assets/images/wave_line.png
-    - assets/videos/hero_section.mp4
+    - assets/videos/hero_section_d.mp4
+    - assets/videos/hero_section_m.mov
+    - assets/images/gradients.png

@@ -24,9 +24,9 @@ class PageWidget extends StatefulWidget {
 class _PageWidgetState extends State<PageWidget> {
   getContainerPadding() {
     if (Responsive.isDesktop(context)) {
-      return const EdgeInsets.only(left: 120, right: 60, top: 60, bottom: 60);
+      return const EdgeInsets.all(60);
     } else {
-      return const EdgeInsets.symmetric(horizontal: 30, vertical: 30);
+      return const EdgeInsets.all(30);
     }
   }
 
@@ -40,8 +40,8 @@ class _PageWidgetState extends State<PageWidget> {
         padding: getContainerPadding(),
         child: Column(
           children: [
-            ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 600),
+            Container(
+              // constraints: BoxConstraints(maxWidth: 600),
               child: GradientText(
                 text: widget.header,
                 alignment: TextAlign.center,
@@ -72,14 +72,22 @@ class _PageWidgetState extends State<PageWidget> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
+        // const Spacer(),
         Expanded(
             flex: 6,
             child: Image.asset(
               widget.image_path,
-              // fit: BoxFit.cover,
+              // height: 600,
+              fit: BoxFit.fitHeight,
+              // scale: 2  ,
             )),
-        const Spacer(),
-        Expanded(flex: 6, child: _textBody()),
+        // const Spacer(
+        //   flex: 1,
+        // ),
+        Expanded(flex: 3, child: _textBody()),
+        // const Spacer(
+        //   flex: 1,
+        // )
       ],
     );
   }
@@ -110,15 +118,15 @@ class _PageWidgetState extends State<PageWidget> {
             ConstrainedBox(
                 constraints: BoxConstraints(maxHeight: 50.h),
                 child: const VerticalDivider(
-                  width: 20,
-                  thickness: 4,
+                  width: 25,
+                  thickness: 5,
                   color: Color(0xff07BA9B),
                 )),
             Expanded(
                 child: Text(
               widget.title,
               style: Responsive.getTextStyle(context,
-                  weight: FontWeight.w600, mSize: 20, dSize: 30),
+                  weight: FontWeight.w600, mSize: 20, dSize: 40),
             ))
           ],
         ),

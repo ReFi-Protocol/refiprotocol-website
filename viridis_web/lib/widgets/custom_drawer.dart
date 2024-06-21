@@ -41,21 +41,21 @@ class _CustomDrawerState extends State<CustomDrawer> {
           Stack(
             children: [
               Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                IconButton(
-                    onPressed: () => Get.back(),
-                    icon: const Icon(
-                      Icons.close,
-                      color: Colors.white,
-                    ))
+                // IconButton(
+                //     onPressed: () => Get.back(),
+                //     icon: const Icon(
+                //       Icons.close,
+                //       color: Colors.white,
+                //     ))
               ]),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 ConstrainedBox(
                   constraints:
                       const BoxConstraints(maxHeight: 60, maxWidth: 60),
-                  child: Image.asset("images/logo.png"),
+                  child: Image.asset("images/appbar_logo.png"),
                 ),
                 SizedBox(
-                  width: 10.w,
+                  width: 25.w,
                 ),
                 Text("Viridis Network",
                     style: GoogleFonts.inter(
@@ -73,6 +73,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 menuConstants[i].name,
                 menuConstants[i].route == Get.currentRoute,
                 menuConstants[i].onTap),
+          Divider(
+            height: 50,
+            indent: 50,
+            endIndent: 20,
+          )
         ],
       ),
     );
@@ -100,7 +105,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               dSize: 18,
               textColor: Colors.white),
         ),
-        splashColor: const Color(0xff12BB5F),
+        splashColor: const Color(0xff12BB5F).withOpacity(0.2),
         onTap: onTap,
       ),
     );

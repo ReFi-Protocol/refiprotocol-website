@@ -7,5 +7,6 @@ abstract class Routes {
   static const ABOUT = '/about';
   static const WHITEPAPER = '/whitepaper';
   static const ROADMAPS = '/roadmaps';
+  static const CONTACT = '/contact';
   static const TEST = '/test';
 }

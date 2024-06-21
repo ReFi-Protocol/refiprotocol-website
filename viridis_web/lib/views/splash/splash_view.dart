@@ -19,7 +19,6 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
   late AnimationController _controller;
   late Animation<double> _animation;
-
   // int factIndex = getRandomIntegrerInRange(0, 10);
   // int changeFactIndex = 0;
 
@@ -27,7 +26,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 1200),
       vsync: this,
     )..repeat(reverse: true);
     _animation = Tween<double>(begin: 1.0, end: 1.5).animate(CurvedAnimation(
@@ -37,10 +36,10 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
   }
 
   Future<bool> preloadImages(context) async {
-    int totalAssets = AssetConstants.length;
+    int totalAssets = (assetMap[Routes.HOME] ?? []).length;
     int loadedAssets = 0;
 
-    for (String asset in AssetConstants) {
+    for (String asset in assetMap[Routes.HOME] ?? []) {
       await precacheImage(AssetImage(asset), context);
       loadedAssets += 1;
       loadedAssetsPercentage.value = (loadedAssets / totalAssets);
@@ -59,6 +58,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
               WidgetsBinding.instance.addPostFrameCallback(
                 (_) {
                   Get.toNamed(Routes.HOME);
+                  // Get.toNamed(nextRoute);
                 },
               );
             }
@@ -85,19 +85,19 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
                       ),
                     ),
                   ),
-                  // Align(
-                  //   alignment: Alignment.bottomRight,
-                  //   child: ValueListenableBuilder(
-                  //     valueListenable: loadedAssetsPercentage,
-                  //     builder: (context, value, child) {
-                  //       return CircularProgressIndicator(
-                  //         value: value,
-                  //         backgroundColor: Colors.black,
-                  //         color: Colors.white,
-                  //       );
-                  //     },
-                  //   ),
-                  // )
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: ValueListenableBuilder(
+                      valueListenable: loadedAssetsPercentage,
+                      builder: (context, value, child) {
+                        return CircularProgressIndicator(
+                          value: value,
+                          backgroundColor: Colors.black,
+                          color: Colors.white,
+                        );
+                      },
+                    ),
+                  )
                 ],
               )),
             );

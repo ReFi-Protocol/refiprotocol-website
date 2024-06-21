@@ -66,18 +66,23 @@ class _CustomAppBarState extends State<CustomAppBar> {
   }
 
   _title() {
-    return Row(children: [
-      ConstrainedBox(
-        constraints: const BoxConstraints(maxHeight: 60, maxWidth: 60),
-        child: Image.asset("images/logo.png"),
-      ),
-      SizedBox(
-        width: 10.w,
-      ),
-      Text("Viridis Network",
-          style: GoogleFonts.inter(
-              color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400))
-    ]);
+    return InkWell(
+      onTap: () => Get.toNamed(Routes.HOME),
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      child: Row(children: [
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxHeight: 60, maxWidth: 60),
+          child: Image.asset("images/appbar_logo.png"),
+        ),
+        SizedBox(
+          width: 20.w,
+        ),
+        Text("Viridis Network",
+            style: GoogleFonts.inter(
+                color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400))
+      ]),
+    );
   }
 
   void _launchWhitePaperURL() async {

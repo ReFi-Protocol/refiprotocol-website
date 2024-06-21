@@ -124,9 +124,9 @@ class _RoadmapWidgetState extends State<RoadmapWidget>
                   _roadmapDetail(
                       "Viridis Network Launch",
                       [
-                        "Q4 2023 - ERC20 Token Release",
-                        "Q4 2023 - Creation of V1 Whitepaper and Documentation",
-                        "Q4 2023 - Viridis Network at COP28",
+                        "ERC20 Token Release",
+                        "Creation of V1 Whitepaper and Documentation",
+                        "Viridis Network at COP28",
                       ],
                       key: containerKeys[0],
                       controller: boxControllers[0],
@@ -134,10 +134,10 @@ class _RoadmapWidgetState extends State<RoadmapWidget>
                   _roadmapDetail(
                       "Development of L1 Blockchain Platform",
                       [
-                        "Q1 2024 - Viridis L2 Testnet",
-                        "Q1 2024 - Architecture Formulation of Wrapped Carbon (wCRBN) NFTs",
-                        "Q1 2024 - Viridis EVM Testnet Staking and Airdrop",
-                        "Q2 2024 - Partnership with Validation/Verification Body (VVB)"
+                        "Architecture Formulation of Wrapped Carbon (wCRBN) NFTs",
+                        "Viridis EVM Testnet Staking and Airdrop",
+                        "Partnership with Validation/Verification Body (VVB)"
+                            "Viridis L2 Testnet",
                       ],
                       key: containerKeys[1],
                       controller: boxControllers[1],
@@ -145,9 +145,9 @@ class _RoadmapWidgetState extends State<RoadmapWidget>
                   _roadmapDetail(
                     "Viridis Network L1 Blockchain Launch",
                     [
-                      "Q2 2024 - Mainnet Explorer, Bridging and Staking Platform",
-                      "Q2 2024 - Carbon Ambassador Program",
-                      "Q2 2024 - wCRBN Issuance",
+                      "Mainnet Explorer, Bridging and Staking Platform",
+                      "Carbon Ambassador Program",
+                      "wCRBN Issuance",
                     ],
                     key: containerKeys[2],
                     controller: boxControllers[2],

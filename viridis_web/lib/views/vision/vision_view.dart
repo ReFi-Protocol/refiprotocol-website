@@ -1,6 +1,8 @@
 import 'dart:js_interop';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:viridis_web/views/home/widgets/contact_frame.dart';
@@ -9,11 +11,13 @@ import 'package:viridis_web/views/home/widgets/landing_frame.dart';
 import 'package:viridis_web/views/vision/widgets/roadmap_frame.dart';
 import 'package:viridis_web/views/home/widgets/tab_frame.dart';
 import 'package:viridis_web/views/home/widgets/transparency_frame.dart';
+import 'package:viridis_web/widgets/animated_appbar.dart';
 import 'package:viridis_web/widgets/explore_frame.dart';
 import 'package:viridis_web/views/vision/widgets/vision_frame.dart';
 import 'package:viridis_web/views/vision/widgets/mission_frame.dart';
 import 'package:viridis_web/widgets/custom_footer.dart';
 import '../../routes/app_pages.dart';
+import '../../widgets/FadeInListWidget.dart';
 import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_drawer.dart';
 
@@ -27,40 +31,25 @@ class VisionView extends StatefulWidget {
 
 class _VisionViewState extends State<VisionView> {
   List<Widget> widgetList = [];
-  final ItemScrollController _itemScrollController = ItemScrollController();
-  ScrollController _controller = ScrollController();
+  // final ItemScrollController _itemScrollController = ItemScrollController();
+  final _controller = ScrollController();
 
-  _scrollToIndex(int index) {
-    _itemScrollController.scrollTo(
-        index: index,
-        duration: const Duration(seconds: 2),
-        curve: Curves.easeInOutCubic);
-  }
+  // _scrollToIndex(int index) {
+  //   _itemScrollController.scrollTo(
+  //       index: index,
+  //       duration: const Duration(seconds: 2),
+  //       curve: Curves.easeInOutCubic);
+  // }
 
   @override
   void initState() {
     super.initState();
 
-    widgetList = [
-      PreferredSize(
-        preferredSize: Size.fromHeight(80),
-        child: CustomAppBar(
-          page: Routes.VISION,
-        ),
-      ),
-      VisionFrame(),
-      MissionFrame(),
-      RoadmapFrame(
-        controller: _controller,
-      ),
-      ExploreFrame(),
-      CustomFooter(),
-    ];
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      if (widget.roadmap) {
-        _scrollToIndex(3);
-      }
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    //   if (widget.roadmap) {
+    //     _scrollToIndex(3);
+    //   }
+    // });
   }
 
   @override
@@ -68,26 +57,44 @@ class _VisionViewState extends State<VisionView> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
-        body: SizedBox(
-            width: double.infinity,
-            child: ListView.builder(
-              controller:
-                  _controller, // Associate the ScrollController with the ListView
-              itemCount: widgetList.length,
-              itemBuilder: (context, index) {
-                return widgetList[index];
-              },
-            )
-            // ScrollablePositionedList.builder(
-
-            //   itemCount: widgetList.length,
-            //   itemScrollController: _itemScrollController,
-            //   itemBuilder: (context, index) {
-            //     return widgetList[index];
-            //   },
-            // ),
+        body: Stack(
+          children: <Widget>[
+            ListView(
+              controller: _controller,
+              children: [
+                const PreferredSize(
+                  preferredSize: Size.fromHeight(80),
+                  child: CustomAppBar(
+                    page: Routes.VISION,
+                  ),
+                ),
+                FadeInListItem(child: const VisionFrame()),
+                FadeInListItem(child: const MissionFrame()),
+                FadeInListItem(
+                    child: RoadmapFrame(
+                  controller: _controller,
+                )),
+                FadeInListItem(child: const ExploreFrame()),
+                const CustomFooter(),
+              ],
             ),
-        drawer: CustomDrawer(),
+            AnimatedAppbar(
+              controller: _controller,
+              route: Routes.VISION,
+            )
+          ],
+        ),
+
+        // ScrollablePositionedList.builder(
+
+        //   itemCount: widgetList.length,
+        //   itemScrollController: _itemScrollController,
+        //   itemBuilder: (context, index) {
+        //     return widgetList[index];
+        //   },
+        // ),
+
+        drawer: const CustomDrawer(),
       ),
     );
   }

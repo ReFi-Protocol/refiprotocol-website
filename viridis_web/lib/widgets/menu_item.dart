@@ -28,6 +28,8 @@ class _MenuItemState extends State<MenuItem> {
         onHover: (value) => setState(() {
           _onHover = value;
         }),
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
         onTap: widget.onPress,
         child: Text(widget.title ?? "",
             style: GoogleFonts.inter(

@@ -19,7 +19,7 @@ class MainApp extends StatelessWidget {
         builder: (_, child) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            initialRoute: Routes.SPLASH,
+            initialRoute: Routes.HOME,
             getPages: AppPages.routes,
             theme: ThemeData(
               primaryColor: Colors.black,

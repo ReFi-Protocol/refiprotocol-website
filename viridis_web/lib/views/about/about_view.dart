@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:viridis_web/views/about/widgets/about_detail_frame.dart';
 import 'package:viridis_web/views/about/widgets/about_explore_frame.dart';
 import 'package:viridis_web/views/about/widgets/about_frame.dart';
@@ -10,6 +12,8 @@ import 'package:viridis_web/views/home/widgets/landing_frame.dart';
 import 'package:viridis_web/views/vision/widgets/roadmap_frame.dart';
 import 'package:viridis_web/views/home/widgets/tab_frame.dart';
 import 'package:viridis_web/views/home/widgets/transparency_frame.dart';
+import 'package:viridis_web/widgets/FadeInListWidget.dart';
+import 'package:viridis_web/widgets/animated_appbar.dart';
 import 'package:viridis_web/widgets/explore_frame.dart';
 import 'package:viridis_web/views/vision/widgets/vision_frame.dart';
 import 'package:viridis_web/views/vision/widgets/mission_frame.dart';
@@ -18,18 +22,35 @@ import '../../routes/app_pages.dart';
 import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_drawer.dart';
 
-class AboutView extends StatelessWidget {
-  const AboutView({Key? key}) : super(key: key);
+class AboutView extends StatefulWidget {
+  const AboutView({super.key});
+
+  @override
+  State<AboutView> createState() => _AboutViewState();
+}
+
+class _AboutViewState extends State<AboutView> {
+  final _controller = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
-        body: SingleChildScrollView(
-          child: SizedBox(
-            width: double.infinity,
-            child: Column(
+        body: Container(
+            // decoration: BoxDecoration(
+            //     image: DecorationImage(
+            //         image: AssetImage("images/gradients.png"),
+            //         fit: BoxFit.cover)),
+            child: Stack(
+          children: <Widget>[
+            ListView(
+              controller: _controller,
               children: [
                 PreferredSize(
                   preferredSize: Size.fromHeight(80),
@@ -37,18 +58,19 @@ class AboutView extends StatelessWidget {
                     page: Routes.ABOUT,
                   ),
                 ),
-                AboutFrame(),
-                TeamFrame(),
-                AboutExploreFrame(),
-                AboutDetailFrame(),
-                BlogsFrame(),
-                ExploreFrame(),
+                FadeInListItem(child: AboutFrame()),
+                FadeInListItem(child: TeamFrame()),
+                FadeInListItem(child: AboutExploreFrame()),
+                FadeInListItem(child: AboutDetailFrame()),
+                FadeInListItem(child: BlogsFrame()),
+                FadeInListItem(child: ExploreFrame()),
                 CustomFooter(),
               ],
             ),
-          ),
-        ),
-        drawer: CustomDrawer(),
+            AnimatedAppbar(controller: _controller, route: Routes.ABOUT)
+          ],
+        )),
+        drawer: const CustomDrawer(),
       ),
     );
   }

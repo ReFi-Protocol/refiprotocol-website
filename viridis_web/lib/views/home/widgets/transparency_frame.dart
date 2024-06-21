@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:viridis_web/utilities/constants.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
 import '../../../utilities/responsive.dart';
@@ -17,7 +18,7 @@ class TransparencyFrame extends StatefulWidget {
 class _TransparencyFrameState extends State<TransparencyFrame> {
   _getContainerPadding() {
     if (Responsive.isDesktop(context)) {
-      return const EdgeInsets.all(45);
+      return const EdgeInsets.all(55);
     } else {
       return const EdgeInsets.all(15);
     }
@@ -28,7 +29,7 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
     return Container(
         padding: _getContainerPadding(),
         constraints: BoxConstraints(minHeight: 500, maxWidth: 1.sw),
-        height: 1.sh,
+        height: 1.1.sh,
         child: Container(
           clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
@@ -76,10 +77,10 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 600),
+                constraints: const BoxConstraints(maxWidth: 660),
                 child: Column(children: [
                   Text(
-                    "Bringing Transparency to the Voluntary Carbon Market",
+                    "Transparent Carbon Neutrality",
                     textAlign: TextAlign.center,
                     style: Responsive.getTextStyle(context,
                         mSize: 30, dSize: 40, weight: FontWeight.w700),
@@ -88,7 +89,7 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
                     height: 20.h,
                   ),
                   Text(
-                    "Eliminating greenwashing concerns through a dynamic ‘audit pipeline’",
+                    "Introducing Unparalleled Transparency with Blockchain Technology. Eliminate greenwashing doubts.",
                     textAlign: TextAlign.center,
                     style: Responsive.getTextStyle(context),
                   ),
@@ -100,19 +101,11 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
                     children: [
                       CTAButton(
                           filled: true,
-                          onTap: () async {
-                            Uri url = Uri.parse(
-                                'https://docs.viridis.network/overview/carbon-credit-architecture');
-                            if (await canLaunchUrl(url)) {
-                              await launchUrl(url);
-                            } else {
-                              throw 'Could not launch $url';
-                            }
-                          },
+                          onTap: () => launchMediumURL(),
                           child: const Row(
                             children: [
                               Text(
-                                "Learn More",
+                                "Explore",
                               ),
                               Icon(
                                 Icons.chevron_right,

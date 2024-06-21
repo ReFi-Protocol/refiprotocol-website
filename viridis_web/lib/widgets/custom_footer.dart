@@ -8,6 +8,8 @@ import 'package:viridis_web/utilities/constants.dart';
 import 'package:viridis_web/utilities/responsive.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
+import '../routes/app_pages.dart';
+
 class CustomFooter extends StatefulWidget {
   const CustomFooter({super.key});
 
@@ -27,7 +29,7 @@ class _CustomFooterState extends State<CustomFooter> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
+      color: Colors.transparent,
       padding: getContainerPadding(),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Responsive(
@@ -105,15 +107,11 @@ class _CustomFooterState extends State<CustomFooter> {
               height: 15.h,
             ),
             CTAButton(
-              filled: true,
-              child: Text(
-                "Contact us",
-                style: GoogleFonts.inter(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black),
-              ),
-            )
+                filled: true,
+                onTap: () => Get.toNamed(Routes.CONTACT),
+                child: const Text(
+                  "Contact us",
+                ))
           ],
         ));
   }
@@ -177,6 +175,8 @@ class _CustomFooterState extends State<CustomFooter> {
   _link(String text, Function() onTap) {
     return InkWell(
       onTap: onTap,
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       child: Text(text,
           style: GoogleFonts.inter(
               fontSize: 14, fontWeight: FontWeight.w600, color: Colors.white)),

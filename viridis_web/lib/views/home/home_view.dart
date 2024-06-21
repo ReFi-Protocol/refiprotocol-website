@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:video_player/video_player.dart';
-import 'package:viridis_web/utilities/responsive.dart';
 import 'package:viridis_web/views/home/widgets/contact_frame.dart';
 import 'package:viridis_web/views/home/widgets/innovation_frame.dart';
 import 'package:viridis_web/views/home/widgets/landing_frame.dart';
@@ -11,7 +9,8 @@ import 'package:viridis_web/views/home/widgets/transparency_frame.dart';
 import 'package:viridis_web/widgets/custom_drawer.dart';
 import 'package:viridis_web/widgets/custom_footer.dart';
 import '../../routes/app_pages.dart';
-import '../../utilities/parralax_flow_delegate.dart';
+import '../../utilities/constants.dart';
+import '../../widgets/FadeInListWidget.dart';
 import '../../widgets/custom_appbar.dart';
 
 class HomeView extends StatefulWidget {
@@ -34,6 +33,16 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     _controller.addListener(_listener);
+    preloadImages(context);
+  }
+
+  Future<bool> preloadImages(context) async {
+    for (List<String> assetList in assetMap.values) {
+      for (String asset in assetList) {
+        await precacheImage(AssetImage(asset), context);
+      }
+    }
+    return true;
   }
 
   void _listener() {
@@ -71,7 +80,7 @@ class _HomeViewState extends State<HomeView> {
         if (_fromTop < -_containerHeight) _fromTop = -_containerHeight;
       }
     }
-    setState(() {});
+    // setState(() {  });
   }
 
   @override
@@ -81,7 +90,29 @@ class _HomeViewState extends State<HomeView> {
         backgroundColor: Colors.black,
         body: Stack(
           children: <Widget>[
-            _listView(),
+            CustomScrollView(
+              controller: _controller,
+              slivers: [
+                // const CustomAppBar(),
+                SliverList(
+                    delegate: SliverChildListDelegate([
+                  LandingFrame(
+                    controller: _controller,
+                  ),
+                  FadeInListItem(
+                      child: TransparencyFrame(
+                    controller: _controller,
+                  )),
+                  FadeInListItem(child: InnovationFrame()),
+                  FadeInListItem(child: TabFrame()),
+                  ContactFrame(),
+                  CustomFooter(),
+                ]))
+                // SliverList(
+                //   delegate: SliverChildListDelegate([_listView()]),
+                // ),
+              ],
+            ),
             Positioned(
               top: _fromTop,
               left: 0,

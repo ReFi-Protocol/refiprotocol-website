@@ -13,9 +13,9 @@ class AboutDetailFrame extends StatefulWidget {
 class _AboutDetailFrameState extends State<AboutDetailFrame> {
   _getContainerPadding() {
     if (Responsive.isDesktop(context)) {
-      return const EdgeInsets.only(top: 80, left: 80);
+      return const EdgeInsets.symmetric(vertical: 50, horizontal: 80);
     } else {
-      return const EdgeInsets.only(left: 30, top: 30);
+      return const EdgeInsets.all(30);
     }
   }
 
@@ -24,7 +24,6 @@ class _AboutDetailFrameState extends State<AboutDetailFrame> {
     return Container(
       width: 1.sw,
       padding: _getContainerPadding(),
-      decoration: BoxDecoration(color: Color(0xff03040C)),
       child: Responsive(
         desktop: _desktopView(),
         mobile: _mobileView(),
@@ -34,16 +33,16 @@ class _AboutDetailFrameState extends State<AboutDetailFrame> {
 
   _desktopView() {
     return Container(
-      height: 1.1.sh,
-      child: Stack(children: [
-        Container(
-          alignment: Alignment.bottomRight,
-          child: Image.asset("images/about_detail.png"),
-        ),
-        Container(
-          constraints: BoxConstraints(maxWidth: 0.5.sw),
-          alignment: Alignment.topLeft,
+      // height: 1.1.sh,
+      child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        Expanded(
+          // constraints: BoxConstraints(maxWidth: 0.5.sw),
+          // alignment: Alignment.topLeft,
           child: _textColumn(),
+        ),
+        Expanded(
+          // alignment: Alignment.bottomRight,
+          child: Image.asset("images/about_detail.png"),
         ),
       ]),
     );
@@ -69,22 +68,24 @@ class _AboutDetailFrameState extends State<AboutDetailFrame> {
   _textColumn() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           "In propelling the advancement of environmental finance and seizing opportunities, we're actively crafting three essential products.",
+          // textAlign: TextAlign.center,
           style: Responsive.getTextStyle(context,
               mWeight: FontWeight.w700,
               dWeight: FontWeight.w500,
               mSize: 25,
-              dSize: 25,
+              dSize: 35,
               textColor: Colors.white),
         ),
         const SizedBox(
-          height: 20,
+          height: 30,
         ),
         Text(
           "Establishing a comprehensive and tokenized framework for the decentralized verification, classification, and ownership of carbon credits through the harnessing of blockchain technology",
-          textAlign: TextAlign.left,
+          // textAlign: TextAlign.justify,
           style: Responsive.getTextStyle(context,
               weight: FontWeight.w500, mSize: 16, dSize: 16),
         ),
@@ -93,7 +94,7 @@ class _AboutDetailFrameState extends State<AboutDetailFrame> {
         ),
         Text(
           "Facilitating direct engagement with the governance process of Viridis while incorporating tokens to incentivize active participation.",
-          textAlign: TextAlign.left,
+          textAlign: TextAlign.justify,
           style: Responsive.getTextStyle(context,
               weight: FontWeight.w500, mSize: 16, dSize: 16),
         ),

@@ -25,7 +25,6 @@ class _AboutFrameState extends State<AboutFrame> {
     return Container(
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black),
-          color: Colors.black,
         ),
         padding: getContainerPadding(),
         child: Responsive(mobile: _mobileView(), desktop: _desktopView()));

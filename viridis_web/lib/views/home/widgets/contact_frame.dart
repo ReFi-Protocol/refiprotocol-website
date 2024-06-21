@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
+
+import '../../../routes/app_pages.dart';
 
 class ContactFrame extends StatefulWidget {
   const ContactFrame({super.key});
@@ -52,15 +55,15 @@ class _ContactFrameState extends State<ContactFrame> {
                           color: Colors.white)),
                 ])),
             SizedBox(
-              height: 20.h,
+              height: 30.h,
             ),
             Text(
-              "Track our process from project developer to certification with our partner TUV SUD. Empowering businesses towards verifiable environmental impact.",
+              "Track our process from project developer to certification with our partner TUV SUD. Empowering businesses Towards verifiable environmental impact.",
               textAlign: TextAlign.center,
               style: GoogleFonts.inter(
                   fontSize: 21,
                   fontWeight: FontWeight.w500,
-                  color: Color(0xff012B3F)),
+                  color: Colors.white),
             ),
             SizedBox(
               height: 40.h,
@@ -70,7 +73,7 @@ class _ContactFrameState extends State<ContactFrame> {
               child: Text(
                 "Contact us",
               ),
-              onTap: () {},
+              onTap: () => Get.toNamed(Routes.CONTACT),
             )
           ]),
         ),

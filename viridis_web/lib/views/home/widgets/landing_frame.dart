@@ -66,23 +66,14 @@ class _LandingFrameState extends State<LandingFrame>
             child: child,
           );
         },
-        child: AnimatedBuilder(
-          animation: _animation,
-          builder: (context, child) {
-            return Transform.scale(
-              scale: _animation.value,
-              child: child,
-            );
-          },
-          child: Container(
-              constraints: const BoxConstraints(minHeight: 600),
-              height: 1.2.sh,
-              child: Image.asset(
-                "images/bg_landing_frame.png",
-                width: 1.sw,
-                fit: BoxFit.cover,
-              )),
-        ));
+        child: Container(
+            constraints: const BoxConstraints(minHeight: 600),
+            height: 1.2.sh,
+            child: Image.asset(
+              "images/bg_landing_frame.png",
+              width: 1.sw,
+              fit: BoxFit.cover,
+            )));
   }
 
   _data() {
@@ -133,7 +124,7 @@ class _LandingFrameState extends State<LandingFrame>
               ),
               CTAButton(
                   filled: true,
-                  onTap: () {},
+                  onTap: () => Get.toNamed(Routes.CONTACT),
                   child: const Text(
                     "Contact us",
                   ))

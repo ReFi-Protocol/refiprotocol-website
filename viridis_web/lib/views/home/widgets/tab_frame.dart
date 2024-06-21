@@ -67,23 +67,22 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
 
     tabData = [
       _tabData(
-          "Purchase wCRBN(Wrapped Carbon NFTS)",
-          "Using our token \$VRD, you will be able to purchase and trade our Wrapped Carbon NFTs. Each wCRBN NFT is attributed to 1 carbon credit and represents 1 tonne of carbon emissions offset.",
+          "Purchase wCRBN (Wrapped Carbon NFTS)",
+          "Using the on-chain native gas token \$VRD, you will be able to trade the divisible (by each token type) wCRBN NFTs attributed with on-chain metadata.",
           "images/tab_1.png"),
       _tabData(
-          "Mint bCRBN(Burnt Carbon NFTS)",
-          "With your tradable wCRBN NFTs, you can mint an untradeable bCRBN NFT. This process represents the retirement of your carbon credits.",
+          "Mint bCRBN (Burnt Carbon NFTS)",
+          "With your wCRBN NFTs, you can then mint a quantity-specific bCRBN NFT. The bCRBN acts as a public certificate representing your ultimate ownership of digitized carbon credits.",
           "images/tab_2.png"),
       _tabData(
           "Carbon Offset Metadata Certificate",
-          "By minting bCRBN NFTs, you have successfully reduced your carbon footprint!",
+          "Together, they synergize their roles to bring forth your EcoToken-WnCRBN certificate—a collective effort in creating a testament to a sustainable future",
           "images/tab_3.png"),
       _tabData(
           "Carbon neutrality",
-          "To showcase your Carbon Emission Reduction, an immutable quantity-specific carbon offset certificate is produced, publicly displaying the carbon you or your organization has offset.",
+          "Since you have retired the carbon offsets in wCRBN NFT by minting bCRBN, you have reduced your carbon footprint and showcased your commitment to a sustainable future",
           "images/tab_4.png"),
     ];
-    print(Responsive.isDesktop(context) ? 1.1.sh : 0.9.sh);
     return Container(
       constraints:
           BoxConstraints(minHeight: Responsive.isDesktop(context) ? 650 : 850),

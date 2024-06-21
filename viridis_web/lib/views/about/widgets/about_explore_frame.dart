@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:viridis_web/widgets/cta_button.dart';
 
+import '../../../utilities/constants.dart';
 import '../../../utilities/responsive.dart';
 
 class AboutExploreFrame extends StatefulWidget {
@@ -16,9 +18,6 @@ class _AboutExploreFrameState extends State<AboutExploreFrame> {
   Widget build(BuildContext context) {
     return Container(
       height: 1.sh,
-      decoration: BoxDecoration(
-        color: Colors.black,
-      ),
       child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         Container(
           constraints: BoxConstraints(maxWidth: 900),
@@ -42,15 +41,10 @@ class _AboutExploreFrameState extends State<AboutExploreFrame> {
             SizedBox(
               height: 50.h,
             ),
-            _ctaButton(
+            CTAButton(
+              onTap: () => launchDocsURL(),
               filled: true,
-              child: Text(
-                "Find Out More",
-                style: GoogleFonts.inter(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black),
-              ),
+              child: const Text("Find Out More"),
             ),
           ]),
         ),
@@ -62,23 +56,6 @@ class _AboutExploreFrameState extends State<AboutExploreFrame> {
           "images/about_explore.jpeg",
         ))
       ]),
-    );
-  }
-
-  _ctaButton({Widget? child, bool filled = false}) {
-    return OutlinedButton(
-      onPressed: () {
-        debugPrint('Received click');
-      },
-      style: ButtonStyle(
-        padding: const MaterialStatePropertyAll(
-            EdgeInsets.symmetric(horizontal: 25, vertical: 18)),
-        overlayColor: MaterialStatePropertyAll(Colors.green.withOpacity(0.1)),
-        side: const MaterialStatePropertyAll(BorderSide(color: Colors.white)),
-        backgroundColor:
-            filled ? const MaterialStatePropertyAll(Colors.white) : null,
-      ),
-      child: child,
     );
   }
 }

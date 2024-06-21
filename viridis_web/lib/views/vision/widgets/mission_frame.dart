@@ -36,14 +36,14 @@ class _MissionFrameState extends State<MissionFrame> {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Expanded(
-            flex: 6,
+            flex: 8,
             child: Image.asset(
               "images/mission_frame_d.png",
-              height: 1.1.sh,
-              fit: BoxFit.fill,
+              // height: 0.9.sh,
+              fit: BoxFit.fitHeight,
             )),
         const Spacer(),
-        Expanded(flex: 6, child: _textBody()),
+        Expanded(flex: 8, child: _textBody()),
       ],
     );
   }
@@ -91,7 +91,7 @@ class _MissionFrameState extends State<MissionFrame> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Utilize blockchain technology to bring credibility to the Voluntary Carbon Market",
+                "Blockchain to build transparent, accessible, and fast infrastructure for environmental commodities.",
                 style: Responsive.getTextStyle(context,
                     weight: FontWeight.w500, mSize: 35, dSize: 40),
               ),
@@ -99,7 +99,7 @@ class _MissionFrameState extends State<MissionFrame> {
                 height: 20,
               ),
               Text(
-                "Viridis Network’s mission is to improve the credibility of the Voluntary Carbon Market through anchoring carbon credits on our blockchain platform. With a robust and lucid workflow emphasizing transparency, Viridis Network aims to create the first decentralized network of Validation/Verification Bodies (VVBs) for the continuous verification of the environmental data supporting carbon credits.",
+                "Viridis enables carbon offset suppliers to register credits to our protocol, creating NFT carbon credits. These can be traded like ERC20 tokens on our chain and used by projects to become carbon neutral.",
                 textAlign: TextAlign.justify,
                 style: Responsive.getTextStyle(context,
                     weight: FontWeight.w400, mSize: 16, dSize: 20),
