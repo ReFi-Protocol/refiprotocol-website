@@ -44,7 +44,7 @@ class _MissionFrameState extends State<MissionFrame> {
     return AnimatedBuilder(
         animation: widget.controller,
         builder: (context, child) {
-          double offsetY = -widget.controller.offset * 1;
+          double offsetY = -widget.controller.offset * 0.85;
           return Transform.translate(
             offset: Offset(0, offsetY),
             child: child,

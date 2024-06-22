@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:viridis_web/utilities/responsive.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
 import '../../../routes/app_pages.dart';
@@ -58,13 +59,13 @@ class _ContactFrameState extends State<ContactFrame> {
               height: 30.h,
             ),
             Text(
-              "Track our process from project developer to certification with our partner TUV SUD. Empowering businesses Towards verifiable environmental impact.",
-              textAlign: TextAlign.center,
-              style: GoogleFonts.inter(
-                  fontSize: 21,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white),
-            ),
+                "Track our process from project developer to certification with our partner TUV SUD. Empowering businesses Towards verifiable environmental impact.",
+                textAlign: TextAlign.center,
+                style: Responsive.getTextStyle(context,
+                    dSize: 21,
+                    mSize: 18,
+                    weight: FontWeight.w500,
+                    textColor: Colors.white)),
             SizedBox(
               height: 40.h,
             ),

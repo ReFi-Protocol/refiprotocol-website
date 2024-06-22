@@ -43,7 +43,7 @@ class _LandingFrameState extends State<LandingFrame>
   Widget build(BuildContext context) {
     return Container(
         constraints: const BoxConstraints(minHeight: 520),
-        height: 1.sh,
+        height: 1.05.sh,
         child: Stack(
           children: [
             Positioned(
@@ -60,7 +60,7 @@ class _LandingFrameState extends State<LandingFrame>
         animation: widget.controller,
         builder: (context, child) {
           double offsetY = -widget.controller.offset *
-              (Responsive.isDesktop(context) ? 0.25 : 0.15);
+              (Responsive.isDesktop(context) ? 0.2 : 0.15);
           return Transform.translate(
             offset: Offset(0, offsetY),
             child: child,

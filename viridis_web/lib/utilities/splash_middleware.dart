@@ -12,7 +12,7 @@ class SplashMiddleware extends GetMiddleware {
       return null;
     }
     return RouteSettings(
-      name: Routes.SPLASH,
+      name: Routes.HOME,
       arguments: route,
     );
   }
