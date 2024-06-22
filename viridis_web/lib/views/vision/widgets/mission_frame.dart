@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:viridis_web/widgets/FadeInListWidget.dart';
 
 import '../../../utilities/responsive.dart';
 
 class MissionFrame extends StatefulWidget {
-  const MissionFrame({super.key});
+  const MissionFrame({super.key, required this.controller});
+  final ScrollController controller;
 
   @override
   State<MissionFrame> createState() => _MissionFrameState();
@@ -27,21 +29,51 @@ class _MissionFrameState extends State<MissionFrame> {
           border: Border.all(color: Colors.black),
           color: Colors.black,
         ),
-        padding: getContainerPadding(),
-        child: Responsive(mobile: _mobileView(), desktop: _desktopView()));
+        child: Stack(
+          children: [
+            Positioned(top: 600, right: 0, child: _parallaxImage()),
+            Padding(
+                padding: getContainerPadding(),
+                child:
+                    Responsive(mobile: _mobileView(), desktop: _desktopView()))
+          ],
+        ));
+  }
+
+  _parallaxImage() {
+    return AnimatedBuilder(
+        animation: widget.controller,
+        builder: (context, child) {
+          double offsetY = -widget.controller.offset * 1;
+          return Transform.translate(
+            offset: Offset(0, offsetY),
+            child: child,
+          );
+        },
+        child: _background());
+  }
+
+  _background() {
+    return Image.asset(
+      "images/mission_bg.png",
+      // fit: BoxFit.cover,
+      // width: 1.sw,
+      // height: 2.sh,
+    );
   }
 
   _desktopView() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Expanded(
-            flex: 8,
-            child: Image.asset(
-              "images/mission_frame_d.png",
-              // height: 0.9.sh,
-              fit: BoxFit.fitHeight,
-            )),
+        FadeInListItem(
+            child: Expanded(
+                flex: 8,
+                child: Image.asset(
+                  "images/mission_frame_d.png",
+                  // height: 0.9.sh,
+                  fit: BoxFit.fitHeight,
+                ))),
         const Spacer(),
         Expanded(flex: 8, child: _textBody()),
       ],
@@ -56,8 +88,8 @@ class _MissionFrameState extends State<MissionFrame> {
             padding: const EdgeInsets.only(left: 20, top: 20),
             width: 1.sw,
             child: Image.asset(
-              "images/mission_frame_m.png",
-              fit: BoxFit.cover,
+              "images/mission_frame_d.png",
+              // fit: BoxFit.cover,
             ))
       ],
     );

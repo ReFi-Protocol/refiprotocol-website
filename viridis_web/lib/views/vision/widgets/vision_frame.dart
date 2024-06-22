@@ -5,7 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../utilities/responsive.dart';
 
 class VisionFrame extends StatefulWidget {
-  const VisionFrame({super.key});
+  const VisionFrame({super.key, required this.controller});
+  final ScrollController controller;
 
   @override
   State<VisionFrame> createState() => _VisionFrameState();
@@ -27,8 +28,38 @@ class _VisionFrameState extends State<VisionFrame> {
           border: Border.all(color: Colors.black),
           color: Colors.black,
         ),
-        padding: getContainerPadding(),
-        child: Responsive(mobile: _mobileView(), desktop: _desktopView()));
+        child: Stack(
+          children: [
+            Positioned(top: 0, left: 0, child: _parallaxImage()),
+            Padding(
+                padding: getContainerPadding(),
+                child:
+                    Responsive(mobile: _mobileView(), desktop: _desktopView()))
+          ],
+        ));
+  }
+
+  _parallaxImage() {
+    return AnimatedBuilder(
+        animation: widget.controller,
+        builder: (context, child) {
+          double offsetY = -widget.controller.offset *
+              (Responsive.isDesktop(context) ? 0.8 : 0.8);
+          return Transform.translate(
+            offset: Offset(0, offsetY),
+            child: child,
+          );
+        },
+        child: _background());
+  }
+
+  _background() {
+    return Image.asset(
+      "images/vision_bg.png",
+      // fit: BoxFit.cover,
+      // width: 1.sw,
+      // height: 2.sh,
+    );
   }
 
   _desktopView() {

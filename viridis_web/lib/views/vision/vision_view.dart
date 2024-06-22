@@ -17,6 +17,7 @@ import 'package:viridis_web/views/vision/widgets/vision_frame.dart';
 import 'package:viridis_web/views/vision/widgets/mission_frame.dart';
 import 'package:viridis_web/widgets/custom_footer.dart';
 import '../../routes/app_pages.dart';
+import '../../utilities/responsive.dart';
 import '../../widgets/FadeInListWidget.dart';
 import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_drawer.dart';
@@ -68,8 +69,13 @@ class _VisionViewState extends State<VisionView> {
                     page: Routes.VISION,
                   ),
                 ),
-                FadeInListItem(child: const VisionFrame()),
-                FadeInListItem(child: const MissionFrame()),
+                FadeInListItem(
+                    child: VisionFrame(
+                  controller: _controller,
+                )),
+                MissionFrame(
+                  controller: _controller,
+                ),
                 FadeInListItem(
                     child: RoadmapFrame(
                   controller: _controller,

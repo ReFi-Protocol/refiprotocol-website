@@ -31,11 +31,12 @@ class _ContactFrameState extends State<ContactFrame> {
   @override
   Widget build(BuildContext context) {
     return Container(
+        color: Colors.transparent,
         width: 1.sw,
         constraints: BoxConstraints(minHeight: 850),
         height: 1.sh,
         child: Stack(children: [
-          Positioned(top: 0, left: 0, child: _parallaxImage()),
+          // Positioned(top: 0, left: 0, child: _parallaxImage()),
           Container(
               alignment: Alignment.center,
               child: Column(
