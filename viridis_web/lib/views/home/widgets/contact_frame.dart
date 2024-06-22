@@ -18,7 +18,7 @@ class _ContactFrameState extends State<ContactFrame> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
             image: AssetImage(
               "images/bg_contact_frame.png",
@@ -26,12 +26,12 @@ class _ContactFrameState extends State<ContactFrame> {
             fit: BoxFit.cover),
         color: Colors.black,
       ),
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
       height: 816.h,
       width: 1.sw,
       child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 700),
+          constraints: const BoxConstraints(maxWidth: 700),
           child: Column(children: [
             RichText(
                 textAlign: TextAlign.center,
@@ -47,7 +47,7 @@ class _ContactFrameState extends State<ContactFrame> {
                       style: GoogleFonts.inter(
                           fontSize: 40,
                           fontWeight: FontWeight.w700,
-                          color: Color(0xff012B3F))),
+                          color: const Color(0xff012B3F))),
                   TextSpan(
                       text: "Future Step by Step",
                       style: GoogleFonts.inter(
@@ -71,7 +71,7 @@ class _ContactFrameState extends State<ContactFrame> {
             ),
             CTAButton(
               filled: true,
-              child: Text(
+              child: const Text(
                 "Contact us",
               ),
               onTap: () => Get.toNamed(Routes.CONTACT),

@@ -20,23 +20,23 @@ class LandingFrame extends StatefulWidget {
 
 class _LandingFrameState extends State<LandingFrame>
     with TickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation;
+  // late AnimationController _controller;
+  // late Animation<double> _animation;
 
-  double maxHeight = 0;
+  // double maxHeight = 0;
 
   @override
   void initState() {
-    maxHeight = (1.sh) > 500 ? 1.sh : 500;
+    // maxHeight = (1.sh) > 500 ? 1.sh : 500;
     super.initState();
-    _controller = AnimationController(
-      duration: const Duration(minutes: 1),
-      vsync: this,
-    )..repeat(reverse: false);
-    _animation = Tween<double>(begin: 1.0, end: 1.3).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.fastEaseInToSlowEaseOut,
-    ));
+    // _controller = AnimationController(
+    //   duration: const Duration(minutes: 1),
+    //   vsync: this,
+    // )..repeat(reverse: false);
+    // _animation = Tween<double>(begin: 1.0, end: 1.3).animate(CurvedAnimation(
+    //   parent: _controller,
+    //   curve: Curves.fastEaseInToSlowEaseOut,
+    // ));
   }
 
   @override
@@ -95,7 +95,7 @@ class _LandingFrameState extends State<LandingFrame>
             height: 20.h,
           ),
           Text(
-            "Seemlessly integrating Real World Assets (RWA) to support Regenerative Finance (ReFi)",
+            "Seamlessly integrating Real World Assets (RWA) to support Regenerative Finance (ReFi)",
             textAlign: TextAlign.center,
             style: Responsive.getTextStyle(context),
           ),

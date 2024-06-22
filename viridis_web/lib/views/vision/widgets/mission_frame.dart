@@ -66,14 +66,13 @@ class _MissionFrameState extends State<MissionFrame> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        FadeInListItem(
-            child: Expanded(
-                flex: 8,
-                child: Image.asset(
-                  "images/mission_frame_d.png",
-                  // height: 0.9.sh,
-                  fit: BoxFit.fitHeight,
-                ))),
+        Expanded(
+            flex: 8,
+            child: Image.asset(
+              "images/mission_frame_d.png",
+              // height: 0.9.sh,
+              fit: BoxFit.fitHeight,
+            )),
         const Spacer(),
         Expanded(flex: 8, child: _textBody()),
       ],

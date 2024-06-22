@@ -47,7 +47,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
           )),
       centerTitle: true,
       title: ConstrainedBox(
-          constraints: BoxConstraints.expand(width: 500, height: 100),
+          constraints: const BoxConstraints.expand(width: 500, height: 100),
           child: Responsive(
               desktop: _getDesktopTitle(), mobile: _getMobileTitle())),
       // actions: Responsive.isDesktop(context)
@@ -88,7 +88,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
   _getMobileLeading() {
     return IconButton(
         onPressed: () {},
-        icon: Icon(
+        icon: const Icon(
           Icons.menu,
           color: Colors.white,
         ));

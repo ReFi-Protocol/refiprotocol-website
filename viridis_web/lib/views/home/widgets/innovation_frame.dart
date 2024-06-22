@@ -59,7 +59,7 @@ class _InnovationFrameState extends State<InnovationFrame>
         border: Border.all(color: Colors.black),
         color: Colors.black,
       ),
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
       child: Column(children: [
         Text(
           "Our Innovation",
