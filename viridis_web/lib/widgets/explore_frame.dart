@@ -44,7 +44,7 @@ class _ExploreFrameState extends State<ExploreFrame> {
         Align(
           alignment: Alignment.centerLeft,
           child: Image.asset(
-            "images/wave_line.png",
+            "assets/images/wave_line.png",
           ),
         )
       ]),

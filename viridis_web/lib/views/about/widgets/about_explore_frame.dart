@@ -53,7 +53,7 @@ class _AboutExploreFrameState extends State<AboutExploreFrame> {
         ),
         Expanded(
             child: Image.asset(
-          "images/about_explore.jpeg",
+          "assets/images/about_explore.jpeg",
         ))
       ]),
     );

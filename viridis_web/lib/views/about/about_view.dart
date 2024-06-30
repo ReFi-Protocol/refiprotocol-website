@@ -45,7 +45,7 @@ class _AboutViewState extends State<AboutView> {
         body: Container(
             // decoration: BoxDecoration(
             //     image: DecorationImage(
-            //         image: AssetImage("images/gradients.png"),
+            //         image: AssetImage("assets/images/gradients.png"),
             //         fit: BoxFit.cover)),
             child: Stack(
           children: <Widget>[

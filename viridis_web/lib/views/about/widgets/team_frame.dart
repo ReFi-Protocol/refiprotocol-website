@@ -20,12 +20,12 @@ class _TeamFrameState extends State<TeamFrame> {
   Widget build(BuildContext context) {
     detailCards = [
       ProfileCard(
-          title: "CEO", name: "Bytebison", path: "images/bytebison.png"),
-      ProfileCard(title: "COO", name: "Tim", path: "images/tim.jpeg"),
+          title: "CEO", name: "Bytebison", path: "assets/images/bytebison.png"),
+      ProfileCard(title: "COO", name: "Tim", path: "assets/images/tim.jpeg"),
       ProfileCard(
           title: "Head of Business Development",
           name: "Falcon",
-          path: "images/falcon.jpeg"),
+          path: "assets/images/falcon.jpeg"),
     ];
 
     return Container(

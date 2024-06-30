@@ -76,7 +76,7 @@ class _ContactFrameState extends State<ContactFrame> {
     return Transform.flip(
       flipX: true,
       child: Image.asset(
-        "images/gradients.png",
+        "assets/images/gradients.png",
         fit: BoxFit.cover,
         width: 1.sw,
         height: 2.sh,

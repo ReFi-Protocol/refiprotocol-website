@@ -18,7 +18,7 @@ dependencies:
   web_video_player: 
   parallax: 
   visibility_detector: 
-  chewie:
+  firebase_core: 
 
 dev_dependencies:
   flutter_test:

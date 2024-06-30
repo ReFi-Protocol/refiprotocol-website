@@ -73,7 +73,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
       child: Row(children: [
         ConstrainedBox(
           constraints: const BoxConstraints(maxHeight: 60, maxWidth: 60),
-          child: Image.asset("images/appbar_logo.png"),
+          child: Image.asset("assets/images/appbar_logo.png"),
         ),
         SizedBox(
           width: 20.w,

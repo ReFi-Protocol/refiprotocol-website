@@ -48,8 +48,9 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
       loadedAssetsPercentage.value = (loadedAssets / totalAssets);
       // await Future.delayed(Duration(milliseconds: 100));
     }
-    controller_desktop = VideoPlayerController.asset("videos/hero_section.mov")
-      ..initialize();
+    controller_desktop =
+        VideoPlayerController.asset("assets/videos/hero_section.mov")
+          ..initialize();
     // ..initialize().then((_) {
     //   // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
     //   setState(() {
@@ -62,7 +63,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     // });
 
     controller_mobile =
-        VideoPlayerController.asset("videos/hero_section_mobile.mov")
+        VideoPlayerController.asset("assets/videos/hero_section_mobile.mov")
           ..initialize();
     // ..initialize().then((_) {
     //   // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
@@ -113,7 +114,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
                             child: child,
                           );
                         },
-                        child: Image.asset("images/logo.png"),
+                        child: Image.asset("assets/images/logo.png"),
                       ),
                     ),
                   ),

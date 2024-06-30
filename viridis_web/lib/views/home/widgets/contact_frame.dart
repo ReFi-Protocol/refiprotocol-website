@@ -21,7 +21,7 @@ class _ContactFrameState extends State<ContactFrame> {
       decoration: const BoxDecoration(
         image: DecorationImage(
             image: AssetImage(
-              "images/bg_contact_frame.png",
+              "assets/images/bg_contact_frame.png",
             ),
             fit: BoxFit.cover),
         color: Colors.black,
@@ -33,7 +33,7 @@ class _ContactFrameState extends State<ContactFrame> {
         Align(
           alignment: Alignment.topRight,
           child: Image.asset(
-            "images/tuv_sud.png",
+            "assets/images/tuv_sud.png",
             width: Responsive.isDesktop(context) ? 100 : 70,
             height: Responsive.isDesktop(context) ? 100 : 70,
           ),

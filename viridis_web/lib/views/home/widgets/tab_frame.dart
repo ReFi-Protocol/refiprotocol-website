@@ -69,19 +69,19 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
       _tabData(
           "Rent pCRBN(Wrapped Carbon NFTS)",
           "Using the on-chain native gas token \$VRD, you will be able to trade the pCRBN NFTs attributed with on-chain metadata",
-          "images/tab_1.png"),
+          "assets/images/tab_1.png"),
       _tabData(
           "Stake \$VRD",
           "Wallets with the pCRBN are eligible to stake their \$VRD for a high APY. This approach systematically increases the Total Value Locked (TVL) and stabilizes the value of \$VRD, encouraging long-term investment and participation",
-          "images/tab_2.png"),
+          "assets/images/tab_2.png"),
       // _tabData(
       //     "Carbon Offset Metadata Certificate",
       //     "Together, they synergize their roles to bring forth your EcoToken-WnCRBN certificate—a collective effort in creating a testament to a sustainable future",
-      //     "images/tab_3.png"),
+      //     "assets/images/tab_3.png"),
       _tabData(
           "Sustainable Future",
           "By renting pCRBN NFTs, you contribute to the permanence of carbon offset projects and demonstrate your commitment to a sustainable future. This system not only supports environmental goals but also showcases your dedication to making a positive impact.",
-          "images/tab_3.png"),
+          "assets/images/tab_3.png"),
     ];
     return Container(
       constraints:

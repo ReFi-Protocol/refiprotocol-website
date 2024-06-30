@@ -98,7 +98,7 @@ class _CustomFooterState extends State<CustomFooter> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-                "Viridis Network is a blockchain platform that enhances the credibility of the Voluntary Carbon Market by anchoring carbon offsets on an EVM-compatible  L1",
+                "Viridis Network is the world's first protocol to tokenize any carbon project from afforestation to renewables, eliminating the need for carbon credits. Our innovative approach enhances transparency, reduces fraud, and ensures that environmental efforts are genuinely impactful",
                 style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,

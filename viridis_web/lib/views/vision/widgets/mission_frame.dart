@@ -55,7 +55,7 @@ class _MissionFrameState extends State<MissionFrame> {
 
   _background() {
     return Image.asset(
-      "images/mission_bg.png",
+      "assets/images/mission_bg.png",
       // fit: BoxFit.cover,
       // width: 1.sw,
       // height: 2.sh,
@@ -69,7 +69,7 @@ class _MissionFrameState extends State<MissionFrame> {
         Expanded(
             flex: 8,
             child: Image.asset(
-              "images/mission_frame_d.png",
+              "assets/images/mission_frame_d.png",
               // height: 0.9.sh,
               fit: BoxFit.fitHeight,
             )),
@@ -87,7 +87,7 @@ class _MissionFrameState extends State<MissionFrame> {
             padding: const EdgeInsets.only(left: 20, top: 20),
             width: 1.sw,
             child: Image.asset(
-              "images/mission_frame_d.png",
+              "assets/images/mission_frame_d.png",
               // fit: BoxFit.cover,
             ))
       ],

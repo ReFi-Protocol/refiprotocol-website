@@ -30,7 +30,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
       elevation: 2,
       scrolledUnderElevation: 2,
       flexibleSpace: Image.asset(
-        "images/bg_landing_frame.png",
+        "assets/images/bg_landing_frame.png",
         width: 1.sw,
         fit: BoxFit.cover,
       ),
@@ -74,7 +74,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
         ConstrainedBox(
           constraints: const BoxConstraints(maxHeight: 70, maxWidth: 70),
           child: Image.asset(
-              'images/appbar_logo.png', // Replace with your logo image
+              'assets/images/appbar_logo.png', // Replace with your logo image
               fit: BoxFit.contain),
         ),
         const SizedBox(width: 15),
@@ -115,7 +115,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
         ConstrainedBox(
           constraints: const BoxConstraints(maxHeight: 40, maxWidth: 40),
           child: Image.asset(
-              'images/appbar_logo.png', // Replace with your logo image
+              'assets/images/appbar_logo.png', // Replace with your logo image
               fit: BoxFit.contain),
         ),
         const SizedBox(width: 15),

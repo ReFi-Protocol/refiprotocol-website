@@ -74,7 +74,7 @@ class _ContactViewState extends State<ContactView> {
     return Transform.flip(
       flipX: true,
       child: Image.asset(
-        "images/gradients.png",
+        "assets/images/gradients.png",
         fit: BoxFit.cover,
         width: 1.sw,
         height: 1.5.sh,

@@ -55,7 +55,7 @@ class _VisionFrameState extends State<VisionFrame> {
 
   _background() {
     return Image.asset(
-      "images/vision_bg.png",
+      "assets/images/vision_bg.png",
       // fit: BoxFit.cover,
       // width: 1.sw,
       // height: 2.sh,
@@ -71,7 +71,7 @@ class _VisionFrameState extends State<VisionFrame> {
         Expanded(
             flex: 6,
             child: Image.asset(
-              "images/vision_frame_d.png",
+              "assets/images/vision_frame_d.png",
               height: 1.1.sh,
               fit: BoxFit.fill,
             ))
@@ -87,7 +87,7 @@ class _VisionFrameState extends State<VisionFrame> {
             padding: const EdgeInsets.only(left: 20, top: 20),
             width: 1.sw,
             child: Image.asset(
-              "images/vision_frame_m.png",
+              "assets/images/vision_frame_m.png",
               fit: BoxFit.cover,
             ))
       ],

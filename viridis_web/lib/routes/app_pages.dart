@@ -37,12 +37,12 @@ class AppPages {
         // middlewares: [SplashMiddleware()],
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 400)),
-    GetPage(
-      title: "TEST",
-      name: Routes.TEST,
-      page: () => TestScreen(),
-      // middlewares: [LoadingMiddleware()]
-    ),
+    // GetPage(
+    //   title: "TEST",
+    //   name: Routes.TEST,
+    //   page: () => TestScreen(),
+    //   // middlewares: [LoadingMiddleware()]
+    // ),
     GetPage(
       title: "Roadmap",
       name: Routes.ROADMAPS,

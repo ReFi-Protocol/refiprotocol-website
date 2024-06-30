@@ -49,7 +49,7 @@ class _RoadmapFrameState extends State<RoadmapFrame>
     return Column(
       children: [
         Image.asset(
-          "images/roadmap_mobile.png",
+          "assets/images/roadmap_mobile.png",
           alignment: Alignment.centerLeft,
         ),
         _title(),
@@ -72,7 +72,7 @@ class _RoadmapFrameState extends State<RoadmapFrame>
       Row(
         children: [
           Image.asset(
-            "images/roadmap.png",
+            "assets/images/roadmap.png",
             alignment: Alignment.centerLeft,
           ),
           Spacer(

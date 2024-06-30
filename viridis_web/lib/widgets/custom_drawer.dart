@@ -52,7 +52,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ConstrainedBox(
                   constraints:
                       const BoxConstraints(maxHeight: 60, maxWidth: 60),
-                  child: Image.asset("images/appbar_logo.png"),
+                  child: Image.asset("assets/images/appbar_logo.png"),
                 ),
                 SizedBox(
                   width: 25.w,

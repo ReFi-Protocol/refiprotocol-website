@@ -42,7 +42,7 @@ class _AboutDetailFrameState extends State<AboutDetailFrame> {
         ),
         Expanded(
           // alignment: Alignment.bottomRight,
-          child: Image.asset("images/about_detail.png"),
+          child: Image.asset("assets/images/about_detail.png"),
         ),
       ]),
     );
@@ -62,7 +62,7 @@ class _AboutDetailFrameState extends State<AboutDetailFrame> {
   }
 
   _image() {
-    return Image.asset("images/about_detail.png");
+    return Image.asset("assets/images/about_detail.png");
   }
 
   _textColumn() {

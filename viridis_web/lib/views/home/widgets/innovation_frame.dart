@@ -22,26 +22,26 @@ class _InnovationFrameState extends State<InnovationFrame>
   List<Widget> detailCards = const [
     InnovationContainer(
         title: "DePIN (Decentralized Physical Infrastructure)",
-        image_path: "images/detail_1.png",
+        image_path: "assets/images/detail_1.png",
         selectedColor: Colors.yellow,
         detail:
             "Edge computing enables trustless data capture for carbon offsetting projects. These Decentralized Physical Infrastructure (DePIN) devices will collect environmental data, such as temperature, humidity, and CO2 levels, for project developers and transmit it securely to our blockchain platform."),
     InnovationContainer(
         title: "AI for validation and verification",
-        image_path: "images/detail_2.png",
+        image_path: "assets/images/detail_2.png",
         selectedColor: Colors.blue,
         selectedTextColor: Colors.white,
         detail:
             "Verifies the credibility of our tokenized carbon projects, ensuring both pre- and post-retirement integrity. This technology provides continuous, automated validation, reducing the risk of human error and fraud, and enhancing the trustworthiness of carbon offset activities."),
     InnovationContainer(
         title: "Tokenization of Carbon Projects",
-        image_path: "images/detail_3.png",
+        image_path: "assets/images/detail_3.png",
         selectedColor: Colors.white,
         detail:
             "Our carbon projects are tokenized into Project Carbon (pCRBN) NFTs, which store the project and ownership metadata. This innovative approach ensures that each NFT represents a verified portion of a carbon project, providing transparency and enhancing market trust."),
     InnovationContainer(
         title: "Rewards for Sustainability",
-        image_path: "images/detail_4.png",
+        image_path: "assets/images/detail_4.png",
         selectedColor: Color(0xff46F9F2),
         detail:
             "Through the renting of pCRBN NFTs, any user or organization will retain temporary ownership of the underlying asset. Wallets holding these NFTs are then eligible for additional rewards via staking, incentivizing sustainable practices and contributing to long-term project viability.")

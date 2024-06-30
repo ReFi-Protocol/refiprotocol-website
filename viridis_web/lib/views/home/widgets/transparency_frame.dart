@@ -43,13 +43,13 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
                   top: 0,
                   child: Responsive.isDesktop(context)
                       ? Image.asset(
-                          "images/bg_transparency_frame.png",
+                          "assets/images/bg_transparency_frame.png",
                           width: 1.sw,
                           height: 1.1.sh,
                           fit: BoxFit.fill,
                         )
                       : Image.asset(
-                          "images/bg_transparency_frame_mobile.png",
+                          "assets/images/bg_transparency_frame_mobile.png",
                           width: 1.sw,
                           height: 1.1.sh,
                           fit: BoxFit.fill,

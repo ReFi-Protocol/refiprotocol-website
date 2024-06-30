@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -37,7 +35,7 @@ class _LandingFrameState extends State<LandingFrame>
   void initState() {
     // maxHeight = (1.sh) > 500 ? 1.sh : 500;
     super.initState();
-    _controller = VideoPlayerController.asset("videos/hero_section.mov")
+    _controller = VideoPlayerController.asset("assets/videos/hero_section.mov")
       ..initialize().then((_) {
         // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
         setState(() {
@@ -50,7 +48,7 @@ class _LandingFrameState extends State<LandingFrame>
       });
 
     _controller_mobile =
-        VideoPlayerController.asset("videos/hero_section_mobile.mov")
+        VideoPlayerController.asset("assets/videos/hero_section_mobile.mov")
           ..initialize().then((_) {
             // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
             setState(() {
@@ -67,7 +65,7 @@ class _LandingFrameState extends State<LandingFrame>
     // });
 
     // _chewieController = ChewieController(
-    //     placeholder: Image.asset("images/hero_section.png"),
+    //     placeholder: Image.asset("assets/images/hero_section.png"),
     //     videoPlayerController: _controller,
     //     // autoInitialize: true,
     //     looping: true,
@@ -92,7 +90,7 @@ class _LandingFrameState extends State<LandingFrame>
             image: DecorationImage(
                 alignment: Alignment.topCenter,
                 // fit: BoxFit.cover,
-                image: AssetImage("images/hero_bg.png"))),
+                image: AssetImage("assets/images/hero_bg.png"))),
         constraints: const BoxConstraints(minHeight: 520),
         height: 900,
         width: 1.sw,
@@ -130,7 +128,7 @@ class _LandingFrameState extends State<LandingFrame>
                       aspectRatio: _controller.value.aspectRatio,
                       child: VideoPlayer(_controller),
                     )
-                  : Image.asset("images/hero_section.png")),
+                  : Image.asset("assets/images/hero_section.png")),
         ));
   }
 

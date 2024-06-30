@@ -39,7 +39,7 @@ class _AboutFrameState extends State<AboutFrame> {
         Expanded(
             flex: 6,
             child: Image.asset(
-              "images/about_frame_d.png",
+              "assets/images/about_frame_d.png",
               height: 1.sh,
               fit: BoxFit.fill,
             ))
@@ -55,7 +55,7 @@ class _AboutFrameState extends State<AboutFrame> {
             padding: const EdgeInsets.only(left: 20, top: 20),
             width: 1.sw,
             child: Image.asset(
-              "images/about_frame_m.png",
+              "assets/images/about_frame_m.png",
               fit: BoxFit.cover,
             ))
       ],
