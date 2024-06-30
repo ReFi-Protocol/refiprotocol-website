@@ -7,6 +7,8 @@ import 'package:viridis_web/views/home/home_view.dart';
 import 'package:viridis_web/views/splash/splash_view.dart';
 import 'package:viridis_web/views/test/test_view.dart';
 import 'package:viridis_web/views/vision/vision_view.dart';
+
+import '../views/home/home_view copy.dart';
 part 'app_routes.dart';
 
 class AppPages {

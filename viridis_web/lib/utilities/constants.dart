@@ -126,13 +126,13 @@ final Map<String, List<String>> assetMap = {
     "assets/images/tim.jpeg",
     "assets/images/falcon.jpeg",
     "assets/images/wave_line.png",
-    "assets/videos/hero_section.mov",
-    "assets/videos/windturbine.mp4"
+    // "assets/hvideos/ero_section.mov",
+    // "assets/videos/windturbine.mp4"
   ],
   Routes.CONTACT: [
     "assets/images/gradients.png",
   ]
 };
 
-VideoPlayerController videoController =
-    VideoPlayerController.asset("videos/hero_section.mov");
+// VideoPlayerController videoController =
+//     VideoPlayerController.asset("videos/hero_section.mov");

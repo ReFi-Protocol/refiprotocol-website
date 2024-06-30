@@ -68,10 +68,9 @@ class _VisionViewState extends State<VisionView> {
                     page: Routes.VISION,
                   ),
                 ),
-                FadeInListItem(
-                    child: VisionFrame(
+                VisionFrame(
                   controller: _controller,
-                )),
+                ),
                 MissionFrame(
                   controller: _controller,
                 ),

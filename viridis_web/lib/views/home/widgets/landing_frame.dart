@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -30,12 +31,13 @@ class _LandingFrameState extends State<LandingFrame>
   // double maxHeight = 0;
   late VideoPlayerController _controller;
   late VideoPlayerController _controller_mobile;
+  bool _commet = false;
 
   @override
   void initState() {
     // maxHeight = (1.sh) > 500 ? 1.sh : 500;
     super.initState();
-    _controller = VideoPlayerController.asset("assets/videos/hero_section.mov")
+    _controller = VideoPlayerController.asset("assets/images/hero_section.mov")
       ..initialize().then((_) {
         // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
         setState(() {
@@ -48,7 +50,7 @@ class _LandingFrameState extends State<LandingFrame>
       });
 
     _controller_mobile =
-        VideoPlayerController.asset("assets/videos/hero_section_mobile.mov")
+        VideoPlayerController.asset("assets/images/hero_section_mobile.mov")
           ..initialize().then((_) {
             // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
             setState(() {
@@ -56,30 +58,18 @@ class _LandingFrameState extends State<LandingFrame>
               // _startPauseTimer();
 
               _controller.setLooping(true);
-              _controller.setPlaybackSpeed(0.75);
+              // _controller.setPlaybackSpeed();
             });
           });
-    // _controller.addListener(() async {
-    //   if ((await _controller.position) == const Duration(seconds: 15))
-    //     _controller.pause();
-    // });
+    Future.delayed(Duration(seconds: 3), () {
+      _toggleImage();
+    });
+  }
 
-    // _chewieController = ChewieController(
-    //     placeholder: Image.asset("assets/images/hero_section.png"),
-    //     videoPlayerController: _controller,
-    //     // autoInitialize: true,
-    //     looping: true,
-    //     autoPlay: true,
-    //     showControls: false,
-    //     showOptions: false);
-    // _controller = AnimationController(
-    //   duration: const Duration(minutes: 1),
-    //   vsync: this,
-    // )..repeat(reverse: false);
-    // _animation = Tween<double>(begin: 1.0, end: 1.3).animate(CurvedAnimation(
-    //   parent: _controller,
-    //   curve: Curves.fastEaseInToSlowEaseOut,
-    // ));
+  void _toggleImage() {
+    setState(() {
+      _commet = !_commet;
+    });
   }
 
   @override
@@ -89,16 +79,17 @@ class _LandingFrameState extends State<LandingFrame>
             color: Colors.black,
             image: DecorationImage(
                 alignment: Alignment.topCenter,
-                // fit: BoxFit.cover,
+                fit: BoxFit.cover,
                 image: AssetImage("assets/images/hero_bg.png"))),
         constraints: const BoxConstraints(minHeight: 520),
-        height: 900,
+        height: Responsive.isDesktop(context) ? 1.25.sh : 800,
         width: 1.sw,
         child: Stack(
           children: [
             Center(
               child: _data(),
             ),
+            _getAnimatedCommet(),
             Align(
               alignment: Alignment.bottomCenter,
               child: _getVideo(),
@@ -123,6 +114,7 @@ class _LandingFrameState extends State<LandingFrame>
           clipper: CurvedClipper(),
           child: Container(
               // color: Colors.red,
+              // constraints: BoxConstraints(maxHeight: 400),
               child: _controller.value.isInitialized
                   ? AspectRatio(
                       aspectRatio: _controller.value.aspectRatio,
@@ -135,8 +127,8 @@ class _LandingFrameState extends State<LandingFrame>
   @override
   void dispose() {
     super.dispose();
-    // _chewieController.dispose();
-    // _controller.dispose();
+    _controller.dispose();
+    _controller_mobile.dispose();
   }
 
   // _parallaxImage() {
@@ -179,19 +171,19 @@ class _LandingFrameState extends State<LandingFrame>
                       textAlign: TextAlign.center,
                       text: TextSpan(children: <TextSpan>[
                         TextSpan(
-                            text: "The first tokenizing framework for ",
+                            text: "First Tokenization Framework For ",
                             style: Responsive.getTextStyle(context,
                                 mSize: 35, dSize: 50, weight: FontWeight.w900)),
                         TextSpan(
-                            text: "any",
+                            text: "all",
                             style: Responsive.getTextStyle(context,
                                 mSize: 35,
                                 dSize: 50,
                                 weight: FontWeight.w900,
                                 decoration: TextDecoration.underline,
-                                decorationColor: Color(0xff6E8FCA))),
+                                decorationColor: Colors.white)),
                         TextSpan(
-                            text: " carbon project",
+                            text: " Carbon Projects",
                             style: Responsive.getTextStyle(context,
                                 mSize: 35, dSize: 50, weight: FontWeight.w900)),
                       ])),
@@ -199,7 +191,7 @@ class _LandingFrameState extends State<LandingFrame>
                     height: 20.h,
                   ),
                   Text(
-                    "Seamlessly deploying forests to wind farms as RWA to support ReFi.",
+                    "Seamlessly deploying anything from forests to windfarms as RWAs to support ReFi",
                     textAlign: TextAlign.center,
                     style: Responsive.getTextStyle(context),
                   ),
@@ -237,5 +229,38 @@ class _LandingFrameState extends State<LandingFrame>
                 ]),
               ))),
     ]);
+  }
+
+  bool _disappear = false;
+  _getAnimatedCommet() {
+    if (!Responsive.isDesktop(context)) _disappear = true;
+    return _disappear
+        ? Container()
+        : AnimatedContainer(
+            // height: 500,
+            // width: 500,
+            onEnd: () {
+              setState(() {
+                _disappear = true;
+              });
+            },
+            alignment: !_commet ? Alignment.topRight : Alignment.centerLeft,
+            duration: Duration(seconds: 1),
+            child: AnimatedSwitcher(
+              duration: Duration(seconds: 2),
+              switchInCurve: Curves.decelerate,
+              transitionBuilder: (Widget child, Animation<double> animation) {
+                return FadeTransition(opacity: animation, child: child);
+              },
+              child: !_commet
+                  ? SvgPicture.asset(
+                      'assets/images/initial_star.svg',
+                      key: ValueKey(1),
+                    )
+                  : SvgPicture.asset(
+                      'assets/images/final_star.svg',
+                      key: ValueKey(2),
+                    ),
+            ));
   }
 }

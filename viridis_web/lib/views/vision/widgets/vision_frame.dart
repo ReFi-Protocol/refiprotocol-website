@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../utilities/responsive.dart';
+import '../../../widgets/FadeInListWidget.dart';
 
 class VisionFrame extends StatefulWidget {
   const VisionFrame({super.key, required this.controller});
@@ -95,7 +96,8 @@ class _VisionFrameState extends State<VisionFrame> {
   }
 
   _textBody() {
-    return Column(
+    return FadeInListItem(
+        child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -139,6 +141,6 @@ class _VisionFrameState extends State<VisionFrame> {
           ),
         )
       ],
-    );
+    ));
   }
 }

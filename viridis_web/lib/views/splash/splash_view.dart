@@ -49,7 +49,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
       // await Future.delayed(Duration(milliseconds: 100));
     }
     controller_desktop =
-        VideoPlayerController.asset("assets/videos/hero_section.mov")
+        VideoPlayerController.asset("assets/images/hero_section.mov")
           ..initialize();
     // ..initialize().then((_) {
     //   // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
@@ -63,7 +63,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     // });
 
     controller_mobile =
-        VideoPlayerController.asset("assets/videos/hero_section_mobile.mov")
+        VideoPlayerController.asset("assets/images/hero_section_mobile.mov")
           ..initialize();
     // ..initialize().then((_) {
     //   // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.

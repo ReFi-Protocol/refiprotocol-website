@@ -84,8 +84,9 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
           "assets/images/tab_3.png"),
     ];
     return Container(
-      constraints:
-          BoxConstraints(minHeight: Responsive.isDesktop(context) ? 650 : 850),
+      constraints: BoxConstraints(
+          minHeight: Responsive.isDesktop(context) ? 650 : 850,
+          maxHeight: 1000),
       height: Responsive.isDesktop(context) ? 0.95.sh : 955,
       padding: _getContainerPadding(),
       decoration: BoxDecoration(
@@ -374,7 +375,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
               ),
             ),
             SizedBox(
-              width: 80.w,
+              width: 60.w,
             ),
             Expanded(
               child: Image.asset(path),

@@ -19,6 +19,8 @@ dependencies:
   parallax: 
   visibility_detector: 
   firebase_core: 
+  flutter_svg: ^1.0.0
+
 
 dev_dependencies:
   flutter_test:
