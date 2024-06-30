@@ -31,7 +31,7 @@ class _FadeInListItemState extends State<FadeInListItem>
     );
     _animation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
     _slideAnimation = Tween<Offset>(
-      begin: Offset(0, 0.07), // Start slightly below
+      begin: Offset(0, 0.05), // Start slightly below
       end: Offset.zero, // End at the final position
     ).animate(_animation);
   }

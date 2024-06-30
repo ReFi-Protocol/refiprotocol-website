@@ -41,7 +41,7 @@ class _ContactFrameState extends State<ContactFrame> {
         Align(
           alignment: Alignment.topCenter,
           child: Container(
-              padding: EdgeInsets.symmetric(vertical: 40),
+              padding: EdgeInsets.symmetric(vertical: 50),
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.start, children: [
                 ConstrainedBox(
@@ -52,22 +52,25 @@ class _ContactFrameState extends State<ContactFrame> {
                         text: TextSpan(children: <TextSpan>[
                           TextSpan(
                               text: "Reaching a ",
-                              style: GoogleFonts.inter(
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black)),
+                              style: Responsive.getTextStyle(context,
+                                  mSize: 30,
+                                  dSize: 40,
+                                  weight: FontWeight.w700,
+                                  textColor: Colors.black)),
                           TextSpan(
                               text: "Climate Positive ",
-                              style: GoogleFonts.inter(
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.w700,
-                                  color: const Color(0xff012B3F))),
+                              style: Responsive.getTextStyle(context,
+                                  mSize: 30,
+                                  dSize: 40,
+                                  weight: FontWeight.w700,
+                                  textColor: const Color(0xff012B3F))),
                           TextSpan(
                               text: "Future Step by Step",
-                              style: GoogleFonts.inter(
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black)),
+                              style: Responsive.getTextStyle(context,
+                                  mSize: 30,
+                                  dSize: 40,
+                                  weight: FontWeight.w700,
+                                  textColor: Colors.black)),
                         ])),
                     SizedBox(
                       height: 30.h,

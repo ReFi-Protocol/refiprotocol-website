@@ -86,7 +86,7 @@ void launchDocsURL() async {
 
 final Map<String, List<String>> assetMap = {
   Routes.HOME: [
-    "videos/hero_section.mov",
+    // "videos/hero_section.mov",
     "assets/images/hero_bg.png",
     "assets/images/logo.png",
     "assets/images/appbar_logo.png",

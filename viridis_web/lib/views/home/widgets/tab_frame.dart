@@ -294,6 +294,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
     return Responsive(
         mobile: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Center(
                 child: ConstrainedBox(
@@ -334,7 +335,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
               padding: EdgeInsets.symmetric(horizontal: 15.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   GradientText(
                     text: title,
@@ -359,16 +360,16 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
                         fontWeight: FontWeight.w300,
                         color: Colors.white),
                   ),
-                  InkWell(
-                    onTap: () {},
-                    child: Text(
-                      "Learn More >",
-                      style: GoogleFonts.inter(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                  )
+                  // InkWell(
+                  //   onTap: () {},
+                  //   child: Text(
+                  //     "Learn More >",
+                  //     style: GoogleFonts.inter(
+                  //         fontSize: 14,
+                  //         fontWeight: FontWeight.w600,
+                  //         color: Colors.white),
+                  //   ),
+                  // )
                 ],
               ),
             ),

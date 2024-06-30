@@ -63,7 +63,7 @@ class _CustomFooterState extends State<CustomFooter> {
   mobileView() {
     return Container(
         constraints: BoxConstraints(
-          maxHeight: 320.h,
+          maxHeight: 330.h,
         ),
         child: Column(
           children: [

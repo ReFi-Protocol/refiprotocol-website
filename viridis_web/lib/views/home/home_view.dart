@@ -35,7 +35,7 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     _controller.addListener(_listener);
-    preloadImages(context);
+    // preloadImages(context);
   }
 
   Future<bool> preloadImages(context) async {
