@@ -30,7 +30,12 @@ final List<MenuConstant> menuConstants = [
     "Roadmap",
     Routes.ROADMAPS,
     () => launchRoadmapsURL(),
-  )
+  ),
+  // MenuConstant(
+  //   "Test",
+  //   Routes.TEST,
+  //   () => Get.toNamed(Routes.TEST),
+  // )
 ];
 
 void launchCustomURL(String customUrl) async {
@@ -81,8 +86,8 @@ void launchDocsURL() async {
 
 final Map<String, List<String>> assetMap = {
   Routes.HOME: [
-    "videos/hero_section_d.mp4",
-    "videos/hero_section_m.mov",
+    "videos/hero_section.mov",
+    "images/hero_bg.png",
     "images/logo.png",
     "images/appbar_logo.png",
     "images/bg_landing_frame.png",
@@ -95,7 +100,7 @@ final Map<String, List<String>> assetMap = {
     "images/tab_1.png",
     "images/tab_2.png",
     "images/tab_3.png",
-    "images/tab_4.png",
+    // "images/tab_4.png",
   ],
   Routes.VISION: [
     "images/mission_frame_d.png",
@@ -122,13 +127,13 @@ final Map<String, List<String>> assetMap = {
     "images/tim.jpeg",
     "images/falcon.jpeg",
     "images/wave_line.png",
+    "videos/hero_section.mov",
+    "videos/windturbine.mp4"
   ],
   Routes.CONTACT: [
     "images/gradients.png",
   ]
 };
 
-final videoController = VideoPlayerController.asset("videos/hero_section_d.mp4")
-  ..initialize();
-final videoController_m =
-    VideoPlayerController.asset("videos/hero_section_m.mp4")..initialize();
+VideoPlayerController videoController =
+    VideoPlayerController.asset("videos/hero_section.mov");

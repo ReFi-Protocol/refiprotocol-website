@@ -5,6 +5,7 @@ import 'package:viridis_web/views/about/about_view.dart';
 import 'package:viridis_web/views/contact/contact_view.dart';
 import 'package:viridis_web/views/home/home_view.dart';
 import 'package:viridis_web/views/splash/splash_view.dart';
+import 'package:viridis_web/views/test/test_view.dart';
 import 'package:viridis_web/views/vision/vision_view.dart';
 part 'app_routes.dart';
 
@@ -36,12 +37,12 @@ class AppPages {
         // middlewares: [SplashMiddleware()],
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 400)),
-    // GetPage(
-    //   title: "TEST",
-    //   name: Routes.TEST,
-    //   page: () => ExampleParallax(),
-    //   // middlewares: [LoadingMiddleware()]
-    // ),
+    GetPage(
+      title: "TEST",
+      name: Routes.TEST,
+      page: () => TestScreen(),
+      // middlewares: [LoadingMiddleware()]
+    ),
     GetPage(
       title: "Roadmap",
       name: Routes.ROADMAPS,

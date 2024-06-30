@@ -10,7 +10,9 @@ import 'package:viridis_web/widgets/custom_drawer.dart';
 import 'package:viridis_web/widgets/custom_footer.dart';
 import '../../routes/app_pages.dart';
 import '../../utilities/constants.dart';
+import '../../utilities/responsive.dart';
 import '../../widgets/FadeInListWidget.dart';
+import '../../widgets/animated_appbar.dart';
 import '../../widgets/custom_appbar.dart';
 
 class HomeView extends StatefulWidget {
@@ -99,29 +101,39 @@ class _HomeViewState extends State<HomeView> {
                   LandingFrame(
                     controller: _controller,
                   ),
-                  FadeInListItem(
-                      child: TransparencyFrame(
+                  TransparencyFrame(
                     controller: _controller,
-                  )),
-                  FadeInListItem(child: InnovationFrame()),
-                  FadeInListItem(child: TabFrame()),
-                  ContactFrame(),
-                  CustomFooter(),
-                ]))
-                // SliverList(
-                //   delegate: SliverChildListDelegate([_listView()]),
+                  ),
+                ])),
+                // SliverAppBar(
+                //   automaticallyImplyLeading: false,
+                //   collapsedHeight: 1.1.sh,
+                //   expandedHeight: 1.1.sh,
+                //   flexibleSpace: TransparencyFrame(
+                //     controller: _controller,
+                //   ),
                 // ),
+                SliverList(
+                  delegate: SliverChildListDelegate([
+                    FadeInListItem(child: InnovationFrame()),
+                    FadeInListItem(child: TabFrame()),
+                    ContactFrame(),
+                    CustomFooter(),
+                  ]),
+                ),
               ],
             ),
-            Positioned(
-              top: _fromTop,
-              left: 0,
-              right: 0,
-              child: const CustomAppBar(
-                bgColor: Colors.black,
-                page: Routes.SPLASH,
-              ),
-            )
+            AnimatedAppbar(controller: _controller, route: Routes.HOME)
+
+            // Positioned(
+            //   top: _fromTop,
+            //   left: 0,
+            //   right: 0,
+            //   child: const CustomAppBar(
+            //     bgColor: Colors.transparent,
+            //     page: Routes.HOME,
+            //   ),
+            // )
           ],
         ),
         drawer: const CustomDrawer(),

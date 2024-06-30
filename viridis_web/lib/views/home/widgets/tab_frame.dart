@@ -30,7 +30,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
     _animationController = AnimationController(
       vsync: this,
       duration: Duration(seconds: 10),
@@ -59,34 +59,34 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     tabs = [
-      "Purchase wCRBN",
-      "Mint bCRBN",
-      "Become Carbon Neutral",
-      "Carbon Offset Metadata Certificate"
+      "Rent pCRBN",
+      "Stake \$VRD",
+      "Sustainable Future",
+      // "Carbon Offset Metadata Certificate"
     ];
 
     tabData = [
       _tabData(
-          "Purchase wCRBN (Wrapped Carbon NFTS)",
-          "Using the on-chain native gas token \$VRD, you will be able to trade the divisible (by each token type) wCRBN NFTs attributed with on-chain metadata.",
+          "Rent pCRBN(Wrapped Carbon NFTS)",
+          "Using the on-chain native gas token \$VRD, you will be able to trade the pCRBN NFTs attributed with on-chain metadata",
           "images/tab_1.png"),
       _tabData(
-          "Mint bCRBN (Burnt Carbon NFTS)",
-          "With your wCRBN NFTs, you can then mint a quantity-specific bCRBN NFT. The bCRBN acts as a public certificate representing your ultimate ownership of digitized carbon credits.",
+          "Stake \$VRD",
+          "Wallets with the pCRBN are eligible to stake their \$VRD for a high APY. This approach systematically increases the Total Value Locked (TVL) and stabilizes the value of \$VRD, encouraging long-term investment and participation",
           "images/tab_2.png"),
+      // _tabData(
+      //     "Carbon Offset Metadata Certificate",
+      //     "Together, they synergize their roles to bring forth your EcoToken-WnCRBN certificate—a collective effort in creating a testament to a sustainable future",
+      //     "images/tab_3.png"),
       _tabData(
-          "Carbon Offset Metadata Certificate",
-          "Together, they synergize their roles to bring forth your EcoToken-WnCRBN certificate—a collective effort in creating a testament to a sustainable future",
+          "Sustainable Future",
+          "By renting pCRBN NFTs, you contribute to the permanence of carbon offset projects and demonstrate your commitment to a sustainable future. This system not only supports environmental goals but also showcases your dedication to making a positive impact.",
           "images/tab_3.png"),
-      _tabData(
-          "Carbon neutrality",
-          "Since you have retired the carbon offsets in wCRBN NFT by minting bCRBN, you have reduced your carbon footprint and showcased your commitment to a sustainable future",
-          "images/tab_4.png"),
     ];
     return Container(
       constraints:
           BoxConstraints(minHeight: Responsive.isDesktop(context) ? 650 : 850),
-      height: Responsive.isDesktop(context) ? 1.1.sh : 0.9.sh,
+      height: Responsive.isDesktop(context) ? 0.95.sh : 955,
       padding: _getContainerPadding(),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black),
@@ -99,6 +99,18 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
   _desktopView() {
     return Column(
       children: [
+        Text(
+          "How it works",
+          style: GoogleFonts.inter(
+              fontSize: 40, fontWeight: FontWeight.w900, color: Colors.white),
+        ),
+        SizedBox(
+          height: 50.h,
+        ),
+        _tabBar(),
+        SizedBox(
+          height: 30.h,
+        ),
         Expanded(
           child: Container(
               padding: EdgeInsets.all(15),
@@ -107,10 +119,6 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
                 children: tabData,
               )),
         ),
-        SizedBox(
-          height: 60.h,
-        ),
-        _tabBar()
       ],
     );
   }
@@ -119,6 +127,14 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Text(
+          "How it works",
+          style: GoogleFonts.inter(
+              fontSize: 40, fontWeight: FontWeight.w900, color: Colors.white),
+        ),
+        SizedBox(
+          height: 50.h,
+        ),
         GradientText(
           text: "Carbon neutrality",
           gradient: const LinearGradient(
@@ -160,7 +176,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < tabs.length; i++)
                   i == _tabController.index
                       ? Stack(
                           children: [
@@ -231,7 +247,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
               _tab("01", tabs[0], _tabController.index == 0),
               _tab("02", tabs[1], _tabController.index == 1),
               _tab("03", tabs[2], _tabController.index == 2),
-              _tab("04", tabs[3], _tabController.index == 3)
+              // _tab("04", tabs[3], _tabController.index == 3)
             ],
           );
         },
@@ -298,23 +314,23 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
             SizedBox(
               height: 20.h,
             ),
-            InkWell(
-              onTap: () {},
-              child: Text(
-                "Learn More >",
-                style: GoogleFonts.inter(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white),
-              ),
-            )
+            // InkWell(
+            //   onTap: () {},
+            //   child: Text(
+            //     "Learn More >",
+            //     style: GoogleFonts.inter(
+            //         fontSize: 14,
+            //         fontWeight: FontWeight.w600,
+            //         color: Colors.white),
+            //   ),
+            // )
           ],
         ),
         desktop: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              constraints: BoxConstraints(maxWidth: 0.45.sw),
+              constraints: BoxConstraints(maxWidth: 0.5.sw),
               padding: EdgeInsets.symmetric(horizontal: 15.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -357,7 +373,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
               ),
             ),
             SizedBox(
-              width: 15.w,
+              width: 80.w,
             ),
             Expanded(
               child: Image.asset(path),

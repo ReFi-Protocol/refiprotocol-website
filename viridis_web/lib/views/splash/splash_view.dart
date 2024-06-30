@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:video_player/video_player.dart';
 import 'package:viridis_web/routes/app_pages.dart';
 
 import '../../utilities/constants.dart';
@@ -19,6 +20,8 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
   late AnimationController _controller;
   late Animation<double> _animation;
+  late VideoPlayerController controller_desktop;
+  late VideoPlayerController controller_mobile;
   // int factIndex = getRandomIntegrerInRange(0, 10);
   // int changeFactIndex = 0;
 
@@ -45,6 +48,32 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
       loadedAssetsPercentage.value = (loadedAssets / totalAssets);
       // await Future.delayed(Duration(milliseconds: 100));
     }
+    controller_desktop = VideoPlayerController.asset("videos/hero_section.mov")
+      ..initialize();
+    // ..initialize().then((_) {
+    //   // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+    //   setState(() {
+    //     // controller_desktop.play();
+    //     // _startPauseTimer();
+
+    //     controller_desktop.setLooping(true);
+    //     controller_desktop.setPlaybackSpeed(0.75);
+    //   });
+    // });
+
+    controller_mobile =
+        VideoPlayerController.asset("videos/hero_section_mobile.mov")
+          ..initialize();
+    // ..initialize().then((_) {
+    //   // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+    //   setState(() {
+    //     // controller_mobile.play();
+    //     // _startPauseTimer();
+
+    //     controller_mobile.setLooping(true);
+    //     controller_mobile.setPlaybackSpeed(0.75);
+    //   });
+    // });
     return true;
   }
 
@@ -57,7 +86,10 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
             if (snapshot.data == true) {
               WidgetsBinding.instance.addPostFrameCallback(
                 (_) {
-                  Get.toNamed(Routes.HOME);
+                  Get.toNamed(Routes.HOME, arguments: {
+                    "controller_desktop": controller_desktop,
+                    "controller_mobile": controller_mobile
+                  });
                   // Get.toNamed(nextRoute);
                 },
               );
@@ -85,19 +117,19 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: ValueListenableBuilder(
-                      valueListenable: loadedAssetsPercentage,
-                      builder: (context, value, child) {
-                        return CircularProgressIndicator(
-                          value: value,
-                          backgroundColor: Colors.black,
-                          color: Colors.white,
-                        );
-                      },
-                    ),
-                  )
+                  // Align(
+                  //   alignment: Alignment.bottomRight,
+                  //   child: ValueListenableBuilder(
+                  //     valueListenable: loadedAssetsPercentage,
+                  //     builder: (context, value, child) {
+                  //       return CircularProgressIndicator(
+                  //         value: value,
+                  //         backgroundColor: Colors.black,
+                  //         color: Colors.white,
+                  //       );
+                  //     },
+                  //   ),
+                  // )
                 ],
               )),
             );

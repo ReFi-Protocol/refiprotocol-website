@@ -6,6 +6,7 @@ import 'package:viridis_web/utilities/constants.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
 import '../../../utilities/responsive.dart';
+import '../../../widgets/FadeInListWidget.dart';
 
 class TransparencyFrame extends StatefulWidget {
   const TransparencyFrame({super.key, required this.controller});
@@ -39,10 +40,21 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
           child: Stack(
             children: [
               Positioned(
-                top: 0,
-                child: _parallaxImage(),
-              ),
-              _data()
+                  top: 0,
+                  child: Responsive.isDesktop(context)
+                      ? Image.asset(
+                          "images/bg_transparency_frame.png",
+                          width: 1.sw,
+                          height: 1.1.sh,
+                          fit: BoxFit.fill,
+                        )
+                      : Image.asset(
+                          "images/bg_transparency_frame_mobile.png",
+                          width: 1.sw,
+                          height: 1.1.sh,
+                          fit: BoxFit.fill,
+                        )),
+              Center(child: _parallaxImage())
             ],
           ),
         ));
@@ -52,19 +64,16 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
     return AnimatedBuilder(
         animation: widget.controller,
         builder: (context, child) {
-          double offsetY = -widget.controller.offset *
-              (Responsive.isDesktop(context) ? 0.325 : 0.225);
+          double offsetY = widget.controller.offset > 1.2.sh
+              ? (widget.controller.offset - 1.2.sh) *
+                  (Responsive.isDesktop(context) ? 0.225 : 0.225)
+              : 0;
           return Transform.translate(
             offset: Offset(0, offsetY),
             child: child,
           );
         },
-        child: Image.asset(
-          "images/bg_transparency_frame.png",
-          width: 1.sw,
-          height: 1.5.sh,
-          fit: BoxFit.cover,
-        ));
+        child: FadeInListItem(duration: Duration(seconds: 1), child: _data()));
   }
 
   _data() {
@@ -80,7 +89,7 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
                 constraints: const BoxConstraints(maxWidth: 660),
                 child: Column(children: [
                   Text(
-                    "Transparent Carbon Neutrality",
+                    "Moving away from carbon credits",
                     textAlign: TextAlign.center,
                     style: Responsive.getTextStyle(context,
                         mSize: 30, dSize: 40, weight: FontWeight.w700),
@@ -89,7 +98,7 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
                     height: 20.h,
                   ),
                   Text(
-                    "Introducing Unparalleled Transparency with Blockchain Technology. Eliminate greenwashing doubts.",
+                    "Eliminating greenwashing concerns through focus on underlying carbon projects rather than carbon credits.",
                     textAlign: TextAlign.center,
                     style: Responsive.getTextStyle(context),
                   ),

@@ -35,15 +35,26 @@ class Responsive extends StatelessWidget {
       {double mSize = 18,
       double dSize = 21,
       FontWeight? weight,
+      TextDecoration? decoration,
+      TextDecorationStyle? decorationStyle,
+      Color? decorationColor,
       FontWeight dWeight = FontWeight.w500,
       FontWeight mWeight = FontWeight.w500,
       Color textColor = Colors.white}) {
     if (Responsive.isDesktop(context)) {
       return GoogleFonts.inter(
-          fontSize: dSize, fontWeight: weight ?? dWeight, color: textColor);
+          fontSize: dSize,
+          fontWeight: weight ?? dWeight,
+          color: textColor,
+          decoration: decoration,
+          decorationColor: decorationColor);
     } else {
       return GoogleFonts.inter(
-          fontSize: mSize, fontWeight: weight ?? mWeight, color: textColor);
+          fontSize: mSize,
+          fontWeight: weight ?? mWeight,
+          color: textColor,
+          decoration: decoration,
+          decorationColor: decorationColor);
     }
   }
 
