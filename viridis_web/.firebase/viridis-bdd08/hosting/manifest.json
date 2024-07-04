@@ -5,7 +5,7 @@
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Viridis Network",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
@@ -27,6 +27,12 @@
         },
         {
             "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "appbar_logo.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable"

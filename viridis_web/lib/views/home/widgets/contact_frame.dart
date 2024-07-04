@@ -41,7 +41,7 @@ class _ContactFrameState extends State<ContactFrame> {
         Align(
           alignment: Alignment.topCenter,
           child: Container(
-              padding: EdgeInsets.symmetric(vertical: 50),
+              padding: EdgeInsets.symmetric(vertical: 60),
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.start, children: [
                 ConstrainedBox(
@@ -81,7 +81,8 @@ class _ContactFrameState extends State<ContactFrame> {
                         style: Responsive.getTextStyle(context,
                             dSize: 18,
                             mSize: 18,
-                            weight: FontWeight.w500,
+                            dWeight: FontWeight.w500,
+                            mWeight: FontWeight.w600,
                             textColor: Colors.black)),
                     SizedBox(
                       height: 40.h,

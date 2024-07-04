@@ -4,8 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:video_player/video_player.dart';
+import 'package:viridis_web/views/home/widgets/video_widget.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
 import '../../../routes/app_pages.dart';
@@ -25,57 +24,31 @@ class LandingFrame extends StatefulWidget {
 
 class _LandingFrameState extends State<LandingFrame>
     with TickerProviderStateMixin {
-  // late AnimationController _controller;
-  // late Animation<double> _animation;
-
-  // double maxHeight = 0;
-  late VideoPlayerController _controller;
-  late VideoPlayerController _controller_mobile;
-  bool _commet = false;
+  bool _comet = false;
+  bool _bg = false;
 
   @override
   void initState() {
-    // maxHeight = (1.sh) > 500 ? 1.sh : 500;
     super.initState();
-    _controller = VideoPlayerController.asset("assets/images/hero_section.mov")
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {
-          _controller.play();
-          // _startPauseTimer();
 
-          _controller.setLooping(true);
-          _controller.setPlaybackSpeed(0.75);
-        });
-      });
-
-    _controller_mobile =
-        VideoPlayerController.asset("assets/images/hero_section_mobile.mov")
-          ..initialize().then((_) {
-            // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-            setState(() {
-              _controller.play();
-              // _startPauseTimer();
-
-              _controller.setLooping(true);
-              // _controller.setPlaybackSpeed();
-            });
-          });
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(milliseconds: 3), () {
+      _bg = true;
+    });
+    Future.delayed(const Duration(seconds: 4), () {
       _toggleImage();
     });
   }
 
   void _toggleImage() {
     setState(() {
-      _commet = !_commet;
+      _comet = !_comet;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Colors.black,
             image: DecorationImage(
                 alignment: Alignment.topCenter,
@@ -86,6 +59,14 @@ class _LandingFrameState extends State<LandingFrame>
         width: 1.sw,
         child: Stack(
           children: [
+            Center(
+                child: AnimatedScale(
+              scale: !_bg ? 1 : 2,
+              duration: const Duration(minutes: 2),
+              child: Image.asset(
+                "assets/images/hero_bg.png",
+              ),
+            )),
             Center(
               child: _data(),
             ),
@@ -100,50 +81,13 @@ class _LandingFrameState extends State<LandingFrame>
 
   _getVideo() {
     return Responsive(
-        mobile: ClipPath(
-          child: Container(
-              // color: Colors.red,
-              child: _controller_mobile.value.isInitialized
-                  ? AspectRatio(
-                      aspectRatio: _controller_mobile.value.aspectRatio,
-                      child: VideoPlayer(_controller_mobile),
-                    )
-                  : Container()),
-        ),
+        mobile: const VideoWidget(
+            videoUrl: "assets/images/hero_section_mobile.mp4"),
         desktop: ClipPath(
           clipper: CurvedClipper(),
-          child: Container(
-              // color: Colors.red,
-              // constraints: BoxConstraints(maxHeight: 400),
-              child: _controller.value.isInitialized
-                  ? AspectRatio(
-                      aspectRatio: _controller.value.aspectRatio,
-                      child: VideoPlayer(_controller),
-                    )
-                  : Image.asset("assets/images/hero_section.png")),
+          child: const VideoWidget(videoUrl: "assets/images/hero_section.mp4"),
         ));
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-    _controller_mobile.dispose();
-  }
-
-  // _parallaxImage() {
-  //   return AnimatedBuilder(
-  //       animation: widget.controller,
-  //       builder: (context, child) {
-  //         double offsetY = widget.controller.offset *
-  //             (Responsive.isDesktop(context) ? 0.3 : 0.15);
-  //         return Transform.translate(
-  //           offset: Offset(0, offsetY),
-  //           child: child,
-  //         );
-  //       },
-  //       child: FadeInListItem(child: _data()));
-  // }
 
   _data() {
     return Column(mainAxisAlignment: MainAxisAlignment.start, children: [
@@ -161,7 +105,7 @@ class _LandingFrameState extends State<LandingFrame>
             );
           },
           child: FadeInListItem(
-              duration: Duration(seconds: 1),
+              duration: const Duration(seconds: 1),
               child: Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
@@ -173,27 +117,27 @@ class _LandingFrameState extends State<LandingFrame>
                         TextSpan(
                             text: "First Tokenization Framework For ",
                             style: Responsive.getTextStyle(context,
-                                mSize: 35, dSize: 50, weight: FontWeight.w900)),
+                                mSize: 30, dSize: 50, weight: FontWeight.w900)),
                         TextSpan(
                             text: "all",
                             style: Responsive.getTextStyle(context,
-                                mSize: 35,
+                                mSize: 30,
                                 dSize: 50,
                                 weight: FontWeight.w900,
                                 decoration: TextDecoration.underline,
                                 decorationColor: Colors.white)),
                         TextSpan(
-                            text: " Carbon Projects",
+                            text: " Carbon Projects",
                             style: Responsive.getTextStyle(context,
-                                mSize: 35, dSize: 50, weight: FontWeight.w900)),
+                                mSize: 30, dSize: 50, weight: FontWeight.w900)),
                       ])),
                   SizedBox(
                     height: 20.h,
                   ),
                   Text(
-                    "Seamlessly deploying anything from forests to windfarms as RWAs to support ReFi",
+                    "Seamlessly deploying anything from forests to windfarms as RWAs to support ReFi",
                     textAlign: TextAlign.center,
-                    style: Responsive.getTextStyle(context),
+                    style: Responsive.getTextStyle(context, mSize: 18),
                   ),
                   SizedBox(
                     height: 60.h,
@@ -203,7 +147,7 @@ class _LandingFrameState extends State<LandingFrame>
                     children: [
                       CTAButton(
                           filled: false,
-                          onTap: () => Get.toNamed(Routes.VISION),
+                          onTap: () => launchRoadmapsURL(),
                           child: const Row(
                             children: [
                               Text(
@@ -244,23 +188,27 @@ class _LandingFrameState extends State<LandingFrame>
                 _disappear = true;
               });
             },
-            alignment: !_commet ? Alignment.topRight : Alignment.centerLeft,
-            duration: Duration(seconds: 1),
+            alignment: !_comet ? Alignment.topRight : Alignment.centerLeft,
+            duration: const Duration(seconds: 1),
             child: AnimatedSwitcher(
-              duration: Duration(seconds: 2),
+              duration: const Duration(seconds: 2),
               switchInCurve: Curves.decelerate,
               transitionBuilder: (Widget child, Animation<double> animation) {
                 return FadeTransition(opacity: animation, child: child);
               },
-              child: !_commet
-                  ? SvgPicture.asset(
-                      'assets/images/initial_star.svg',
-                      key: ValueKey(1),
-                    )
-                  : SvgPicture.asset(
-                      'assets/images/final_star.svg',
-                      key: ValueKey(2),
-                    ),
+              child: AnimatedOpacity(
+                opacity: !_comet ? 0 : 1,
+                duration: const Duration(seconds: 1),
+                child: !_comet
+                    ? SvgPicture.asset(
+                        'assets/images/initial_star.svg',
+                        key: const ValueKey(1),
+                      )
+                    : SvgPicture.asset(
+                        'assets/images/final_star.svg',
+                        key: const ValueKey(2),
+                      ),
+              ),
             ));
   }
 }

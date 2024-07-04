@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:viridis_web/utilities/constants.dart';
+import 'package:viridis_web/views/home/widgets/video_widget.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
 import '../../../utilities/responsive.dart';
@@ -25,39 +26,60 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
     }
   }
 
+  double calculate(double value,
+      {double minValue = 0,
+      double start = 400,
+      double maxValue = 15,
+      double end = 800}) {
+    if (value < start) {
+      return minValue;
+    } else if (value > end) {
+      return maxValue;
+    }
+    double slope = (maxValue - minValue) / (end - start);
+    double intercept = minValue - slope * start;
+    return slope * value + intercept;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: _getContainerPadding(),
-        constraints: BoxConstraints(minHeight: 500, maxWidth: 1.sw),
-        height: 1.1.sh,
-        child: Container(
-          clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(
-              borderRadius:
-                  BorderRadius.circular(15) // Adjust the radius as needed
-              ),
-          child: Stack(
-            children: [
-              Positioned(
-                  top: 0,
-                  child: Responsive.isDesktop(context)
-                      ? Image.asset(
-                          "assets/images/bg_transparency_frame.png",
-                          width: 1.sw,
-                          height: 1.1.sh,
-                          fit: BoxFit.fill,
-                        )
-                      : Image.asset(
-                          "assets/images/bg_transparency_frame_mobile.png",
-                          width: 1.sw,
-                          height: 1.1.sh,
-                          fit: BoxFit.fill,
-                        )),
-              Center(child: _parallaxImage())
-            ],
-          ),
-        ));
+    return AnimatedBuilder(
+      animation: widget.controller,
+      builder: (context, child) {
+        return Transform.scale(
+            scale:
+                calculate(widget.controller.offset, minValue: 1, maxValue: 0.9),
+            child: Container(
+                constraints: BoxConstraints(minHeight: 500, maxWidth: 1.sw),
+                height: 1.sh,
+                child: Container(
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                          calculate(widget.controller.offset))),
+                  child: child,
+                )));
+      },
+      child: Stack(
+        children: [
+          Positioned(
+              top: 0,
+              child: Responsive.isDesktop(context)
+                  ? SizedBox(
+                      width: 1.sw,
+                      child: const VideoWidget(
+                          videoUrl: "assets/images/windturbine.mp4"),
+                    )
+                  : Image.asset(
+                      "assets/images/bg_transparency_frame_mobile.png",
+                      width: 1.sw,
+                      height: 1.1.sh,
+                      fit: BoxFit.fill,
+                    )),
+          Center(child: _parallaxImage())
+        ],
+      ),
+    );
   }
 
   _parallaxImage() {

@@ -63,7 +63,7 @@ class _CustomFooterState extends State<CustomFooter> {
   mobileView() {
     return Container(
         constraints: BoxConstraints(
-          maxHeight: 330.h,
+          maxHeight: 360,
         ),
         child: Column(
           children: [
@@ -71,7 +71,7 @@ class _CustomFooterState extends State<CustomFooter> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _linksColumn(),
+                // _linksColumn(),
                 _socialsColumn(),
               ],
             ),
@@ -84,7 +84,7 @@ class _CustomFooterState extends State<CustomFooter> {
       children: [
         _body1(),
         Spacer(),
-        _linksColumn(),
+        // _linksColumn(),
         _socialsColumn(),
         Spacer(),
       ],

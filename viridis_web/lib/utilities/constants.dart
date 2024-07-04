@@ -11,16 +11,16 @@ final List<MenuConstant> menuConstants = [
     Routes.HOME,
     () => Get.toNamed(Routes.HOME),
   ),
-  MenuConstant(
-    "Vision",
-    Routes.VISION,
-    () => Get.toNamed(Routes.VISION),
-  ),
-  MenuConstant(
-    "About",
-    Routes.ABOUT,
-    () => Get.toNamed(Routes.ABOUT),
-  ),
+  // MenuConstant(
+  //   "Vision",
+  //   Routes.VISION,
+  //   () => Get.toNamed(Routes.VISION),
+  // ),
+  // MenuConstant(
+  //   "About",
+  //   Routes.ABOUT,
+  //   () => Get.toNamed(Routes.ABOUT),
+  // ),
   MenuConstant(
     "Whitepaper",
     Routes.WHITEPAPER,

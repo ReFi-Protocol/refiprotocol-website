@@ -140,22 +140,4 @@ class _HomeViewState extends State<HomeView> {
       ),
     );
   }
-
-  _listView() {
-    return ListView(
-      controller: _controller,
-      children: [
-        LandingFrame(
-          controller: _controller,
-        ),
-        TransparencyFrame(
-          controller: _controller,
-        ),
-        InnovationFrame(),
-        TabFrame(),
-        ContactFrame(),
-        CustomFooter(),
-      ],
-    );
-  }
 }

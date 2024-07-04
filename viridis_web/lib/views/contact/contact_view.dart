@@ -36,8 +36,22 @@ class _ContactViewState extends State<ContactView> {
         backgroundColor: Colors.black,
         body: Stack(
           children: <Widget>[
+            // _controller.hasClients
+            //     ? Positioned(top: 0, left: 0, child: _parallaxImage())
+            //     : Container(),
             _controller.hasClients
-                ? Positioned(top: 0, left: 0, child: _parallaxImage())
+                ? Positioned(
+                    left: 0,
+                    child: _parallaxImage(Image.asset(
+                      "assets/images/vision_bg.png",
+                    )))
+                : Container(),
+            _controller.hasClients
+                ? Positioned(
+                    right: 0,
+                    child: _parallaxImage(Image.asset(
+                      "assets/images/mission_bg.png",
+                    )))
                 : Container(),
             ListView(
               controller: _controller,
@@ -56,7 +70,7 @@ class _ContactViewState extends State<ContactView> {
     );
   }
 
-  _parallaxImage() {
+  _parallaxImage(Widget child) {
     return AnimatedBuilder(
         animation: _controller,
         builder: (context, child) {
@@ -67,7 +81,7 @@ class _ContactViewState extends State<ContactView> {
             child: child,
           );
         },
-        child: _background());
+        child: child);
   }
 
   _background() {

@@ -27,13 +27,13 @@ class _CTAButtonState extends State<CTAButton> {
       onPressed: widget.onTap,
       onHover: (value) => setState(() => _useFilled = !_useFilled),
       style: OutlinedButton.styleFrom(
-          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 18),
+          padding: EdgeInsets.symmetric(horizontal: 18, vertical: 15),
           // overlayColor: MaterialStatePropertyAll(Colors.green.withOpacity(0.1)),
           side: BorderSide(color: Colors.white),
           backgroundColor: _useFilled ? Colors.white : Colors.transparent,
           foregroundColor: _useFilled ? Colors.black : Colors.white,
           textStyle: GoogleFonts.inter(
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: FontWeight.w600,
           )),
       child: widget.child,
