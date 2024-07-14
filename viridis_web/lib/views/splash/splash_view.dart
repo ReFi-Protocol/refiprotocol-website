@@ -114,7 +114,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
                             child: child,
                           );
                         },
-                        child: Image.asset("assets/images/logo.png"),
+                        child: Image.asset("assets/images/REFI_Logo.png"),
                       ),
                     ),
                   ),

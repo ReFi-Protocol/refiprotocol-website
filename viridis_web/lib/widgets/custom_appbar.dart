@@ -71,16 +71,16 @@ class _CustomAppBarState extends State<CustomAppBar> {
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       child: Row(children: [
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 60, maxWidth: 60),
-          child: Image.asset("assets/images/appbar_logo.png"),
+        Container(
+          constraints: const BoxConstraints(maxHeight: 35, maxWidth: 60),
+          child: Image.asset("assets/images/REFI_Logo.png"),
         ),
         SizedBox(
-          width: 20.w,
+          width: 25.w,
         ),
-        Text("Viridis Network",
+        Text("ReFi Protocol",
             style: GoogleFonts.inter(
-                color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400))
+                color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400))
       ]),
     );
   }

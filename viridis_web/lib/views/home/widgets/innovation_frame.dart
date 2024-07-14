@@ -32,7 +32,7 @@ class _InnovationFrameState extends State<InnovationFrame>
         selectedColor: Colors.blue,
         selectedTextColor: Colors.white,
         detail:
-            "Verifies the credibility of our tokenized carbon projects, ensuring both pre- and post-retirement integrity. This technology provides continuous, automated validation, reducing the risk of human error and fraud, and enhancing the trustworthiness of carbon offset activities."),
+            "Verifies the credibility of our tokenized carbon projects, ensuring both pre- and post-retirement integrity. This technology provides continuous, automated validation, reducing the risk of human error and fraud, and enhancing the trustworthiness of carbon reduction activities."),
     InnovationContainer(
         title: "Tokenization of Carbon Projects",
         image_path: "assets/images/detail_3.png",

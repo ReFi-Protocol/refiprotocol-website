@@ -60,7 +60,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     tabs = [
       "Rent pCRBN",
-      "Stake \$VRD",
+      "Stake \$REFI",
       "Sustainable Future",
       // "Carbon Offset Metadata Certificate"
     ];
@@ -68,11 +68,11 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
     tabData = [
       _tabData(
           "Rent pCRBN(Wrapped Carbon NFTS)",
-          "Using the on-chain native gas token \$VRD, you will be able to trade the pCRBN NFTs attributed with on-chain metadata",
+          "Using the on-chain native gas token \$REFI, you will be able to trade the pCRBN NFTs attributed with on-chain metadata",
           "assets/images/tab_1.png"),
       _tabData(
-          "Stake \$VRD",
-          "Wallets with the pCRBN are eligible to stake their \$VRD for a high APY. This approach systematically increases the Total Value Locked (TVL) and stabilizes the value of \$VRD, encouraging long-term investment and participation",
+          "Stake \$REFI",
+          "Wallets with the pCRBN are eligible to stake their \$REFI for a high APY. This approach systematically increases the Total Value Locked (TVL) and stabilizes the value of \$REFI, encouraging long-term investment and participation",
           "assets/images/tab_2.png"),
       // _tabData(
       //     "Carbon Offset Metadata Certificate",

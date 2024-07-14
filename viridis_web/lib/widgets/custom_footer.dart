@@ -49,7 +49,7 @@ class _CustomFooterState extends State<CustomFooter> {
             SizedBox(
               width: 5.w,
             ),
-            Text("Viridis Network. All rights reserved",
+            Text("ReFi Protocol. All rights reserved",
                 style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
@@ -71,7 +71,7 @@ class _CustomFooterState extends State<CustomFooter> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // _linksColumn(),
+                _linksColumn(),
                 _socialsColumn(),
               ],
             ),
@@ -84,7 +84,7 @@ class _CustomFooterState extends State<CustomFooter> {
       children: [
         _body1(),
         Spacer(),
-        // _linksColumn(),
+        _linksColumn(),
         _socialsColumn(),
         Spacer(),
       ],
@@ -98,7 +98,7 @@ class _CustomFooterState extends State<CustomFooter> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-                "Viridis Network is the world's first protocol to tokenize any carbon project from afforestation to renewables, eliminating the need for carbon credits. Our innovative approach enhances transparency, reduces fraud, and ensures that environmental efforts are genuinely impactful",
+                "ReFi is the world's first protocol to tokenize any carbon project from afforestation to renewables, eliminating the need for carbon credits. Our innovative approach enhances transparency, reduces fraud, and ensures that environmental efforts are genuinely impactful",
                 style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
@@ -119,9 +119,9 @@ class _CustomFooterState extends State<CustomFooter> {
   _linksColumn() {
     return _footerColumn("Links",
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            for (int i = 1; i < 3; i++)
+            for (int i = 1; i < menuConstants.length; i++)
               _link(menuConstants[i].name, menuConstants[i].onTap),
           ],
         ));

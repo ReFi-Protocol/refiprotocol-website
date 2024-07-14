@@ -27,6 +27,11 @@ final List<MenuConstant> menuConstants = [
     () => launchWhitePaperURL(),
   ),
   MenuConstant(
+    "Tokenomics",
+    Routes.TOKENOMICS,
+    () => launchTokenomicsURL(),
+  ),
+  MenuConstant(
     "Roadmap",
     Routes.ROADMAPS,
     () => launchRoadmapsURL(),
@@ -49,6 +54,15 @@ void launchCustomURL(String customUrl) async {
 
 void launchWhitePaperURL() async {
   Uri url = Uri.parse('https://whitepaper.viridis.network/');
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+void launchTokenomicsURL() async {
+  Uri url = Uri.parse('https://tokenomics.viridis.network/');
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -89,6 +103,8 @@ final Map<String, List<String>> assetMap = {
     // "videos/hero_section.mov",
     "assets/images/hero_bg.png",
     "assets/images/logo.png",
+    "assets/images/REFI_Logo.png",
+    "assets/images/WebsiteLogoRefi.png",
     "assets/images/appbar_logo.png",
     "assets/images/bg_landing_frame.png",
     "assets/images/bg_contact_frame.png",

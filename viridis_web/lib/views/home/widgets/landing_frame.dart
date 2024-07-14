@@ -34,7 +34,7 @@ class _LandingFrameState extends State<LandingFrame>
     Future.delayed(const Duration(milliseconds: 3), () {
       _bg = true;
     });
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 3), () {
       _toggleImage();
     });
   }
@@ -55,7 +55,7 @@ class _LandingFrameState extends State<LandingFrame>
                 fit: BoxFit.cover,
                 image: AssetImage("assets/images/hero_bg.png"))),
         constraints: const BoxConstraints(minHeight: 520),
-        height: Responsive.isDesktop(context) ? 1.25.sh : 800,
+        height: Responsive.isDesktop(context) ? 1.25.sh : 650,
         width: 1.sw,
         child: Stack(
           children: [
@@ -83,9 +83,13 @@ class _LandingFrameState extends State<LandingFrame>
     return Responsive(
         mobile: const VideoWidget(
             videoUrl: "assets/images/hero_section_mobile.mp4"),
-        desktop: ClipPath(
-          clipper: CurvedClipper(),
-          child: const VideoWidget(videoUrl: "assets/images/hero_section.mp4"),
+        desktop: Container(
+          constraints: BoxConstraints(maxHeight: 0.8.sh),
+          child: ClipPath(
+            clipper: CurvedClipper(),
+            child:
+                const VideoWidget(videoUrl: "assets/images/hero_section.mp4"),
+          ),
         ));
   }
 
@@ -109,7 +113,7 @@ class _LandingFrameState extends State<LandingFrame>
               child: Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
-                constraints: const BoxConstraints(maxWidth: 850),
+                constraints: BoxConstraints(maxWidth: 850),
                 child: Column(children: [
                   RichText(
                       textAlign: TextAlign.center,
@@ -119,12 +123,12 @@ class _LandingFrameState extends State<LandingFrame>
                             style: Responsive.getTextStyle(context,
                                 mSize: 30, dSize: 50, weight: FontWeight.w900)),
                         TextSpan(
-                            text: "all",
+                            text: "any",
                             style: Responsive.getTextStyle(context,
                                 mSize: 30,
                                 dSize: 50,
                                 weight: FontWeight.w900,
-                                decoration: TextDecoration.underline,
+                                // decoration: TextDecoration.underline,
                                 decorationColor: Colors.white)),
                         TextSpan(
                             text: " Carbon Projects",
@@ -135,7 +139,7 @@ class _LandingFrameState extends State<LandingFrame>
                     height: 20.h,
                   ),
                   Text(
-                    "Seamlessly deploying anything from forests to windfarms as RWAs to support ReFi",
+                    "Deploying carbon projects from forests to windfarms as RWAs to grow ReFi",
                     textAlign: TextAlign.center,
                     style: Responsive.getTextStyle(context, mSize: 18),
                   ),

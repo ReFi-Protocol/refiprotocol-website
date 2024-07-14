@@ -70,12 +70,11 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
                       child: const VideoWidget(
                           videoUrl: "assets/images/windturbine.mp4"),
                     )
-                  : Image.asset(
-                      "assets/images/bg_transparency_frame_mobile.png",
+                  : SizedBox(
                       width: 1.sw,
-                      height: 1.1.sh,
-                      fit: BoxFit.fill,
-                    )),
+                      // height: 1.5.sh,
+                      child: const VideoWidget(
+                          videoUrl: "assets/images/windturbine_mobile.mov"))),
           Center(child: _parallaxImage())
         ],
       ),

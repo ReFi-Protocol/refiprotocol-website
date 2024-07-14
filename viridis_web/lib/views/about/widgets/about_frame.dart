@@ -87,7 +87,7 @@ class _AboutFrameState extends State<AboutFrame> {
         Container(
           padding: const EdgeInsets.only(left: 20, top: 20),
           child: Text(
-            "Viridis leverages Web3 technology to revolutionize the Voluntary Carbon Markets (VCM), addressing current issues of opacity, excessive intermediaries, and low liquidity. Our innovative solution aims to streamline capital flows, accelerating support for high-impact carbon mitigation and removal projects globally.",
+            "ReFi Protocol leverages Web3 technology to revolutionize the Voluntary Carbon Markets (VCM), addressing current issues of opacity, excessive intermediaries, and low liquidity. Our innovative solution aims to streamline capital flows, accelerating support for high-impact carbon mitigation and removal projects globally.",
             textAlign: TextAlign.justify,
             style: Responsive.getTextStyle(context,
                 weight: FontWeight.w400, mSize: 16, dSize: 20),

@@ -24,7 +24,7 @@ class _AboutExploreFrameState extends State<AboutExploreFrame> {
           padding: EdgeInsets.all(30),
           child: Column(children: [
             Text(
-              "Viridis Embarks on a Mission to Integrate DeFi and the Voluntary Carbon Market (VCM).",
+              "ReFi Protocol Embarks on a Mission to Integrate DeFi and the Voluntary Carbon Market (VCM).",
               textAlign: TextAlign.center,
               style: Responsive.getTextStyle(context,
                   weight: FontWeight.w500, mSize: 25, dSize: 40),

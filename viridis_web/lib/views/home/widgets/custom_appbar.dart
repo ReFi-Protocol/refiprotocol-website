@@ -78,7 +78,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
               fit: BoxFit.contain),
         ),
         const SizedBox(width: 15),
-        Text("Viridis Network",
+        Text("ReFi Protocol",
             style: GoogleFonts.inter(
                 color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400))
       ],
@@ -119,7 +119,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
               fit: BoxFit.contain),
         ),
         const SizedBox(width: 15),
-        Text("Viridis Network", style: _getTitleStyle())
+        Text("ReFi Protocol", style: _getTitleStyle())
       ],
     );
   }

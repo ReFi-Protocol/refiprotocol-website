@@ -49,15 +49,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 //     ))
               ]),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                ConstrainedBox(
+                Container(
                   constraints:
-                      const BoxConstraints(maxHeight: 60, maxWidth: 60),
-                  child: Image.asset("assets/images/appbar_logo.png"),
+                      const BoxConstraints(maxHeight: 33, maxWidth: 60),
+                  child: Image.asset("assets/images/REFI_Logo.png"),
                 ),
                 SizedBox(
                   width: 25.w,
                 ),
-                Text("Viridis Network",
+                Text("ReFi Protocol",
                     style: GoogleFonts.inter(
                         color: Colors.white,
                         fontSize: 16,

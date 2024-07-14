@@ -93,7 +93,7 @@ class _AboutDetailFrameState extends State<AboutDetailFrame> {
           height: 20,
         ),
         Text(
-          "Facilitating direct engagement with the governance process of Viridis while incorporating tokens to incentivize active participation.",
+          "Facilitating direct engagement with the governance process of ReFi while incorporating tokens to incentivize active participation.",
           textAlign: TextAlign.justify,
           style: Responsive.getTextStyle(context,
               weight: FontWeight.w500, mSize: 16, dSize: 16),

@@ -84,33 +84,45 @@ class _InnovationContainerState extends State<InnovationContainer> {
   }
 
   _animatedIconButton() {
-    return CircleAvatar(
-        radius: 20,
-        backgroundColor: !_selected ? widget.selectedColor : Colors.black,
-        child: Center(
-            child: IconButton(
-          alignment: Alignment.center,
-          color: _selected ? widget.selectedColor : Colors.black,
-          icon: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 300),
-              transitionBuilder: (child, anim) => RotationTransition(
-                    turns: child.key == const ValueKey('icon1')
-                        ? Tween<double>(begin: 1, end: 1.12).animate(anim)
-                        : Tween<double>(begin: 1.12, end: 1).animate(anim),
-                    child: FadeTransition(opacity: anim, child: child),
-                  ),
-              child: _selected
-                  ? const Icon(Icons.add, size: 25, key: ValueKey('icon1'))
-                  : const Icon(
-                      Icons.add,
-                      size: 25,
-                      key: ValueKey('icon2'),
-                    )),
-          onPressed: () {
-            setState(() {
-              _selected = !_selected;
-            });
-          },
-        )));
+    return InkWell(
+        onTap: () {
+          setState(() {
+            _selected = !_selected;
+          });
+        },
+        child: Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: !_selected
+                  ? widget.selectedColor
+                  : Colors.black, // border color
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 300),
+                  transitionBuilder: (child, anim) => RotationTransition(
+                        turns: child.key == const ValueKey('icon1')
+                            ? Tween<double>(begin: 1, end: 1.12).animate(anim)
+                            : Tween<double>(begin: 1.12, end: 1).animate(anim),
+                        child: FadeTransition(opacity: anim, child: child),
+                      ),
+                  child: _selected
+                      ? Icon(
+                          Icons.add,
+                          size: 25,
+                          key: ValueKey('icon1'),
+                          color:
+                              _selected ? widget.selectedColor : Colors.black,
+                        )
+                      : Icon(
+                          Icons.add,
+                          size: 25,
+                          key: ValueKey('icon2'),
+                          color:
+                              _selected ? widget.selectedColor : Colors.black,
+                        )),
+            )));
   }
 }
