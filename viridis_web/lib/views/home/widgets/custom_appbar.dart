@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
@@ -8,7 +7,6 @@ import '../../../routes/app_pages.dart';
 import '../../../utilities/constants.dart';
 import '../../../utilities/responsive.dart';
 import '../../../widgets/menu_item.dart';
-import 'custom_menuItem.dart';
 
 class CustomAppBar extends StatefulWidget {
   const CustomAppBar({super.key, this.page});
@@ -141,8 +139,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
         child: FilledButton(
             onPressed: () {},
             style: const ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(Color(0xff4d2c5e)),
-                padding: MaterialStatePropertyAll(
+                backgroundColor: WidgetStatePropertyAll(Color(0xff4d2c5e)),
+                padding: WidgetStatePropertyAll(
                     EdgeInsets.symmetric(vertical: 15, horizontal: 22))),
             child: Text("Join Now",
                 style: GoogleFonts.inter(

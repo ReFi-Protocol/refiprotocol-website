@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../routes/app_pages.dart';
 import 'custom_appbar.dart';
 
 class AnimatedAppbar extends StatefulWidget {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:viridis_web/utilities/responsive.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
@@ -26,7 +25,9 @@ class _ContactFrameState extends State<ContactFrame> {
             fit: BoxFit.cover),
         color: Colors.black,
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      padding: Responsive.isMobile(context)
+          ? EdgeInsets.zero
+          : const EdgeInsets.all(20),
       height: 816,
       width: 1.sw,
       child: Stack(children: [
@@ -41,7 +42,7 @@ class _ContactFrameState extends State<ContactFrame> {
         Align(
           alignment: Alignment.topCenter,
           child: Container(
-              padding: EdgeInsets.symmetric(vertical: 60),
+              padding: const EdgeInsets.symmetric(vertical: 70),
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.start, children: [
                 ConstrainedBox(

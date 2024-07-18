@@ -1,5 +1,7 @@
+import 'package:emailjs/emailjs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../routes/app_pages.dart';
@@ -19,6 +21,46 @@ class _ContactFrameState extends State<ContactFrame> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _messageController = TextEditingController();
+  bool _loading = false;
+
+  sendContactEmail(String name, String email, String message) async {
+    Map<String, dynamic> templateParams = {
+      'from_name': name,
+      'reply_to': email,
+      'message': message
+    };
+    setState(() {
+      _loading = true;
+    });
+
+    try {
+      await EmailJS.send(
+        'service_0ipo4ai',
+        'template_07lmbb6',
+        templateParams,
+        const Options(
+          publicKey: 'qI0azStKYaQiJ-_x_',
+          privateKey: 'GOYcBgkM3bxDxP5a4VfXR',
+        ),
+      );
+      Get.showSnackbar(const GetSnackBar(
+        title: "Thank you",
+        message: "Thanks for reaching out, we will contact you shortly",
+      ));
+      _nameController.clear();
+      _messageController.clear();
+      _emailController.clear();
+    } catch (error) {
+      print(error);
+      Get.showSnackbar(GetSnackBar(
+        title: "Error",
+        message: "Failed to send email:${error.toString()}",
+      ));
+    }
+    setState(() {
+      _loading = false;
+    });
+  }
 
   _getContainerPadding() {
     if (Responsive.isDesktop(context)) {
@@ -33,9 +75,12 @@ class _ContactFrameState extends State<ContactFrame> {
     return Container(
         color: Colors.transparent,
         width: 1.sw,
-        constraints: BoxConstraints(minHeight: 850),
+        constraints: const BoxConstraints(minHeight: 850),
         height: 1.sh,
         child: Stack(children: [
+          Container(
+              alignment: Alignment.center,
+              child: _loading ? CircularProgressIndicator() : null),
           // Positioned(top: 0, left: 0, child: _parallaxImage()),
           Container(
               alignment: Alignment.center,
@@ -92,7 +137,7 @@ class _ContactFrameState extends State<ContactFrame> {
 
   _desktopView() {
     return ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: 500.w),
+      constraints: BoxConstraints(maxWidth: 600.w),
       child: _contactForm(),
     );
   }
@@ -104,10 +149,11 @@ class _ContactFrameState extends State<ContactFrame> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 50),
+              padding: const EdgeInsets.symmetric(horizontal: 50),
               child: Column(children: [
                 Text(
                   "Feel free to write to us",
+                  textAlign: TextAlign.center,
                   style: Responsive.getTextStyle(context,
                       dSize: 40,
                       mSize: 30,
@@ -211,6 +257,8 @@ class _ContactFrameState extends State<ContactFrame> {
                         onTap: () {
                           if (_formKey.currentState!.validate()) {
                             // Get.toNamed(Routes.SUCCESS);
+                            sendContactEmail(_nameController.text,
+                                _emailController.text, _messageController.text);
 
 // https://api.emailjs.com/api/v1.0/email/send-form
                           }

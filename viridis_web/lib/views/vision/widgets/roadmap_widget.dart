@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../utilities/responsive.dart';
@@ -111,7 +110,7 @@ class _RoadmapWidgetState extends State<RoadmapWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: _getContainerHeight(),
       child: Stack(
         children: [

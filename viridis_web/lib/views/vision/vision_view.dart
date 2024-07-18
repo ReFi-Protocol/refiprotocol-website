@@ -1,29 +1,18 @@
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:viridis_web/views/home/widgets/contact_frame.dart';
-import 'package:viridis_web/views/home/widgets/innovation_frame.dart';
-import 'package:viridis_web/views/home/widgets/landing_frame.dart';
 import 'package:viridis_web/views/vision/widgets/roadmap_frame.dart';
-import 'package:viridis_web/views/home/widgets/tab_frame.dart';
-import 'package:viridis_web/views/home/widgets/transparency_frame.dart';
 import 'package:viridis_web/widgets/animated_appbar.dart';
 import 'package:viridis_web/widgets/explore_frame.dart';
 import 'package:viridis_web/views/vision/widgets/vision_frame.dart';
 import 'package:viridis_web/views/vision/widgets/mission_frame.dart';
 import 'package:viridis_web/widgets/custom_footer.dart';
 import '../../routes/app_pages.dart';
-import '../../utilities/responsive.dart';
 import '../../widgets/FadeInListWidget.dart';
 import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_drawer.dart';
 
 class VisionView extends StatefulWidget {
-  VisionView({super.key, this.roadmap = false});
-  bool roadmap;
+  const VisionView({super.key, this.roadmap = false});
+  final bool roadmap;
 
   @override
   State<VisionView> createState() => _VisionViewState();
@@ -78,7 +67,7 @@ class _VisionViewState extends State<VisionView> {
                     child: RoadmapFrame(
                   controller: _controller,
                 )),
-                FadeInListItem(child: const ExploreFrame()),
+                const FadeInListItem(child: ExploreFrame()),
                 const CustomFooter(),
               ],
             ),

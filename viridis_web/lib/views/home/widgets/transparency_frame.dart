@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:viridis_web/utilities/constants.dart';
 import 'package:viridis_web/views/home/widgets/video_widget.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
@@ -64,17 +63,16 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
         children: [
           Positioned(
               top: 0,
-              child: Responsive.isDesktop(context)
+              child: Responsive.isMobile(context)
                   ? SizedBox(
-                      width: 1.sw,
-                      child: const VideoWidget(
-                          videoUrl: "assets/images/windturbine.mp4"),
-                    )
-                  : SizedBox(
                       width: 1.sw,
                       // height: 1.5.sh,
                       child: const VideoWidget(
-                          videoUrl: "assets/images/windturbine_mobile.mov"))),
+                          videoUrl: "assets/images/windturbine_mobile.mov"))
+                  : SizedBox(
+                      width: 1.sw,
+                      child: const VideoWidget(
+                          videoUrl: "assets/images/windturbine.mp4"))),
           Center(child: _parallaxImage())
         ],
       ),
@@ -94,7 +92,8 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
             child: child,
           );
         },
-        child: FadeInListItem(duration: Duration(seconds: 1), child: _data()));
+        child: FadeInListItem(
+            duration: const Duration(seconds: 1), child: _data()));
   }
 
   _data() {
@@ -110,7 +109,7 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
                 constraints: const BoxConstraints(maxWidth: 660),
                 child: Column(children: [
                   Text(
-                    "Moving away from carbon credits",
+                    "Thinking bigger than carbon credits",
                     textAlign: TextAlign.center,
                     style: Responsive.getTextStyle(context,
                         mSize: 30, dSize: 40, weight: FontWeight.w700),
@@ -206,7 +205,7 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
         onPressed: () {},
         style: ButtonStyle(
             overlayColor:
-                MaterialStatePropertyAll(Colors.green.withOpacity(0.01))),
+                WidgetStatePropertyAll(Colors.green.withOpacity(0.01))),
         child: Row(
           children: [
             Text(

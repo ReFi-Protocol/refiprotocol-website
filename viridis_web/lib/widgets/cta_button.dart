@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CTAButton extends StatefulWidget {
@@ -27,9 +26,9 @@ class _CTAButtonState extends State<CTAButton> {
       onPressed: widget.onTap,
       onHover: (value) => setState(() => _useFilled = !_useFilled),
       style: OutlinedButton.styleFrom(
-          padding: EdgeInsets.symmetric(horizontal: 18, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 15),
           // overlayColor: MaterialStatePropertyAll(Colors.green.withOpacity(0.1)),
-          side: BorderSide(color: Colors.white),
+          side: const BorderSide(color: Colors.white),
           backgroundColor: _useFilled ? Colors.white : Colors.transparent,
           foregroundColor: _useFilled ? Colors.black : Colors.white,
           textStyle: GoogleFonts.inter(

@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:viridis_web/utilities/responsive.dart';
 import 'package:viridis_web/widgets/profile_card.dart';
 
@@ -19,10 +18,10 @@ class _TeamFrameState extends State<TeamFrame> {
   @override
   Widget build(BuildContext context) {
     detailCards = [
-      ProfileCard(
+      const ProfileCard(
           title: "CEO", name: "Bytebison", path: "assets/images/bytebison.png"),
-      ProfileCard(title: "COO", name: "Tim", path: "assets/images/tim.jpeg"),
-      ProfileCard(
+      const ProfileCard(title: "COO", name: "Tim", path: "assets/images/tim.jpeg"),
+      const ProfileCard(
           title: "Head of Business Development",
           name: "Falcon",
           path: "assets/images/falcon.jpeg"),
@@ -30,7 +29,7 @@ class _TeamFrameState extends State<TeamFrame> {
 
     return Container(
       decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
       child: Column(children: [
         Text(
           "Our Team",
@@ -55,7 +54,7 @@ class _TeamFrameState extends State<TeamFrame> {
 
   _mobileView() {
     return Container(
-      constraints: BoxConstraints(minHeight: 380),
+      constraints: const BoxConstraints(minHeight: 380),
       height: 0.4.sh,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
@@ -90,7 +89,7 @@ class _TeamFrameState extends State<TeamFrame> {
                         child: BackdropFilter(
                           filter: ImageFilter.blur(sigmaX: 20, sigmaY: 10),
                           child: Container(
-                            padding: EdgeInsets.symmetric(vertical: 10),
+                            padding: const EdgeInsets.symmetric(vertical: 10),
                             constraints: BoxConstraints(maxHeight: 95.h),
                             decoration: BoxDecoration(
                                 color: Colors.black.withOpacity(0.28)),

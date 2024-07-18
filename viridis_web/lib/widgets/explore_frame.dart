@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
 import '../utilities/constants.dart';
@@ -17,10 +16,10 @@ class _ExploreFrameState extends State<ExploreFrame> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 30),
+      padding: const EdgeInsets.symmetric(vertical: 30),
       child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 700),
+          constraints: const BoxConstraints(maxWidth: 700),
           child: Column(children: [
             Text(
               "The era of carbon markets has arrived – are you prepared?",

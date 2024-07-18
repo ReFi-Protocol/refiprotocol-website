@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:viridis_web/views/home/widgets/video_widget.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
@@ -55,7 +54,7 @@ class _LandingFrameState extends State<LandingFrame>
                 fit: BoxFit.cover,
                 image: AssetImage("assets/images/hero_bg.png"))),
         constraints: const BoxConstraints(minHeight: 520),
-        height: Responsive.isDesktop(context) ? 1.25.sh : 650,
+        height: Responsive.isMobile(context) ? 650 : 1.22.sh,
         width: 1.sw,
         child: Stack(
           children: [
@@ -113,7 +112,7 @@ class _LandingFrameState extends State<LandingFrame>
               child: Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
-                constraints: BoxConstraints(maxWidth: 850),
+                constraints: const BoxConstraints(maxWidth: 850),
                 child: Column(children: [
                   RichText(
                       textAlign: TextAlign.center,
@@ -131,7 +130,7 @@ class _LandingFrameState extends State<LandingFrame>
                                 // decoration: TextDecoration.underline,
                                 decorationColor: Colors.white)),
                         TextSpan(
-                            text: " Carbon Projects",
+                            text: " Carbon Project",
                             style: Responsive.getTextStyle(context,
                                 mSize: 30, dSize: 50, weight: FontWeight.w900)),
                       ])),
@@ -181,7 +180,7 @@ class _LandingFrameState extends State<LandingFrame>
 
   bool _disappear = false;
   _getAnimatedCommet() {
-    if (!Responsive.isDesktop(context)) _disappear = true;
+    if (Responsive.isMobile(context)) _disappear = true;
     return _disappear
         ? Container()
         : AnimatedContainer(

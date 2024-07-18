@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:viridis_web/utilities/constants.dart';
 
 import '../../../utilities/responsive.dart';
@@ -97,7 +96,7 @@ class _BlogsFrameState extends State<BlogsFrame> {
     ];
     return Container(
       padding: _getContainerPadding(),
-      constraints: BoxConstraints(minHeight: 600),
+      constraints: const BoxConstraints(minHeight: 600),
       width: 1.sw,
       child: Column(children: [_body1(), const SizedBox(height: 40), _body2()]),
     );
@@ -120,7 +119,7 @@ class _BlogsFrameState extends State<BlogsFrame> {
 
   _body2() {
     return Column(children: [
-      Container(
+      SizedBox(
           height: Responsive.isDesktop(context) ? 0.65.sh : 0.95.sh,
           child: GridView.builder(
               scrollDirection: Axis.horizontal,
@@ -139,7 +138,7 @@ class _BlogsFrameState extends State<BlogsFrame> {
           mobile: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Spacer(),
+              const Spacer(),
               Expanded(child: _scrollButtons()),
               Expanded(child: _readMore())
             ],
@@ -160,7 +159,7 @@ class _BlogsFrameState extends State<BlogsFrame> {
             mSize: 16,
             dSize: 16,
             weight: FontWeight.w600,
-            textColor: Color(0xff07BA9B)),
+            textColor: const Color(0xff07BA9B)),
       ),
     );
   }
@@ -195,7 +194,7 @@ class _BlogsFrameState extends State<BlogsFrame> {
 
   _blogIntroData(String date, String title, String data) {
     return Padding(
-      padding: EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -206,7 +205,7 @@ class _BlogsFrameState extends State<BlogsFrame> {
                       weight: FontWeight.w600,
                       dSize: 14,
                       mSize: 16,
-                      textColor: Color(0xff07BA9B))),
+                      textColor: const Color(0xff07BA9B))),
               const SizedBox(height: 10),
               Text(title,
                   style: Responsive.getTextStyle(context,
@@ -215,19 +214,19 @@ class _BlogsFrameState extends State<BlogsFrame> {
                       mSize: 16,
                       textColor: Colors.white)),
             ]),
-            Text(data.substring(0, 110) + "...",
+            Text("${data.substring(0, 110)}...",
                 style: Responsive.getTextStyle(context,
                     weight: FontWeight.w400,
                     dSize: 16,
                     mSize: 14,
-                    textColor: Color(0xffAEAEAE)))
+                    textColor: const Color(0xffAEAEAE)))
           ]),
     );
   }
 
   _scrollButtons() {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-      _scrollButton(Colors.black, Color(0xff5A5A5A), Icons.chevron_left, () {
+      _scrollButton(Colors.black, const Color(0xff5A5A5A), Icons.chevron_left, () {
         setState(() {
           _controller.animateTo(_controller.offset - _getItemExtent(),
               duration: const Duration(milliseconds: 150),
@@ -235,7 +234,7 @@ class _BlogsFrameState extends State<BlogsFrame> {
         });
       }),
       const SizedBox(width: 5),
-      _scrollButton(Colors.black, Color(0xff07BA9B), Icons.chevron_right, () {
+      _scrollButton(Colors.black, const Color(0xff07BA9B), Icons.chevron_right, () {
         _controller.animateTo(_controller.offset + _getItemExtent(),
             duration: const Duration(milliseconds: 150), curve: Curves.linear);
       })

@@ -1,9 +1,7 @@
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 import '../utilities/responsive.dart';
 
@@ -82,7 +80,7 @@ class _ProfileCardState extends State<ProfileCard>
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 20, sigmaY: 10),
                   child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
                     constraints: BoxConstraints(
                         maxHeight: Responsive.isDesktop(context) ? 95.h : 80.h),
                     decoration:

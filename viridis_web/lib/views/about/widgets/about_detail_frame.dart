@@ -54,7 +54,7 @@ class _AboutDetailFrameState extends State<AboutDetailFrame> {
         constraints: BoxConstraints(maxWidth: 0.8.sw),
         child: _textColumn(),
       ),
-      SizedBox(
+      const SizedBox(
         height: 30,
       ),
       _image(),

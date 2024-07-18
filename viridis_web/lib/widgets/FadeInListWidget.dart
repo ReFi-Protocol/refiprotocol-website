@@ -1,4 +1,3 @@
-import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:visibility_detector/visibility_detector.dart';
@@ -8,7 +7,7 @@ class FadeInListItem extends StatefulWidget {
   final Duration duration;
 
   const FadeInListItem(
-      {required this.child, this.duration = const Duration(milliseconds: 400)});
+      {super.key, required this.child, this.duration = const Duration(milliseconds: 400)});
 
   @override
   _FadeInListItemState createState() => _FadeInListItemState();
@@ -31,7 +30,7 @@ class _FadeInListItemState extends State<FadeInListItem>
     );
     _animation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
     _slideAnimation = Tween<Offset>(
-      begin: Offset(0, 0.05), // Start slightly below
+      begin: const Offset(0, 0.05), // Start slightly below
       end: Offset.zero, // End at the final position
     ).animate(_animation);
   }

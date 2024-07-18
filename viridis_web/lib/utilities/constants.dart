@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:video_player/video_player.dart';
 import 'package:viridis_web/utilities/menu_constant.dart';
 
 import 'package:viridis_web/routes/app_pages.dart';
@@ -111,11 +110,12 @@ final Map<String, List<String>> assetMap = {
     "assets/images/bg_transparency_frame.png",
     "assets/images/detail_1.png",
     "assets/images/detail_2.png",
-    "assets/images/detail_3.png",
+    // "assets/images/detail_3.png",
     "assets/images/detail_4.png",
-    "assets/images/tab_1.png",
+    // "assets/images/tab_1.png",
     "assets/images/tab_2.png",
     "assets/images/tab_3.png",
+    "assets/images/nft_image.png",
   ],
   Routes.VISION: [
     "assets/images/mission_frame_d.png",

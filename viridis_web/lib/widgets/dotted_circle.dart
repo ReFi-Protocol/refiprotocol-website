@@ -8,7 +8,7 @@ class DottedCircle extends StatelessWidget {
   final double strokeWidth;
   final double gap;
 
-  DottedCircle({
+  const DottedCircle({super.key, 
     this.color = Colors.black,
     this.radius = 50,
     this.strokeWidth = 2,

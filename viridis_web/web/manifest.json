@@ -1,38 +1,33 @@
 {
-    "name": "viridis_web",
-    "short_name": "viridis_web",
+    "name": "ReFi Protocol",
+    "short_name": "ReFi Protocol",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Viridis Network",
+    "description": "ReFi Protocol",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "icons/Icon-192.png",
+            "src": "REFI_Logo.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "icons/Icon-512.png",
+            "src": "REFI_Logo.png",
             "sizes": "512x512",
             "type": "image/png"
         },
         {
-            "src": "icons/Icon-maskable-192.png",
+            "src": "REFI_Logo.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "maskable"
         },
+
         {
-            "src": "icons/Icon-maskable-512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "maskable"
-        },
-        {
-            "src": "appbar_logo.png",
+            "src": "REFI_Logo.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable"

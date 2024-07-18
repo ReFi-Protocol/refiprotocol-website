@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:viridis_web/utilities/responsive.dart';
-import 'package:viridis_web/widgets/page_widget.dart';
 
 import '../../../widgets/innovation_container.dart';
-import '../../../widgets/page_indicator.dart';
 
 class InnovationFrame extends StatefulWidget {
   const InnovationFrame({super.key});
@@ -18,7 +15,7 @@ class _InnovationFrameState extends State<InnovationFrame>
     with TickerProviderStateMixin {
   late PageController _pageViewController;
   late TabController _tabController;
-  int _currentPageIndex = 0;
+  // int _currentPageIndex = 0;
   List<Widget> detailCards = const [
     InnovationContainer(
         title: "DePIN (Decentralized Physical Infrastructure)",
@@ -35,7 +32,7 @@ class _InnovationFrameState extends State<InnovationFrame>
             "Verifies the credibility of our tokenized carbon projects, ensuring both pre- and post-retirement integrity. This technology provides continuous, automated validation, reducing the risk of human error and fraud, and enhancing the trustworthiness of carbon reduction activities."),
     InnovationContainer(
         title: "Tokenization of Carbon Projects",
-        image_path: "assets/images/detail_3.png",
+        image_path: "assets/images/nft_image.png",
         selectedColor: Colors.white,
         detail:
             "Our carbon projects are tokenized into Project Carbon (pCRBN) NFTs, which store the project and ownership metadata. This innovative approach ensures that each NFT represents a verified portion of a carbon project, providing transparency and enhancing market trust."),
@@ -87,7 +84,7 @@ class _InnovationFrameState extends State<InnovationFrame>
             children: [
               for (int i = 0; i < detailCards.length; i++)
                 Padding(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   child: detailCards[i],
                 )
             ],
@@ -112,21 +109,21 @@ class _InnovationFrameState extends State<InnovationFrame>
     );
   }
 
-  void _handlePageViewChanged(int currentPageIndex) {
-    _tabController.index = currentPageIndex;
-    setState(() {
-      _currentPageIndex = currentPageIndex;
-    });
-  }
+  // void _handlePageViewChanged(int currentPageIndex) {
+  //   _tabController.index = currentPageIndex;
+  //   setState(() {
+  //     _currentPageIndex = currentPageIndex;
+  //   });
+  // }
 
-  void _updateCurrentPageIndex(int index) {
-    _tabController.index = index;
-    _pageViewController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 400),
-      curve: Curves.easeInOut,
-    );
-  }
+  // void _updateCurrentPageIndex(int index) {
+  //   _tabController.index = index;
+  //   _pageViewController.animateToPage(
+  //     index,
+  //     duration: const Duration(milliseconds: 400),
+  //     curve: Curves.easeInOut,
+  //   );
+  // }
 
   @override
   void dispose() {

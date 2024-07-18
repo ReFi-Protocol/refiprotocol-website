@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
 import '../../../utilities/constants.dart';
@@ -16,12 +15,12 @@ class AboutExploreFrame extends StatefulWidget {
 class _AboutExploreFrameState extends State<AboutExploreFrame> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 1.sh,
       child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         Container(
-          constraints: BoxConstraints(maxWidth: 900),
-          padding: EdgeInsets.all(30),
+          constraints: const BoxConstraints(maxWidth: 900),
+          padding: const EdgeInsets.all(30),
           child: Column(children: [
             Text(
               "ReFi Protocol Embarks on a Mission to Integrate DeFi and the Voluntary Carbon Market (VCM).",

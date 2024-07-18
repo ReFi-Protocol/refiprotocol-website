@@ -36,7 +36,7 @@ class CustomPageWidget extends StatelessWidget {
           ),
           TabPageSelector(
             controller: tabController,
-            color: Color(0xff414141),
+            color: const Color(0xff414141),
             selectedColor: Colors.white,
             borderStyle: BorderStyle.none,
           ),

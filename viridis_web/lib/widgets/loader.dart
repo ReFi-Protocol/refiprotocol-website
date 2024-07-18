@@ -5,7 +5,7 @@ class Loader {
   static void show() {
     if (!Get.isDialogOpen!) {
       Get.dialog(
-        Center(child: CircularProgressIndicator()),
+        const Center(child: CircularProgressIndicator()),
         barrierDismissible: false,
       );
     }

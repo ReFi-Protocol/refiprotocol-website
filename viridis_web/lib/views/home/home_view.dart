@@ -10,10 +10,8 @@ import 'package:viridis_web/widgets/custom_drawer.dart';
 import 'package:viridis_web/widgets/custom_footer.dart';
 import '../../routes/app_pages.dart';
 import '../../utilities/constants.dart';
-import '../../utilities/responsive.dart';
 import '../../widgets/FadeInListWidget.dart';
 import '../../widgets/animated_appbar.dart';
-import '../../widgets/custom_appbar.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -115,10 +113,10 @@ class _HomeViewState extends State<HomeView> {
                 // ),
                 SliverList(
                   delegate: SliverChildListDelegate([
-                    FadeInListItem(child: InnovationFrame()),
-                    FadeInListItem(child: TabFrame()),
-                    ContactFrame(),
-                    CustomFooter(),
+                    const FadeInListItem(child: InnovationFrame()),
+                    const FadeInListItem(child: TabFrame()),
+                    const ContactFrame(),
+                    const CustomFooter(),
                   ]),
                 ),
               ],

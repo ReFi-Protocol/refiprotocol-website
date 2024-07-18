@@ -7,8 +7,8 @@ class GradientText extends StatelessWidget {
   final TextStyle? style;
   final TextAlign? alignment;
 
-  GradientText(
-      {required this.text, required this.gradient, this.style, this.alignment});
+  const GradientText(
+      {super.key, required this.text, required this.gradient, this.style, this.alignment});
 
   @override
   Widget build(BuildContext context) {

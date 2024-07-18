@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:viridis_web/routes/app_pages.dart';
 import 'package:viridis_web/utilities/responsive.dart';
 
 import '../utilities/constants.dart';
@@ -40,7 +37,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         children: <Widget>[
           Stack(
             children: [
-              Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+              const Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                 // IconButton(
                 //     onPressed: () => Get.back(),
                 //     icon: const Icon(
@@ -73,7 +70,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 menuConstants[i].name,
                 menuConstants[i].route == Get.currentRoute,
                 menuConstants[i].onTap),
-          Divider(
+          const Divider(
             height: 50,
             indent: 50,
             endIndent: 20,

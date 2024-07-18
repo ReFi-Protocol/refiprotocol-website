@@ -75,7 +75,7 @@ class _RoadmapFrameState extends State<RoadmapFrame>
             "assets/images/roadmap.png",
             alignment: Alignment.centerLeft,
           ),
-          Spacer(
+          const Spacer(
             flex: 1,
           ),
           // SizedBox(
@@ -123,7 +123,7 @@ class _RoadmapFrameState extends State<RoadmapFrame>
               divider: Container(
                 width: 2,
                 height: getContainerHeight(containerKey),
-                color: Color(0xff393A3A),
+                color: const Color(0xff393A3A),
               )),
           _roadmapDetail(
               "DApp and NFT Marketplace",
@@ -134,7 +134,7 @@ class _RoadmapFrameState extends State<RoadmapFrame>
                 "Onboarding of Derivative Products",
               ],
               completed: false,
-              textColor: Color(0xff444141),
+              textColor: const Color(0xff444141),
               divider: Container())
         ],
       ),
@@ -179,7 +179,7 @@ class _RoadmapFrameState extends State<RoadmapFrame>
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   inProgress
-                      ? DottedCircle(
+                      ? const DottedCircle(
                           color: Color(0xff07BA9B),
                           radius: 20,
                           strokeWidth: 3,
@@ -189,10 +189,10 @@ class _RoadmapFrameState extends State<RoadmapFrame>
                           Icons.check_circle,
                           size: 40,
                           color:
-                              completed ? Color(0xff07BA9B) : Color(0xff393A3A),
+                              completed ? const Color(0xff07BA9B) : const Color(0xff393A3A),
                         ),
                   divider ??
-                      Container(
+                      SizedBox(
                         width: 2,
                         height: getContainerHeight(containerKey),
                         child: Stack(children: [
@@ -203,7 +203,7 @@ class _RoadmapFrameState extends State<RoadmapFrame>
                           Container(
                             height: (_valueAnimation.value / 100) *
                                 getContainerHeight(containerKey),
-                            color: Color(0xff07BA9B),
+                            color: const Color(0xff07BA9B),
                           ),
                         ]),
                       ),

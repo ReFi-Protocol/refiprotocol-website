@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -62,8 +61,8 @@ class _CustomFooterState extends State<CustomFooter> {
 
   mobileView() {
     return Container(
-        constraints: BoxConstraints(
-          maxHeight: 360,
+        constraints: const BoxConstraints(
+          maxHeight: 375,
         ),
         child: Column(
           children: [
@@ -83,42 +82,50 @@ class _CustomFooterState extends State<CustomFooter> {
     return Row(
       children: [
         _body1(),
-        Spacer(),
+        const Spacer(),
         _linksColumn(),
+        SizedBox(
+          width: 60,
+        ),
         _socialsColumn(),
-        Spacer(),
+        SizedBox(
+          width: 60,
+        ),
       ],
     );
   }
 
   _body1() {
-    return _footerColumn("Mission",
+    return Expanded(
         flex: 2,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-                "ReFi is the world's first protocol to tokenize any carbon project from afforestation to renewables, eliminating the need for carbon credits. Our innovative approach enhances transparency, reduces fraud, and ensures that environmental efforts are genuinely impactful",
-                style: GoogleFonts.inter(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white)),
-            SizedBox(
-              height: 15.h,
-            ),
-            CTAButton(
-                filled: true,
-                onTap: () => Get.toNamed(Routes.CONTACT),
-                child: const Text(
-                  "Contact us",
-                ))
-          ],
-        ));
+        child: _footerColumn("Mission",
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                    "ReFi is the world's first protocol to tokenize any carbon project from afforestation to renewables, eliminating the need for carbon credits. Our innovative approach enhances transparency, reduces fraud, and ensures that environmental efforts are genuinely impactful",
+                    style: GoogleFonts.inter(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white)),
+                SizedBox(
+                  height: 15.h,
+                ),
+                CTAButton(
+                    filled: true,
+                    onTap: () => Get.toNamed(Routes.CONTACT),
+                    child: const Text(
+                      "Contact us",
+                    ))
+              ],
+            )));
   }
 
   _linksColumn() {
     return _footerColumn("Links",
+        alignment: CrossAxisAlignment.start,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             for (int i = 1; i < menuConstants.length; i++)
@@ -129,8 +136,9 @@ class _CustomFooterState extends State<CustomFooter> {
 
   _socialsColumn() {
     return _footerColumn("Socials",
+        alignment: CrossAxisAlignment.end,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _link("Twitter", () async {
               Uri url = Uri.parse('https://twitter.com/ViridisNetwork');
@@ -147,28 +155,35 @@ class _CustomFooterState extends State<CustomFooter> {
               } else {
                 throw 'Could not launch $url';
               }
-            })
+            }),
+            _link("", () async {
+              Uri url = Uri.parse('https://t.me/ViridisNetwork');
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url);
+              } else {
+                throw 'Could not launch $url';
+              }
+            }),
           ],
         ));
   }
 
-  _footerColumn(String title, {Widget? child, int flex = 1}) {
-    return Expanded(
-      flex: flex,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title,
-              style: GoogleFonts.inter(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white)),
-          SizedBox(
-            height: 15.h,
-          ),
-          child ?? Container()
-        ],
-      ),
+  _footerColumn(String title,
+      {Widget? child,
+      CrossAxisAlignment alignment = CrossAxisAlignment.start}) {
+    return Column(
+      crossAxisAlignment: alignment,
+      children: [
+        Text(title,
+            style: GoogleFonts.inter(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Colors.white)),
+        SizedBox(
+          height: 15.h,
+        ),
+        child ?? Container()
+      ],
     );
   }
 

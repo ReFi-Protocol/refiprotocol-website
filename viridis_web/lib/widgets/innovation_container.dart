@@ -112,14 +112,14 @@ class _InnovationContainerState extends State<InnovationContainer> {
                       ? Icon(
                           Icons.add,
                           size: 25,
-                          key: ValueKey('icon1'),
+                          key: const ValueKey('icon1'),
                           color:
                               _selected ? widget.selectedColor : Colors.black,
                         )
                       : Icon(
                           Icons.add,
                           size: 25,
-                          key: ValueKey('icon2'),
+                          key: const ValueKey('icon2'),
                           color:
                               _selected ? widget.selectedColor : Colors.black,
                         )),

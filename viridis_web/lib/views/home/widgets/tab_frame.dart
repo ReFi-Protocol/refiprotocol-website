@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:viridis_web/utilities/responsive.dart';
@@ -33,7 +32,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
     _tabController = TabController(length: 3, vsync: this);
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 10),
+      duration: const Duration(seconds: 10),
     );
     _tabController.addListener(() {
       if (_tabController.indexIsChanging) {
@@ -69,7 +68,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
       _tabData(
           "Rent pCRBN(Wrapped Carbon NFTS)",
           "Using the on-chain native gas token \$REFI, you will be able to trade the pCRBN NFTs attributed with on-chain metadata",
-          "assets/images/tab_1.png"),
+          "assets/images/nft_image.png"),
       _tabData(
           "Stake \$REFI",
           "Wallets with the pCRBN are eligible to stake their \$REFI for a high APY. This approach systematically increases the Total Value Locked (TVL) and stabilizes the value of \$REFI, encouraging long-term investment and participation",
@@ -114,7 +113,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
         ),
         Expanded(
           child: Container(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               child: TabBarView(
                 controller: _tabController,
                 children: tabData,
@@ -153,7 +152,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
         _mobileTabBar(),
         Expanded(
           child: Container(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               child: TabBarView(
                 controller: _tabController,
                 children: tabData,
@@ -243,7 +242,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
             labelColor: Colors.white,
             unselectedLabelStyle:
                 GoogleFonts.inter(fontSize: 22, fontWeight: FontWeight.w600),
-            unselectedLabelColor: Color(0xff787878),
+            unselectedLabelColor: const Color(0xff787878),
             tabs: [
               _tab("01", tabs[0], _tabController.index == 0),
               _tab("02", tabs[1], _tabController.index == 1),

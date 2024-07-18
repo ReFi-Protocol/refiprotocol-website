@@ -17,11 +17,11 @@ class Responsive extends StatelessWidget {
       MediaQuery.of(context).size.width < 850;
 
   static bool isTablet(BuildContext context) =>
-      MediaQuery.of(context).size.width < 1100 &&
+      MediaQuery.of(context).size.width < 1000 &&
       MediaQuery.of(context).size.width >= 850;
 
   static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 1250;
+      MediaQuery.of(context).size.width >= 1000;
 
   static getContainerPadding(BuildContext context) {
     if (Responsive.isDesktop(context)) {
@@ -41,17 +41,17 @@ class Responsive extends StatelessWidget {
       FontWeight dWeight = FontWeight.w500,
       FontWeight mWeight = FontWeight.w500,
       Color textColor = Colors.white}) {
-    if (Responsive.isDesktop(context)) {
+    if (Responsive.isMobile(context)) {
       return GoogleFonts.inter(
-          fontSize: dSize,
-          fontWeight: weight ?? dWeight,
+          fontSize: mSize,
+          fontWeight: weight ?? mWeight,
           color: textColor,
           decoration: decoration,
           decorationColor: decorationColor);
     } else {
       return GoogleFonts.inter(
-          fontSize: mSize,
-          fontWeight: weight ?? mWeight,
+          fontSize: dSize,
+          fontWeight: weight ?? dWeight,
           color: textColor,
           decoration: decoration,
           decorationColor: decorationColor);

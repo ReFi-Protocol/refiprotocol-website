@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:viridis_web/widgets/custom_footer.dart';
 import '../../routes/app_pages.dart';
 import '../../utilities/responsive.dart';
 import '../../widgets/animated_appbar.dart';
-import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_drawer.dart';
 import 'widgets/contact_frame.dart';
 
@@ -59,13 +57,13 @@ class _ContactViewState extends State<ContactView> {
                 ContactFrame(
                   controller: _controller,
                 ),
-                CustomFooter(),
+                const CustomFooter(),
               ],
             ),
             AnimatedAppbar(controller: _controller, route: Routes.CONTACT),
           ],
         ),
-        drawer: CustomDrawer(),
+        drawer: const CustomDrawer(),
       ),
     );
   }

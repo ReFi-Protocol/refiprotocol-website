@@ -1,11 +1,9 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:viridis_web/routes/app_pages.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +30,7 @@ class MainApp extends StatelessWidget {
             getPages: AppPages.routes,
             theme: ThemeData(
               primaryColor: Colors.black,
-              dividerColor: Color(0xff484848),
+              dividerColor: const Color(0xff484848),
               useMaterial3: true,
             ),
           );
