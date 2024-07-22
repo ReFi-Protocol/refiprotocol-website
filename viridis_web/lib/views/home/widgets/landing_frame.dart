@@ -122,7 +122,7 @@ class _LandingFrameState extends State<LandingFrame>
                             style: Responsive.getTextStyle(context,
                                 mSize: 30, dSize: 50, weight: FontWeight.w900)),
                         TextSpan(
-                            text: "any",
+                            text: "Any",
                             style: Responsive.getTextStyle(context,
                                 mSize: 30,
                                 dSize: 50,
@@ -150,7 +150,7 @@ class _LandingFrameState extends State<LandingFrame>
                     children: [
                       CTAButton(
                           filled: false,
-                          onTap: () => launchRoadmapsURL(),
+                          onTap: () => launchDocsURL(),
                           child: const Row(
                             children: [
                               Text(

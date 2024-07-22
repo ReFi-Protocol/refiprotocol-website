@@ -52,7 +52,8 @@ void launchCustomURL(String customUrl) async {
 }
 
 void launchWhitePaperURL() async {
-  Uri url = Uri.parse('https://whitepaper.viridis.network/');
+  Uri url = Uri.parse(
+      'https://drive.google.com/file/d/1mZ78jEMlZO5NXZIheWt4fSKnCtgSIy6L/view');
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -61,7 +62,8 @@ void launchWhitePaperURL() async {
 }
 
 void launchTokenomicsURL() async {
-  Uri url = Uri.parse('https://tokenomics.viridis.network/');
+  Uri url = Uri.parse(
+      'https://drive.google.com/file/d/1zG_UP5L5j-6lIeRrZ9eqqVRQ__XVXNUj/view');
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -88,8 +90,7 @@ void launchMediumURL() async {
 }
 
 void launchDocsURL() async {
-  Uri url = Uri.parse(
-      'https://docs.viridis.network/overview/carbon-credit-architecture');
+  Uri url = Uri.parse('https://docs.viridis.network/');
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {
