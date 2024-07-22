@@ -85,15 +85,6 @@ class _CustomAppBarState extends State<CustomAppBar> {
     );
   }
 
-  void _launchWhitePaperURL() async {
-    Uri url = Uri.parse('https://whitepaper.viridis.network/');
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
   _menuRow() {
     return Row(
       children: [

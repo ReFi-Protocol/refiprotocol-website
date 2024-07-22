@@ -72,7 +72,7 @@ void launchTokenomicsURL() async {
 }
 
 void launchRoadmapsURL() async {
-  Uri url = Uri.parse('https://docs.viridis.network/roadmap/roadmap');
+  Uri url = Uri.parse('https://docs.refiprotocol.io/roadmap/roadmap');
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -90,7 +90,7 @@ void launchMediumURL() async {
 }
 
 void launchDocsURL() async {
-  Uri url = Uri.parse('https://docs.viridis.network/');
+  Uri url = Uri.parse('https://docs.refiprotocol.io/');
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {

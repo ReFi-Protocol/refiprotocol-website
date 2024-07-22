@@ -66,7 +66,7 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
 
     tabData = [
       _tabData(
-          "Rent pCRBN(Wrapped Carbon NFTS)",
+          "Rent pCRBN (Project Carbon NFTS)",
           "Using the on-chain native gas token \$REFI, you will be able to trade the pCRBN NFTs attributed with on-chain metadata",
           "assets/images/nft_image.png"),
       _tabData(

@@ -149,7 +149,7 @@ class _CustomFooterState extends State<CustomFooter> {
               }
             }),
             _link("Telegram", () async {
-              Uri url = Uri.parse('https://t.me/ViridisNetwork');
+              Uri url = Uri.parse('https://t.me/ReFiProtocol');
               if (await canLaunchUrl(url)) {
                 await launchUrl(url);
               } else {
