@@ -138,6 +138,10 @@ class _CustomFooterState extends State<CustomFooter> {
           children: [
             for (int i = 1; i < menuConstants.length; i++)
               _link(menuConstants[i].name, menuConstants[i].onTap),
+            _link(
+                "DEXTools",
+                () => launchCustomURL(
+                    "https://www.dextools.io/app/en/ether/pair-explorer/0x98c36dce8433dc89e91097b7cf1dafbe32922457?t=1721761810694")),
           ],
         ));
   }
@@ -146,6 +150,7 @@ class _CustomFooterState extends State<CustomFooter> {
     return _footerColumn("Socials",
         alignment: CrossAxisAlignment.end,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _link("Twitter", () async {
@@ -164,14 +169,8 @@ class _CustomFooterState extends State<CustomFooter> {
                 throw 'Could not launch $url';
               }
             }),
-            _link("", () async {
-              Uri url = Uri.parse('https://t.me/ViridisNetwork');
-              if (await canLaunchUrl(url)) {
-                await launchUrl(url);
-              } else {
-                throw 'Could not launch $url';
-              }
-            }),
+            _link("", () async {}),
+            _link("", () async {}),
           ],
         ));
   }
