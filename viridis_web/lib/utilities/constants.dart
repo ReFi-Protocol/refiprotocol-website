@@ -51,6 +51,16 @@ void launchCustomURL(String customUrl) async {
   }
 }
 
+void launchUniSwapURL() async {
+  Uri url = Uri.parse(
+      'https://app.uniswap.org/explore/tokens/ethereum/0xa4bb712b4ea05e74a9590ec550bd922cd857afcb');
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
 void launchWhitePaperURL() async {
   Uri url = Uri.parse(
       'https://drive.google.com/file/d/1mZ78jEMlZO5NXZIheWt4fSKnCtgSIy6L/view');
@@ -81,7 +91,7 @@ void launchRoadmapsURL() async {
 }
 
 void launchMediumURL() async {
-  Uri url = Uri.parse('https://medium.com/@viridisnetwork');
+  Uri url = Uri.parse('https://refiprotocol.medium.com/');
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {

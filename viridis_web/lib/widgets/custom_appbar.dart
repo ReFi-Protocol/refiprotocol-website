@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:viridis_web/routes/app_pages.dart';
 import 'package:viridis_web/utilities/responsive.dart';
+import 'package:viridis_web/widgets/cta_button.dart';
 
 import '../utilities/constants.dart';
 import 'menu_item.dart';
@@ -61,7 +62,19 @@ class _CustomAppBarState extends State<CustomAppBar> {
       Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [_menuRow()])
+          children: [_menuRow()]),
+      Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CTAButton(
+                filled: true,
+                onTap: () => launchUniSwapURL(),
+                child: const Text(
+                  "\$REFI",
+                  style: TextStyle(fontSize: 15),
+                ))
+          ])
     ]);
   }
 

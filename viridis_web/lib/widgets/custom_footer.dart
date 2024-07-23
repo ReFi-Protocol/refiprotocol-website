@@ -111,11 +111,19 @@ class _CustomFooterState extends State<CustomFooter> {
                 SizedBox(
                   height: 15.h,
                 ),
-                CTAButton(
-                    filled: true,
-                    onTap: () => Get.toNamed(Routes.CONTACT),
-                    child: const Text(
-                      "Contact us",
+                Container(
+                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(35)),
+                    child: Text(
+                      "CA: 0xa4bb712b4ea05e74a9590ec550bd922cd857afcb",
+                      style: Responsive.getTextStyle(context,
+                          mSize: 9,
+                          dSize: 15,
+                          mWeight: FontWeight.w400,
+                          dWeight: FontWeight.w400,
+                          textColor: Colors.black),
                     ))
               ],
             )));

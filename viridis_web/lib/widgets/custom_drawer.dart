@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:viridis_web/utilities/responsive.dart';
+import 'package:viridis_web/widgets/cta_button.dart';
 
 import '../utilities/constants.dart';
 
@@ -74,6 +75,24 @@ class _CustomDrawerState extends State<CustomDrawer> {
             height: 50,
             indent: 50,
             endIndent: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5),
+            child: ListTile(
+              leading: const SizedBox(
+                height: 0,
+                width: 0,
+              ),
+              title: CTAButton(
+                  filled: true,
+                  onTap: () => launchUniSwapURL(),
+                  child: const Text(
+                    "\$REFI",
+                    style: TextStyle(fontSize: 15),
+                  )),
+              // splashColor: const Color(0xff12BB5F).withOpacity(0.2),
+              // onTap: () => launchUniSwapURL(),
+            ),
           )
         ],
       ),
