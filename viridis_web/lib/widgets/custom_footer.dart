@@ -84,11 +84,11 @@ class _CustomFooterState extends State<CustomFooter> {
         _body1(),
         const Spacer(),
         _linksColumn(),
-        SizedBox(
+        const SizedBox(
           width: 60,
         ),
         _socialsColumn(),
-        SizedBox(
+        const SizedBox(
           width: 60,
         ),
       ],
@@ -112,7 +112,8 @@ class _CustomFooterState extends State<CustomFooter> {
                   height: 15.h,
                 ),
                 Container(
-                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(35)),
@@ -153,24 +154,14 @@ class _CustomFooterState extends State<CustomFooter> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _link("Twitter", () async {
-              Uri url = Uri.parse('https://twitter.com/ViridisNetwork');
-              if (await canLaunchUrl(url)) {
-                await launchUrl(url);
-              } else {
-                throw 'Could not launch $url';
-              }
-            }),
-            _link("Telegram", () async {
-              Uri url = Uri.parse('https://t.me/ReFiProtocol');
-              if (await canLaunchUrl(url)) {
-                await launchUrl(url);
-              } else {
-                throw 'Could not launch $url';
-              }
-            }),
-            _link("", () async {}),
-            _link("", () async {}),
+            _link("Twitter",
+                () => launchCustomURL("https://twitter.com/ViridisNetwork")),
+            _link("Telegram",
+                () => launchCustomURL("https://t.me/ReFiProtocolCommunity")),
+            _link("Medium",
+                () => launchCustomURL("https://refiprotocol.medium.com/")),
+            _link("Github",
+                () => launchCustomURL("https://github.com/ReFi-Protocol")),
           ],
         ));
   }
