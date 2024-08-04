@@ -155,7 +155,7 @@ class _CustomFooterState extends State<CustomFooter> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _link("Twitter",
-                () => launchCustomURL("https://twitter.com/ViridisNetwork")),
+                () => launchCustomURL("https://x.com/refiprotocol_io")),
             _link("Telegram",
                 () => launchCustomURL("https://t.me/ReFiProtocolCommunity")),
             _link("Medium",
