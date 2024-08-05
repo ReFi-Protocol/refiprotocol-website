@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:video_player/video_player.dart';
 import 'package:viridis_web/routes/app_pages.dart';
 
@@ -24,9 +25,6 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
   late VideoPlayerController controller_landing_mobile;
   late VideoPlayerController controller_transparency_mobile;
-
-  // int factIndex = getRandomIntegrerInRange(0, 10);
-  // int changeFactIndex = 0;
 
   @override
   void initState() {
@@ -57,16 +55,6 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     controller_transparency_desktop =
         VideoPlayerController.asset("assets/images/windturbine.mp4")
           ..initialize();
-    // ..initialize().then((_) {
-    //   // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-    //   setState(() {
-    //     // controller_desktop.play();
-    //     // _startPauseTimer();
-
-    //     controller_desktop.setLooping(true);
-    //     controller_desktop.setPlaybackSpeed(0.75);
-    //   });
-    // });
 
     controller_landing_mobile =
         VideoPlayerController.asset("assets/images/hero_section_mobile.mov")
@@ -74,17 +62,13 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     controller_transparency_mobile =
         VideoPlayerController.asset("assets/images/windturbine_mobile.mov")
           ..initialize();
-    // ..initialize().then((_) {
-    //   // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-    //   setState(() {
-    //     // controller_mobile.play();
-    //     // _startPauseTimer();
-
-    //     controller_mobile.setLooping(true);
-    //     controller_mobile.setPlaybackSpeed(0.75);
-    //   });
-    // });
+    _setFirstLoad();
     return true;
+  }
+
+  Future<void> _setFirstLoad() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isFirstLoad', false);
   }
 
   @override

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:viridis_web/views/home/widgets/contact_frame.dart';
 import 'package:viridis_web/views/home/widgets/innovation_frame.dart';
 import 'package:viridis_web/views/home/widgets/landing_frame.dart';
@@ -31,18 +33,17 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   void initState() {
+    _checkFirstLoad();
     super.initState();
     _controller.addListener(_listener);
-    // preloadImages(context);
   }
 
-  Future<bool> preloadImages(context) async {
-    for (List<String> assetList in assetMap.values) {
-      for (String asset in assetList) {
-        await precacheImage(AssetImage(asset), context);
-      }
+  Future<void> _checkFirstLoad() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isFirstLoad = prefs.getBool('isFirstLoad') ?? true;
+    if (isFirstLoad) {
+      Get.toNamed(Routes.SPLASH);
     }
-    return true;
   }
 
   void _listener() {
