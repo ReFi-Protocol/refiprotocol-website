@@ -21,9 +21,6 @@ jobs:
       with:
         flutter-version: '3.22.3' # Specify the version of Flutter you want to use
 
-    - name: Change Directory
-      run: cd viridis_web
-      
     - name: Install dependencies
       run: flutter pub get
 
