@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:viridis_web/views/home/widgets/custom_clipper.dart';
 import 'package:viridis_web/views/home/widgets/video_widget.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
@@ -11,7 +12,6 @@ import '../../../utilities/constants.dart';
 import '../../../utilities/responsive.dart';
 import '../../../widgets/FadeInListWidget.dart';
 import '../../../widgets/custom_appbar.dart';
-import 'custom_Clipper.dart';
 
 class LandingFrame extends StatefulWidget {
   const LandingFrame({super.key, required this.controller});
