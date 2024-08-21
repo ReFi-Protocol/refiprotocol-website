@@ -62,7 +62,7 @@ void launchUniSwapURL() async {
 }
 
 void launchAmazonURL() async {
-  Uri url = Uri.parse('https://http://amazon.refiprotocol.io');
+  Uri url = Uri.parse('https://amazon.refiprotocol.io');
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {
