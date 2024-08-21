@@ -137,7 +137,7 @@ class _CustomFooterState extends State<CustomFooter> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            for (int i = 1; i < menuConstants.length; i++)
+            for (int i = 1; i < 4; i++)
               _link(menuConstants[i].name, menuConstants[i].onTap),
             _link(
                 "DEXTools",

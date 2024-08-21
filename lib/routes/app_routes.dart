@@ -9,5 +9,6 @@ abstract class Routes {
   static const TOKENOMICS = '/tokenomics';
   static const ROADMAPS = '/roadmaps';
   static const CONTACT = '/contact';
+  static const NEWSLETTER = '/newsletter';
   static const TEST = '/test';
 }

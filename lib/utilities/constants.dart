@@ -35,6 +35,11 @@ final List<MenuConstant> menuConstants = [
     Routes.ROADMAPS,
     () => launchRoadmapsURL(),
   ),
+  MenuConstant(
+    "Newsletter",
+    Routes.NEWSLETTER,
+    () => launchNewsletterURL(),
+  ),
   // MenuConstant(
   //   "Test",
   //   Routes.TEST,
@@ -92,6 +97,15 @@ void launchTokenomicsURL() async {
 
 void launchRoadmapsURL() async {
   Uri url = Uri.parse('https://docs.refiprotocol.io/roadmap/roadmap');
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+void launchNewsletterURL() async {
+  Uri url = Uri.parse('http://newsletter.refiprotocol.io');
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {
