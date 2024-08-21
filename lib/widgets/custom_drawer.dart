@@ -84,14 +84,28 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 width: 0,
               ),
               title: CTAButton(
-                  filled: true,
+                  filled: false,
                   onTap: () => launchUniSwapURL(),
                   child: const Text(
                     "\$REFI",
                     style: TextStyle(fontSize: 15),
                   )),
-              // splashColor: const Color(0xff12BB5F).withOpacity(0.2),
-              // onTap: () => launchUniSwapURL(),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5),
+            child: ListTile(
+              leading: const SizedBox(
+                height: 0,
+                width: 0,
+              ),
+              title: CTAButton(
+                  filled: true,
+                  onTap: () => launchAmazonURL(),
+                  child: const Text(
+                    "Launch App",
+                    style: TextStyle(fontSize: 15),
+                  )),
             ),
           )
         ],

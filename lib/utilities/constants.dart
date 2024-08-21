@@ -61,6 +61,15 @@ void launchUniSwapURL() async {
   }
 }
 
+void launchAmazonURL() async {
+  Uri url = Uri.parse('https://http://amazon.refiprotocol.io');
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
 void launchWhitePaperURL() async {
   Uri url = Uri.parse(
       'https://drive.google.com/file/d/1mZ78jEMlZO5NXZIheWt4fSKnCtgSIy6L/view');

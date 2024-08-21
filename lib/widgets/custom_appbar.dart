@@ -68,12 +68,22 @@ class _CustomAppBarState extends State<CustomAppBar> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CTAButton(
-                filled: true,
+                filled: false,
                 onTap: () => launchUniSwapURL(),
                 child: const Text(
                   "\$REFI",
                   style: TextStyle(fontSize: 15),
-                ))
+                )),
+            const SizedBox(
+              width: 20,
+            ),
+            CTAButton(
+                filled: true,
+                onTap: () => launchAmazonURL(),
+                child: const Text(
+                  "Launch App",
+                  style: TextStyle(fontSize: 15),
+                )),
           ])
     ]);
   }
