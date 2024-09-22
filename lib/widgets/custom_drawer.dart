@@ -71,6 +71,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 menuConstants[i].name,
                 menuConstants[i].route == Get.currentRoute,
                 menuConstants[i].onTap),
+          for (int i = 0; i < strategyMenuList.length; i++)
+            _menuListItem(
+                strategyMenuList[i].name,
+                strategyMenuList[i].route == Get.currentRoute,
+                strategyMenuList[i].onTap),
           const Divider(
             height: 50,
             indent: 50,

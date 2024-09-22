@@ -80,7 +80,7 @@ class _ContactFrameState extends State<ContactFrame> {
         child: Stack(children: [
           Container(
               alignment: Alignment.center,
-              child: _loading ? CircularProgressIndicator() : null),
+              child: _loading ? const CircularProgressIndicator() : null),
           // Positioned(top: 0, left: 0, child: _parallaxImage()),
           Container(
               alignment: Alignment.center,
@@ -190,15 +190,6 @@ class _ContactFrameState extends State<ContactFrame> {
                     }
                     return null;
                   },
-                  // style: GoogleFonts.inter(color: kBlack),
-                  // cursorColor: kPink,
-                  onChanged: (text) {
-                    setState(() {
-                      //you can access nameController in its scope to get
-                      // the value of text entered as shown below
-                      //fullName = nameController.text;
-                    });
-                  },
                 )),
             Container(
                 margin: const EdgeInsets.symmetric(vertical: 15),
@@ -216,13 +207,6 @@ class _ContactFrameState extends State<ContactFrame> {
                     }
                     return null;
                   },
-                  onChanged: (text) {
-                    setState(() {
-                      //you can access nameController in its scope to get
-                      // the value of text entered as shown below
-                      //fullName = nameController.text;
-                    });
-                  },
                 )),
             Container(
                 margin: const EdgeInsets.symmetric(vertical: 15),
@@ -238,13 +222,6 @@ class _ContactFrameState extends State<ContactFrame> {
                     }
                     return null;
                   },
-                  onChanged: (text) {
-                    setState(() {
-                      //you can access nameController in its scope to get
-                      // the value of text entered as shown below
-                      //fullName = nameController.text;
-                    });
-                  },
                 )),
             SizedBox(
               height: 50.h,
@@ -256,11 +233,8 @@ class _ContactFrameState extends State<ContactFrame> {
                         filled: true,
                         onTap: () {
                           if (_formKey.currentState!.validate()) {
-                            // Get.toNamed(Routes.SUCCESS);
                             sendContactEmail(_nameController.text,
                                 _emailController.text, _messageController.text);
-
-// https://api.emailjs.com/api/v1.0/email/send-form
                           }
                         },
                         child: const Text(
@@ -274,7 +248,6 @@ class _ContactFrameState extends State<ContactFrame> {
 
   _textFieldDecoration(String title) {
     return InputDecoration(
-        // hoverColor: const Color(0xff2D2D2D),
         border: const OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xff2D2D2D))),
         focusedBorder: const OutlineInputBorder(

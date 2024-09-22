@@ -5,9 +5,13 @@ import 'package:visibility_detector/visibility_detector.dart';
 class FadeInListItem extends StatefulWidget {
   final Widget child;
   final Duration duration;
+  final double startPos;
 
   const FadeInListItem(
-      {super.key, required this.child, this.duration = const Duration(milliseconds: 400)});
+      {super.key,
+      required this.child,
+      this.duration = const Duration(milliseconds: 400),
+      this.startPos = 0.05});
 
   @override
   _FadeInListItemState createState() => _FadeInListItemState();
@@ -30,7 +34,7 @@ class _FadeInListItemState extends State<FadeInListItem>
     );
     _animation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
     _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.05), // Start slightly below
+      begin: Offset(0, widget.startPos), // Start slightly below
       end: Offset.zero, // End at the final position
     ).animate(_animation);
   }

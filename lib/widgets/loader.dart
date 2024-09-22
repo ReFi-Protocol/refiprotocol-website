@@ -1,19 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
 
-class Loader {
-  static void show() {
-    if (!Get.isDialogOpen!) {
-      Get.dialog(
-        const Center(child: CircularProgressIndicator()),
-        barrierDismissible: false,
-      );
-    }
-  }
+// class Loader {
+//   static void show() {
+//     if (!Get.isDialogOpen!) {
+//       Get.dialog(
+//         const Center(child: CircularProgressIndicator()),
+//         barrierDismissible: false,
+//       );
+//     }
+//   }
 
-  static void hide() {
-    if (Get.isDialogOpen!) {
-      Get.back();
-    }
-  }
-}
+//   static void hide() {
+//     if (Get.isDialogOpen!) {
+//       Get.back();
+//     }
+//   }
+// }

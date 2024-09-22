@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:viridis_web/views/vision/widgets/roadmap_frame.dart';
-import 'package:viridis_web/widgets/animated_appbar.dart';
-import 'package:viridis_web/widgets/explore_frame.dart';
-import 'package:viridis_web/views/vision/widgets/vision_frame.dart';
-import 'package:viridis_web/views/vision/widgets/mission_frame.dart';
-import 'package:viridis_web/widgets/custom_footer.dart';
+import 'package:get/get.dart';
+import '../../controllers/medium_controller.dart';
 import '../../routes/app_pages.dart';
-import '../../widgets/FadeInListWidget.dart';
 import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_drawer.dart';
+import '../../widgets/animated_appbar.dart';
+import '../../widgets/custom_footer.dart';
+import 'widgets/blogs_frame.dart';
+import 'widgets/vision_frame.dart';
+import 'widgets/prepared_frame.dart';
 
 class VisionView extends StatefulWidget {
-  const VisionView({super.key, this.roadmap = false});
-  final bool roadmap;
+  const VisionView({super.key});
 
   @override
   State<VisionView> createState() => _VisionViewState();
@@ -20,29 +19,16 @@ class VisionView extends StatefulWidget {
 
 class _VisionViewState extends State<VisionView> {
   List<Widget> widgetList = [];
-  // final ItemScrollController _itemScrollController = ItemScrollController();
   final _controller = ScrollController();
-
-  // _scrollToIndex(int index) {
-  //   _itemScrollController.scrollTo(
-  //       index: index,
-  //       duration: const Duration(seconds: 2),
-  //       curve: Curves.easeInOutCubic);
-  // }
 
   @override
   void initState() {
     super.initState();
-
-    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-    //   if (widget.roadmap) {
-    //     _scrollToIndex(3);
-    //   }
-    // });
   }
 
   @override
   Widget build(BuildContext context) {
+    final MediumController mediumController = Get.put(MediumController());
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
@@ -60,14 +46,14 @@ class _VisionViewState extends State<VisionView> {
                 VisionFrame(
                   controller: _controller,
                 ),
-                MissionFrame(
-                  controller: _controller,
-                ),
-                FadeInListItem(
-                    child: RoadmapFrame(
-                  controller: _controller,
-                )),
-                const FadeInListItem(child: ExploreFrame()),
+                Obx(() {
+                  if (mediumController.blogsList.isNotEmpty) {
+                    return const BlogsFrame();
+                  } else {
+                    return Container();
+                  }
+                }),
+                const PreparedFrame(),
                 const CustomFooter(),
               ],
             ),
@@ -77,16 +63,6 @@ class _VisionViewState extends State<VisionView> {
             )
           ],
         ),
-
-        // ScrollablePositionedList.builder(
-
-        //   itemCount: widgetList.length,
-        //   itemScrollController: _itemScrollController,
-        //   itemBuilder: (context, index) {
-        //     return widgetList[index];
-        //   },
-        // ),
-
         drawer: const CustomDrawer(),
       ),
     );

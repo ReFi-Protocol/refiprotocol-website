@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:viridis_web/routes/app_pages.dart';
 import 'package:viridis_web/utilities/responsive.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
 import '../utilities/constants.dart';
+import '../utilities/menu_constant.dart';
 import 'menu_item.dart';
 
 class CustomAppBar extends StatefulWidget {
@@ -108,6 +108,41 @@ class _CustomAppBarState extends State<CustomAppBar> {
     );
   }
 
+  _strategyMenuButton() {
+    return Theme(
+        data: Theme.of(context).copyWith(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: PopupMenuButton(
+            color: Colors.black,
+            elevation: 5,
+            tooltip: "",
+            offset: Offset(55, 25),
+            child: Row(
+              children: [
+                Text("Strategy",
+                    style: GoogleFonts.inter(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400)),
+                const Icon(
+                  Icons.arrow_drop_down_outlined,
+                  color: Colors.white,
+                )
+              ],
+            ),
+            itemBuilder: (ctx) => [
+                  for (int i = 0; i < strategyMenuList.length; i++)
+                    PopupMenuItem(
+                        onTap: strategyMenuList[i].onTap,
+                        child: MenuItem(
+                            title: strategyMenuList[i].name,
+                            selected: widget.page == strategyMenuList[i].route,
+                            onPress: strategyMenuList[i].onTap)),
+                ]));
+  }
+
   _menuRow() {
     return Row(
       children: [
@@ -116,6 +151,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
               title: menuConstants[i].name,
               selected: widget.page == menuConstants[i].route,
               onPress: menuConstants[i].onTap),
+        const SizedBox(
+          width: 10,
+        ),
+        _strategyMenuButton()
       ],
     );
   }
