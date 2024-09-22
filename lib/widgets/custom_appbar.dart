@@ -7,7 +7,6 @@ import 'package:viridis_web/utilities/responsive.dart';
 import 'package:viridis_web/widgets/cta_button.dart';
 
 import '../utilities/constants.dart';
-import '../utilities/menu_constant.dart';
 import 'menu_item.dart';
 
 class CustomAppBar extends StatefulWidget {
@@ -118,7 +117,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             color: Colors.black,
             elevation: 5,
             tooltip: "",
-            offset: Offset(55, 25),
+            offset: const Offset(55, 25),
             child: Row(
               children: [
                 Text("Strategy",

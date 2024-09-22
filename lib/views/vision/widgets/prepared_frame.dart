@@ -18,8 +18,8 @@ class _PreparedFrameState extends State<PreparedFrame> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 30),
-      constraints: BoxConstraints(minHeight: 900),
-      decoration: BoxDecoration(
+      constraints: const BoxConstraints(minHeight: 900),
+      decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage("assets/images/launch_web.png"),
               fit: BoxFit.cover)),

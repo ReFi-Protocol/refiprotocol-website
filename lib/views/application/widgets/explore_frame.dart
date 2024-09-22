@@ -25,7 +25,7 @@ class _ExploreFrameState extends State<ExploreFrame> {
               constraints: const BoxConstraints(maxWidth: 740),
               child: Column(children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
                     "The era of climate driven RWAs + DeFi has arrived - are you prepared",
                     textAlign: TextAlign.center,

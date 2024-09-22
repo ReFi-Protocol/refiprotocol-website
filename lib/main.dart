@@ -4,12 +4,8 @@ import 'package:url_strategy/url_strategy.dart';
 import 'package:viridis_web/routes/app_pages.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
   setPathUrlStrategy();
   runApp(const MainApp());
 }

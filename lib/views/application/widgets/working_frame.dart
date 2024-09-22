@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:viridis_web/utilities/constants.dart';
 import 'package:viridis_web/widgets/FadeInListWidget.dart';
-import 'package:viridis_web/widgets/blog_item.dart';
 
-import '../../../controllers/medium_controller.dart';
 import '../../../utilities/responsive.dart';
 
 class WorkingFrame extends StatefulWidget {
@@ -90,7 +86,7 @@ class _WorkingFrameState extends State<WorkingFrame> {
 
   _body1() {
     return FadeInListItem(
-        duration: Duration(milliseconds: 150),
+        duration: const Duration(milliseconds: 150),
         child: Text("Here’s how it works",
             style: Responsive.getTextStyle(context,
                 weight: FontWeight.w600,
@@ -128,7 +124,7 @@ class _WorkingFrameState extends State<WorkingFrame> {
     const double radius = 10;
     return Container(
       decoration: BoxDecoration(
-          border: Border.all(color: Color(0xff555555)),
+          border: Border.all(color: const Color(0xff555555)),
           borderRadius: BorderRadius.circular(radius)),
       child: Stack(
         children: [
