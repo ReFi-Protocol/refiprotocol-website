@@ -80,7 +80,6 @@ class _HomeViewState extends State<HomeView> {
         if (_fromTop < -_containerHeight) _fromTop = -_containerHeight;
       }
     }
-    // setState(() {  });
   }
 
   @override
@@ -93,7 +92,6 @@ class _HomeViewState extends State<HomeView> {
             CustomScrollView(
               controller: _controller,
               slivers: [
-                // const CustomAppBar(),
                 SliverList(
                     delegate: SliverChildListDelegate([
                   LandingFrame(
@@ -103,14 +101,6 @@ class _HomeViewState extends State<HomeView> {
                     controller: _controller,
                   ),
                 ])),
-                // SliverAppBar(
-                //   automaticallyImplyLeading: false,
-                //   collapsedHeight: 1.1.sh,
-                //   expandedHeight: 1.1.sh,
-                //   flexibleSpace: TransparencyFrame(
-                //     controller: _controller,
-                //   ),
-                // ),
                 SliverList(
                   delegate: SliverChildListDelegate([
                     const FadeInListItem(child: InnovationFrame()),
@@ -122,16 +112,6 @@ class _HomeViewState extends State<HomeView> {
               ],
             ),
             AnimatedAppbar(controller: _controller, route: Routes.HOME)
-
-            // Positioned(
-            //   top: _fromTop,
-            //   left: 0,
-            //   right: 0,
-            //   child: const CustomAppBar(
-            //     bgColor: Colors.transparent,
-            //     page: Routes.HOME,
-            //   ),
-            // )
           ],
         ),
         drawer: const CustomDrawer(),

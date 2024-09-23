@@ -139,26 +139,11 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
               ),
             ]),
       ),
-      // SizedBox(
-      //   height: 45.h,
-      // ),
-      // ConstrainedBox(
-      //     constraints: const BoxConstraints(maxWidth: 600),
-      //     child: _subText()),
     ]);
   }
 
   _subText() {
     return Column(children: [
-      // Text(
-      //   "Viridis utilizes network of decentralized VVBs to continuously authenticate carbon, allowing users to trace their lifecycle with immutable records, fostering trust and reliability.",
-      //   textAlign: TextAlign.center,
-      //   style: Responsive.getTextStyle(context,
-      //       mSize: 15, dSize: 18, weight: FontWeight.w400),
-      // ),
-      // SizedBox(
-      //   height: 60.h,
-      // ),
       Text(
         "Stay tuned as we navigate this continuous line of positive environmental impact, one breakthrough at a time!",
         textAlign: TextAlign.center,
@@ -175,43 +160,5 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
             mSize: 14, dSize: 14, weight: FontWeight.w400),
       ),
     ]);
-  }
-
-  // _ctaButton({Widget? child, bool filled = false, Function()? onTap}) {
-  //   return OutlinedButton(
-  //     onPressed: onTap,
-  //     style: ButtonStyle(
-  //       padding: const MaterialStatePropertyAll(
-  //           EdgeInsets.symmetric(horizontal: 25, vertical: 18)),
-  //       overlayColor: MaterialStatePropertyAll(Colors.green.withOpacity(0.1)),
-  //       side: const MaterialStatePropertyAll(BorderSide(color: Colors.white)),
-  //       backgroundColor:
-  //           filled ? const MaterialStatePropertyAll(Colors.white) : null,
-  //     ),
-  //     child: child,
-  //   );
-  // }
-
-  _learnMore() {
-    return TextButton(
-        onPressed: () {},
-        style: ButtonStyle(
-            overlayColor:
-                WidgetStatePropertyAll(Colors.green.withOpacity(0.01))),
-        child: Row(
-          children: [
-            Text(
-              "Learn More",
-              style: GoogleFonts.inter(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white),
-            ),
-            const Icon(
-              Icons.chevron_right,
-              color: Colors.white,
-            )
-          ],
-        ));
   }
 }

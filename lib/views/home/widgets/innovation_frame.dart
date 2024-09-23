@@ -90,40 +90,9 @@ class _InnovationFrameState extends State<InnovationFrame>
             ],
           ),
         ),
-        // Container(
-        //   constraints: BoxConstraints(
-        //       minHeight: Responsive.isDesktop(context) ? 550 : 850),
-        //   height: Responsive.isDesktop(context) ? 1.1.sh : 1.sh,
-        //   child: PageView(
-        //     controller: _pageViewController,
-        //     onPageChanged: _handlePageViewChanged,
-        //     children: detailCards,
-        //   ),
-        // ),
-        // PageIndicator(
-        //   tabController: _tabController,
-        //   currentPageIndex: _currentPageIndex,
-        //   onUpdateCurrentPageIndex: _updateCurrentPageIndex,
-        // ),
       ]),
     );
   }
-
-  // void _handlePageViewChanged(int currentPageIndex) {
-  //   _tabController.index = currentPageIndex;
-  //   setState(() {
-  //     _currentPageIndex = currentPageIndex;
-  //   });
-  // }
-
-  // void _updateCurrentPageIndex(int index) {
-  //   _tabController.index = index;
-  //   _pageViewController.animateToPage(
-  //     index,
-  //     duration: const Duration(milliseconds: 400),
-  //     curve: Curves.easeInOut,
-  //   );
-  // }
 
   @override
   void dispose() {

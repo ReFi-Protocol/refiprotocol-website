@@ -184,8 +184,6 @@ class _LandingFrameState extends State<LandingFrame>
     return _disappear
         ? Container()
         : AnimatedContainer(
-            // height: 500,
-            // width: 500,
             onEnd: () {
               setState(() {
                 _disappear = true;

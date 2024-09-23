@@ -185,7 +185,6 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
                                 width: 0.4.sw,
                                 color: Colors.grey.withOpacity(0.2)),
                             Container(
-                              // alignment: Alignment.centerLeft,
                               height: 2,
                               width: _animationController
                                   .drive(Tween<double>(begin: 0, end: 0.4.sw))
@@ -247,7 +246,6 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
               _tab("01", tabs[0], _tabController.index == 0),
               _tab("02", tabs[1], _tabController.index == 1),
               _tab("03", tabs[2], _tabController.index == 2),
-              // _tab("04", tabs[3], _tabController.index == 3)
             ],
           );
         },
@@ -315,16 +313,6 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
             SizedBox(
               height: 20.h,
             ),
-            // InkWell(
-            //   onTap: () {},
-            //   child: Text(
-            //     "Learn More >",
-            //     style: GoogleFonts.inter(
-            //         fontSize: 14,
-            //         fontWeight: FontWeight.w600,
-            //         color: Colors.white),
-            //   ),
-            // )
           ],
         ),
         desktop: Row(
@@ -340,19 +328,13 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
                   GradientText(
                     text: title,
                     gradient: const LinearGradient(
-                      colors: [
-                        Color(0xff07BA9A),
-                        Colors.white
-                      ], // define your gradient colors
+                      colors: [Color(0xff07BA9A), Colors.white],
                     ),
                     style: GoogleFonts.inter(
                         fontSize: 40,
                         fontWeight: FontWeight.w600,
                         color: Colors.white),
                   ),
-                  // SizedBox(
-                  //   height: 80.h,
-                  // ),
                   Text(
                     data,
                     style: GoogleFonts.inter(
@@ -360,16 +342,6 @@ class _TabFrameState extends State<TabFrame> with TickerProviderStateMixin {
                         fontWeight: FontWeight.w300,
                         color: Colors.white),
                   ),
-                  // InkWell(
-                  //   onTap: () {},
-                  //   child: Text(
-                  //     "Learn More >",
-                  //     style: GoogleFonts.inter(
-                  //         fontSize: 14,
-                  //         fontWeight: FontWeight.w600,
-                  //         color: Colors.white),
-                  //   ),
-                  // )
                 ],
               ),
             ),
