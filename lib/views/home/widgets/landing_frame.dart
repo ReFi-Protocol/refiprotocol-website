@@ -54,7 +54,7 @@ class _LandingFrameState extends State<LandingFrame>
                 fit: BoxFit.cover,
                 image: AssetImage("assets/images/hero_bg.png"))),
         constraints: const BoxConstraints(minHeight: 520),
-        height: Responsive.isMobile(context) ? 650 : 1.22.sh,
+        height: Responsive.isMobile(context) ? 650 : 1.3.sh,
         width: 1.sw,
         child: Stack(
           children: [

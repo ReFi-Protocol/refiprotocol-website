@@ -11,7 +11,6 @@ import 'package:viridis_web/views/home/widgets/transparency_frame.dart';
 import 'package:viridis_web/widgets/custom_drawer.dart';
 import 'package:viridis_web/widgets/custom_footer.dart';
 import '../../routes/app_pages.dart';
-import '../../utilities/constants.dart';
 import '../../widgets/FadeInListWidget.dart';
 import '../../widgets/animated_appbar.dart';
 

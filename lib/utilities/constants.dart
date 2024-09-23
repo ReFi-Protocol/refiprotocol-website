@@ -10,16 +10,24 @@ final List<MenuConstant> menuConstants = [
     Routes.HOME,
     () => Get.toNamed(Routes.HOME),
   ),
-  // MenuConstant(
-  //   "Vision",
-  //   Routes.VISION,
-  //   () => Get.toNamed(Routes.VISION),
-  // ),
-  // MenuConstant(
-  //   "About",
-  //   Routes.ABOUT,
-  //   () => Get.toNamed(Routes.ABOUT),
-  // ),
+  MenuConstant(
+    "Vision",
+    Routes.VISION,
+    () => Get.toNamed(Routes.VISION),
+  ),
+  MenuConstant(
+    "Application",
+    Routes.APPLICATION,
+    () => Get.toNamed(Routes.APPLICATION),
+  ),
+  MenuConstant(
+    "Newsletter",
+    Routes.NEWSLETTER,
+    () => launchNewsletterURL(),
+  ),
+];
+
+List<MenuConstant> strategyMenuList = [
   MenuConstant(
     "Whitepaper",
     Routes.WHITEPAPER,
@@ -34,18 +42,10 @@ final List<MenuConstant> menuConstants = [
     "Roadmap",
     Routes.ROADMAPS,
     () => launchRoadmapsURL(),
-  ),
-  MenuConstant(
-    "Newsletter",
-    Routes.NEWSLETTER,
-    () => launchNewsletterURL(),
-  ),
-  // MenuConstant(
-  //   "Test",
-  //   Routes.TEST,
-  //   () => Get.toNamed(Routes.TEST),
-  // )
+  )
 ];
+
+const CA_CODE = "CA: 0xa4bb712b4ea05e74a9590ec550bd922cd857afcb";
 
 void launchCustomURL(String customUrl) async {
   Uri url = Uri.parse(customUrl);
@@ -137,51 +137,26 @@ final Map<String, List<String>> assetMap = {
     "assets/images/hero_bg.png",
     "assets/images/logo.png",
     "assets/images/REFI_Logo.png",
-    "assets/images/WebsiteLogoRefi.png",
-    "assets/images/appbar_logo.png",
-    "assets/images/bg_landing_frame.png",
     "assets/images/bg_contact_frame.png",
     "assets/images/bg_transparency_frame.png",
     "assets/images/detail_1.png",
     "assets/images/detail_2.png",
-    // "assets/images/detail_3.png",
     "assets/images/detail_4.png",
-    // "assets/images/tab_1.png",
     "assets/images/tab_2.png",
     "assets/images/tab_3.png",
     "assets/images/nft_image.png",
   ],
-  Routes.VISION: [
-    "assets/images/mission_frame_d.png",
-    "assets/images/mission_frame_m.png",
-    "assets/images/roadmap_mobile.png",
-    "assets/images/roadmap.png",
-    "assets/images/vision_frame_d.png",
-    "assets/images/vision_frame_m.png",
-  ],
-  Routes.ABOUT: [
-    "assets/images/about_detail.png",
-    "assets/images/about_explore.jpeg",
-    "assets/images/about_frame_d.png",
-    "assets/images/about_frame_m.png",
-    "assets/images/blogs_intro-1.png",
-    "assets/images/blogs_intro-2.png",
-    "assets/images/blogs_intro-3.png",
-    "assets/images/blogs_intro-4.png",
-    "assets/images/blogs_intro-5.png",
-    "assets/images/blogs_intro-6.png",
-    "assets/images/blogs_intro-7.png",
-    "assets/images/blogs_intro-8.png",
-    "assets/images/bytebison.png",
-    "assets/images/tim.jpeg",
-    "assets/images/falcon.jpeg",
-    "assets/images/wave_line.png",
-    // "assets/hvideos/ero_section.mov",
-    // "assets/videos/windturbine.mp4"
-  ],
-  Routes.CONTACT: [
-    "assets/images/gradients.png",
-  ]
+  // Routes.VISION: [
+  //   "assets/images/mission_frame_d.png",
+  //   "assets/images/mission_frame_m.png",
+  //   "assets/images/roadmap_mobile.png",
+  //   "assets/images/roadmap.png",
+  //   "assets/images/vision_frame_d.png",
+  //   "assets/images/vision_frame_m.png",
+  // ],
+  // Routes.CONTACT: [
+  //   "assets/images/gradients.png",
+  // ]
 };
 
 // VideoPlayerController videoController =

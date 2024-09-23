@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:viridis_web/widgets/custom_footer.dart';
 import '../../routes/app_pages.dart';
 import '../../utilities/responsive.dart';
@@ -34,9 +33,6 @@ class _ContactViewState extends State<ContactView> {
         backgroundColor: Colors.black,
         body: Stack(
           children: <Widget>[
-            // _controller.hasClients
-            //     ? Positioned(top: 0, left: 0, child: _parallaxImage())
-            //     : Container(),
             _controller.hasClients
                 ? Positioned(
                     left: 0,
@@ -80,17 +76,5 @@ class _ContactViewState extends State<ContactView> {
           );
         },
         child: child);
-  }
-
-  _background() {
-    return Transform.flip(
-      flipX: true,
-      child: Image.asset(
-        "assets/images/gradients.png",
-        fit: BoxFit.cover,
-        width: 1.sw,
-        height: 1.5.sh,
-      ),
-    );
   }
 }

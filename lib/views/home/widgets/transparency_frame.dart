@@ -17,14 +17,6 @@ class TransparencyFrame extends StatefulWidget {
 }
 
 class _TransparencyFrameState extends State<TransparencyFrame> {
-  _getContainerPadding() {
-    if (Responsive.isDesktop(context)) {
-      return const EdgeInsets.all(55);
-    } else {
-      return const EdgeInsets.all(15);
-    }
-  }
-
   double calculate(double value,
       {double minValue = 0,
       double start = 400,

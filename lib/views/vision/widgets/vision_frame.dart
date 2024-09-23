@@ -15,7 +15,7 @@ class VisionFrame extends StatefulWidget {
 class _VisionFrameState extends State<VisionFrame> {
   getContainerPadding() {
     if (Responsive.isDesktop(context)) {
-      return const EdgeInsets.only(left: 120, right: 60, top: 60, bottom: 60);
+      return const EdgeInsets.only(left: 120, right: 60, top: 40, bottom: 40);
     } else {
       return const EdgeInsets.symmetric(horizontal: 30, vertical: 30);
     }
@@ -30,7 +30,7 @@ class _VisionFrameState extends State<VisionFrame> {
         ),
         child: Stack(
           children: [
-            Positioned(top: 0, left: 0, child: _parallaxImage()),
+            Positioned(top: -50, left: 0, child: _parallaxImage()),
             Padding(
                 padding: getContainerPadding(),
                 child:
@@ -43,8 +43,7 @@ class _VisionFrameState extends State<VisionFrame> {
     return AnimatedBuilder(
         animation: widget.controller,
         builder: (context, child) {
-          double offsetY = -widget.controller.offset *
-              (Responsive.isDesktop(context) ? 0.8 : 0.8);
+          double offsetY = widget.controller.offset * 0.08;
           return Transform.translate(
             offset: Offset(0, offsetY),
             child: child,
@@ -70,11 +69,13 @@ class _VisionFrameState extends State<VisionFrame> {
         const Spacer(),
         Expanded(
             flex: 6,
-            child: Image.asset(
-              "assets/images/vision_frame_d.png",
-              height: 1.1.sh,
-              fit: BoxFit.fill,
-            ))
+            child: FadeInListItem(
+                startPos: -0.05,
+                child: Image.asset(
+                  "assets/images/mission_frame_d.png",
+                  height: 1.1.sh,
+                  fit: BoxFit.fill,
+                )))
       ],
     );
   }
@@ -87,7 +88,7 @@ class _VisionFrameState extends State<VisionFrame> {
             padding: const EdgeInsets.only(left: 20, top: 20),
             width: 1.sw,
             child: Image.asset(
-              "assets/images/vision_frame_m.png",
+              "assets/images/mission_frame_d.png",
               fit: BoxFit.cover,
             ))
       ],
@@ -95,8 +96,7 @@ class _VisionFrameState extends State<VisionFrame> {
   }
 
   _textBody() {
-    return FadeInListItem(
-        child: Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -123,7 +123,7 @@ class _VisionFrameState extends State<VisionFrame> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Unlocking widespread climate impact",
+                "Unlocking climate impact",
                 style: Responsive.getTextStyle(context,
                     weight: FontWeight.w500, mSize: 35, dSize: 40),
               ),
@@ -131,7 +131,7 @@ class _VisionFrameState extends State<VisionFrame> {
                 height: 20,
               ),
               Text(
-                "As time runs short to bridge the emissions gap, the carbon market is crucial. By building trust-enhancing infrastructure that boosts connections between supply and demand, and increases market transparency, we empower scalability. The technology is here—it's time to use it.",
+                "The current carbon markets don’t work efficiently. We are attempting to solve climate change from a new angle by funding carbon reduction and removal directly. Our infrastructure is decentralised to allow transparency and scalability. The technology is here - it’s time to use it",
                 textAlign: TextAlign.justify,
                 style: Responsive.getTextStyle(context,
                     weight: FontWeight.w400, mSize: 16, dSize: 20),
@@ -140,6 +140,6 @@ class _VisionFrameState extends State<VisionFrame> {
           ),
         )
       ],
-    ));
+    );
   }
 }
