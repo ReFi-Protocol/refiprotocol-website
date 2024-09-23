@@ -59,7 +59,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
     return Stack(alignment: AlignmentDirectional.center, children: [
       Row(mainAxisAlignment: MainAxisAlignment.start, children: [_title()]),
       Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [_menuRow()]),
       Row(

@@ -33,11 +33,13 @@ class _MenuItemState extends State<MenuItem> {
         onTap: widget.onPress,
         child: Text(widget.title ?? "",
             style: GoogleFonts.inter(
+                decoration:  _onHover
+                    ? TextDecoration.overline
+                    : TextDecoration.none,
+                decorationColor: Colors.white,
                 color: Colors.white,
                 fontSize: 16,
-                fontWeight: _onHover || _isSelected
-                    ? FontWeight.w700
-                    : FontWeight.w400)),
+                fontWeight:_isSelected?FontWeight.w700: FontWeight.w400)),
       ),
     );
   }

@@ -74,7 +74,7 @@ class _VisionFrameState extends State<VisionFrame> {
                 child: Image.asset(
                   "assets/images/mission_frame_d.png",
                   height: 1.1.sh,
-                  fit: BoxFit.fill,
+                  fit: BoxFit.contain,
                 )))
       ],
     );

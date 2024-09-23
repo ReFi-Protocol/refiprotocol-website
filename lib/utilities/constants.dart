@@ -16,9 +16,9 @@ final List<MenuConstant> menuConstants = [
     () => Get.toNamed(Routes.VISION),
   ),
   MenuConstant(
-    "Application",
-    Routes.APPLICATION,
-    () => Get.toNamed(Routes.APPLICATION),
+    "Dashboard",
+    Routes.DASHBOARD,
+    () => Get.toNamed(Routes.DASHBOARD),
   ),
   MenuConstant(
     "Newsletter",
