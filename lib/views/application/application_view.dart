@@ -40,7 +40,7 @@ class _ApplicationViewState extends State<ApplicationView> {
                   const PreferredSize(
                     preferredSize: Size.fromHeight(80),
                     child: CustomAppBar(
-                      page: Routes.APPLICATION,
+                      page: Routes.DASHBOARD,
                     ),
                   ),
                   Stack(
@@ -74,7 +74,7 @@ class _ApplicationViewState extends State<ApplicationView> {
               ),
               AnimatedAppbar(
                 controller: _controller,
-                route: Routes.APPLICATION,
+                route: Routes.DASHBOARD,
               )
             ],
           ),

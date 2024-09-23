@@ -27,8 +27,8 @@ class AppPages {
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 400)),
     GetPage(
-        title: "Application",
-        name: Routes.APPLICATION,
+        title: "Dashboard",
+        name: Routes.DASHBOARD,
         page: () => const ApplicationView(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 400)),
