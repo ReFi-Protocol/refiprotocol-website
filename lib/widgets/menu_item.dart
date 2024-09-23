@@ -25,22 +25,28 @@ class _MenuItemState extends State<MenuItem> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: InkWell(
-        onHover: (value) => setState(() {
-          _onHover = value;
-        }),
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        onTap: widget.onPress,
-        child: Text(widget.title ?? "",
-            style: GoogleFonts.inter(
-                decoration: _onHover || _isSelected
-                    ? TextDecoration.underline
-                    : TextDecoration.none,
-                decorationColor: Colors.white,
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.w400)),
-      ),
+          onHover: (value) => setState(() {
+                _onHover = value;
+              }),
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          onTap: widget.onPress,
+          child: Container(
+            padding: const EdgeInsets.only(
+              bottom: 1,
+            ),
+            decoration: BoxDecoration(
+                border: Border(
+                    bottom: BorderSide(
+              color: _onHover || _isSelected ? Colors.white : Colors.black,
+              width: 1.0,
+            ))),
+            child: Text(widget.title ?? "",
+                style: GoogleFonts.inter(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400)),
+          )),
     );
   }
 }
