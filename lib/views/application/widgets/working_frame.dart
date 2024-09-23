@@ -45,33 +45,33 @@ class _WorkingFrameState extends State<WorkingFrame> {
           1,
           "Bridging",
           "Unlock the full potential of your \$REFI by bridging seamlessly between different blockchain networks",
-          "images/step_1.png"),
+          "assets/images/step_1.png"),
       _detailItem(
           2,
           "pCRBN",
           "With on-chain native gas token \$REFI, you will be able to trade the pCRBN NFTs attributed with on-chain metadata",
-          "images/nft_image.png",
+          "assets/images/nft_image.png",
           coverImage: false),
       _detailItem(
           3,
           "NFT purchase",
           "Explore, buy, and own exclusive NFTs effortlessly through our comprehensive purchasing platform",
-          "images/step_3.png"),
+          "assets/images/step_3.png"),
       _detailItem(
           4,
           "Staking",
           "Maximize your crypto holdings by earning rewards through simple and secure staking opportunities",
-          "images/step_4.png"),
+          "assets/images/step_4.png"),
       _detailItem(
           5,
           "Restaking",
           "Optimize your earnings by automatically relocking rewards through our effortless restaking process",
-          "images/step_5.png"),
+          "assets/images/step_5.png"),
       _detailItem(
           6,
           "Analytics",
           "Gain deep insights into your \$REFI performance performance with portfolio analytics and real-time data visualization",
-          "images/step_6.png"),
+          "assets/images/step_6.png"),
     ];
 
     return Container(

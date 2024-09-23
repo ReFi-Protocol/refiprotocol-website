@@ -56,7 +56,7 @@ class _ApplicationViewState extends State<ApplicationView> {
                                 child: child,
                               );
                             },
-                            child: Image.asset("images/dots_bg.png")),
+                            child: Image.asset("assets/images/dots_bg.png")),
                       ),
                       Column(
                         children: [
