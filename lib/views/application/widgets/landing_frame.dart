@@ -89,7 +89,7 @@ class _LandingFrameState extends State<LandingFrame>
                 constraints: const BoxConstraints(maxWidth: 170),
                 child: CTAButton(
                     filled: true,
-                    onTap: () => launchAmazonURL(),
+                    onTap: () => launchDashboardURL(),
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

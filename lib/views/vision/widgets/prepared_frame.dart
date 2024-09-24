@@ -44,7 +44,7 @@ class _PreparedFrameState extends State<PreparedFrame> {
                   constraints: const BoxConstraints(maxWidth: 170),
                   child: CTAButton(
                     filled: true,
-                    onTap: () => launchAmazonURL(),
+                    onTap: () => launchDashboardURL(),
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

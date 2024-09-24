@@ -118,7 +118,7 @@ class _CustomFooterState extends State<CustomFooter> {
                         Clipboard.setData(const ClipboardData(text: CA_CODE));
                       },
                       child: Text(
-                        CA_CODE,
+                        "CA: $CA_CODE",
                         style: Responsive.getTextStyle(context,
                             mSize: 9,
                             dSize: 15,

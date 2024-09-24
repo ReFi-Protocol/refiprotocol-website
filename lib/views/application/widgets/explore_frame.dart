@@ -40,7 +40,7 @@ class _ExploreFrameState extends State<ExploreFrame> {
                     constraints: const BoxConstraints(maxWidth: 170),
                     child: CTAButton(
                       filled: true,
-                      onTap: () => launchAmazonURL(),
+                      onTap: () => launchDashboardURL(),
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

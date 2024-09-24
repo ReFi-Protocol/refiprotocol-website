@@ -78,7 +78,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             ),
             CTAButton(
                 filled: true,
-                onTap: () => launchAmazonURL(),
+                onTap: () => launchDashboardURL(),
                 child: const Text(
                   "Launch App",
                   style: TextStyle(fontSize: 15),

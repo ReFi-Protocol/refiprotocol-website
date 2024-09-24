@@ -106,7 +106,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
               title: CTAButton(
                   filled: true,
-                  onTap: () => launchAmazonURL(),
+                  onTap: () => launchDashboardURL(),
                   child: const Text(
                     "Launch App",
                     style: TextStyle(fontSize: 15),

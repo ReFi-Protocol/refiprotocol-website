@@ -45,7 +45,7 @@ List<MenuConstant> strategyMenuList = [
   )
 ];
 
-const CA_CODE = "CA: 0xa4bb712b4ea05e74a9590ec550bd922cd857afcb";
+const CA_CODE = "0xa4bb712b4ea05e74a9590ec550bd922cd857afcb";
 
 void launchCustomURL(String customUrl) async {
   Uri url = Uri.parse(customUrl);
@@ -66,8 +66,8 @@ void launchUniSwapURL() async {
   }
 }
 
-void launchAmazonURL() async {
-  Uri url = Uri.parse('https://amazon.refiprotocol.io');
+void launchDashboardURL() async {
+  Uri url = Uri.parse('https://beta.refiprotocol.io');
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {
