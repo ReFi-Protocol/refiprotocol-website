@@ -74,7 +74,7 @@ class _LandingFrameState extends State<LandingFrame>
                 height: 30.h,
               ),
               Text(
-                "Enhancing the impact of carbon projects with our dashboard for all things ReFi",
+                "Enhancing the impact of sustainability projects with our dashboard for all things ReFi",
                 textAlign: TextAlign.center,
                 style: Responsive.getTextStyle(context,
                     mSize: 14,

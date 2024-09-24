@@ -29,13 +29,13 @@ class _InnovationFrameState extends State<InnovationFrame>
         selectedColor: Colors.blue,
         selectedTextColor: Colors.white,
         detail:
-            "Verifies the credibility of our tokenized carbon projects, ensuring both pre- and post-retirement integrity. This technology provides continuous, automated validation, reducing the risk of human error and fraud, and enhancing the trustworthiness of carbon reduction activities."),
+            "Verifies the credibility of our tokenized sustainability projects, ensuring both pre- and post-retirement integrity. This technology provides continuous, automated validation, reducing the risk of human error and fraud, and enhancing the trustworthiness of carbon reduction activities."),
     InnovationContainer(
-        title: "Tokenization of Carbon Projects",
+        title: "Tokenization of Sustainability Projects",
         image_path: "assets/images/nft_image.png",
         selectedColor: Colors.white,
         detail:
-            "Our carbon projects are tokenized into Project Carbon (pCRBN) NFTs, which store the project and ownership metadata. This innovative approach ensures that each NFT represents a verified portion of a carbon project, providing transparency and enhancing market trust."),
+            "Our sustainability projects are tokenized into Project Carbon (pCRBN) NFTs, which store the project and ownership metadata. This innovative approach ensures that each NFT represents a verified portion of a sustainability project, providing transparency and enhancing market trust."),
     InnovationContainer(
         title: "Rewards for Sustainability",
         image_path: "assets/images/detail_4.png",

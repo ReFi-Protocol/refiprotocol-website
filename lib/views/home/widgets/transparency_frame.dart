@@ -110,7 +110,7 @@ class _TransparencyFrameState extends State<TransparencyFrame> {
                     height: 20.h,
                   ),
                   Text(
-                    "Eliminating greenwashing concerns through focus on underlying carbon projects rather than carbon credits.",
+                    "Eliminating greenwashing concerns through focus on underlying sustainability projects rather than carbon credits.",
                     textAlign: TextAlign.center,
                     style: Responsive.getTextStyle(context),
                   ),

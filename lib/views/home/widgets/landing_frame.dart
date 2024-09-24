@@ -130,7 +130,7 @@ class _LandingFrameState extends State<LandingFrame>
                                 // decoration: TextDecoration.underline,
                                 decorationColor: Colors.white)),
                         TextSpan(
-                            text: " Carbon Project",
+                            text: " Sustainability Project",
                             style: Responsive.getTextStyle(context,
                                 mSize: 30, dSize: 50, weight: FontWeight.w900)),
                       ])),
@@ -138,7 +138,7 @@ class _LandingFrameState extends State<LandingFrame>
                     height: 20.h,
                   ),
                   Text(
-                    "Deploying carbon projects from forests to windfarms as RWAs to grow ReFi",
+                    "Deploying sustainability projects from forests to windfarms as RWAs to grow ReFi",
                     textAlign: TextAlign.center,
                     style: Responsive.getTextStyle(context, mSize: 18),
                   ),

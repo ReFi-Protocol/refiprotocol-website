@@ -99,7 +99,7 @@ class _CustomFooterState extends State<CustomFooter> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                    "ReFi is the world's first protocol to tokenize any carbon project from afforestation to renewables, eliminating the need for carbon credits. Our innovative approach enhances transparency, reduces fraud, and ensures that environmental efforts are genuinely impactful",
+                    "ReFi is the world's first protocol to tokenize any sustainability project from afforestation to renewables, eliminating the need for carbon credits. Our innovative approach enhances transparency, reduces fraud, and ensures that environmental efforts are genuinely impactful",
                     style: GoogleFonts.inter(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
